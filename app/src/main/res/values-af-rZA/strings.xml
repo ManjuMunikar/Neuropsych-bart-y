@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Neuropsych Tool - Impulsivity</string>
+    <string name="user_id">Gebruikers-ID</string>
+    <string name="full_name">Volle naam</string>
+    <string name="register">Registreer</string>
+</resources>

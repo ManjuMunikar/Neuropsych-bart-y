@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Neuropsych - Impulsivity</string>
+    <string name="user_id">प्रयोगकर्ता ID</string>
+    <string name="full_name">पुरा नाम</string>
+    <string name="register">दर्ता गर्नुहोस्</string>
+</resources>
