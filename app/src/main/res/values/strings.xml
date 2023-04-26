@@ -1,11 +1,31 @@
 <resources>
-    <string name="app_name">Neuropsych Tool - BART-Y</string>
+    <string name="app_name"> Neuropsych Tool - BART-Y</string>
+    <string name="welcome">
+                  \t\tWELCOME! \n\n
+              \tTo the game of \n
+        Balloon Analogue Risk Task For Youth
+</string>
+    <string name="btn_continue">Click here to continue</string>
+    <string name="description">
+
+        Now you\'re going to see 30 balloons, one after another, on the screen.For each balloon, you can click the button that will pump up the balloon. Each timeyou click the pump button, the balloon pumps up a little more.\nBUT remember, balloons pop if you pump them up too much. it is up to youto decide how much to pump up each balloon. Some of these balloons might pop after just one pump, Others might not pop until they fill the whole screen.\nYou get MONEY for every pump. Each pump earns $0.05. But if a balloon pops, you lose the money you earned on that balloon.To keep the money from a Balloon, stop pumping before it pops and click the button labeled "Collect $$$".\nAfter each time you collect $$$ or pop a balloon, a new balloon will appear.\nAt the end of the task, you will be paid the amount earned on the game.
+    Continue to see the summary.</string>
+    <string name="summary_description">
+        Summary
+        - You make $0.05 for each pump.
+        - You save the money from a balloon when you click "Collect $$$".
+        - You lose money from a balloon when it pops.
+        - There are just 30 balloons.
+        - You will be paid the exact amount you earned on the game.
+        Start when you are ready
+
+    </string>
+    <string name="btn_continue1">Click to Continue</string>
+    <string name="btn_continue2">Click to start</string>
+
     <string name="user_id">User ID</string>
     <string name="full_name">Full Name</string>
     <string name="register">Register</string>
-
-
-
 
 
 </resources>
