@@ -11,4 +11,8 @@
     <color name="colorPrimaryDark">#1be9cc</color>
     <color name="colorAccent">#D81B60</color>
     <color name="black_overlay">#3a3838</color>
+    <color name="app_theme">#009dff</color>
+    <color name="app_theme_light">#f6fbff</color>
+    <color name="edit_text_border">#03A9F4</color>
+    <color name="edit_text_background">#f6fbff</color>
 </resources>

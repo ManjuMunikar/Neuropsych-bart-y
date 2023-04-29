@@ -37,8 +37,8 @@ public class UserActivity extends AppCompatActivity {
                     Singleton.getInstance().setUserId(txtUserId.getText().toString().trim());
                     Singleton.getInstance().setFullname(txtFullName.getText().toString().trim());
 
-                    Intent intent = new Intent(getApplicationContext(), IntroActivity.class);
-                    startActivity(intent);
+//                    Intent intent = new Intent(UserActivity.this, IntroActivity.class);
+//                    startActivity(intent);
 
                 }
             }

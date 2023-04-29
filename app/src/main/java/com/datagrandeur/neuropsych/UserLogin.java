@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.neuropsych.R;
 
-public class RewardActivity extends AppCompatActivity {
+public class UserLogin extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reward);
+        setContentView(R.layout.activity_user_login);
     }
 }
