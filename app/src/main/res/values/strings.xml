@@ -13,50 +13,51 @@
 
     </string>
     <string name="txt_info1">
-        For each pump you get rewarded in this game.
-        BUT REMEMBER
+        For each pump you get rewarded in this game\n
+                     BUT REMEMBER\n
         balloons pops if you pump them up too much!!!
     </string>
     <string name="txt_info2">
-        If a balloon pops, You will not get a reward.
-        You will have to wait for next balloon
-        And try AGAIN!!
+        If a balloon pops, You will not get a reward\n
+           You will have to wait for next balloon\n
+                   And try AGAIN!!
     </string>
     <string name="txt_info3">
         Some of these Balloons might pop after just
-        one pump others might not pop
-        Until they fill the entire screen
+               one pump others might not pop
+              Until they fill the entire screen
     </string>
     <string name="txt_info4">
-        It is up to you to decide how much
+        It is up to you to decide how much\n
         to pump up each of the 30 balloons
     </string>
     <string name="txt_info5">
-        You can stop pumping  at any time
-        by clicking on the
-        "FILL REWARD" button
+        You can stop pumping  at any time\n
+              by clicking on the\n
+             "FILL REWARD" button
     </string>
     <string name="txt_info6">
-        When the game is over, you will be able to collect
-            a prize which will depend on how high you
+        When the game is over, you will be able to collect\n
+            a prize which will depend on how high you\n
                              reward meter is
     </string>
     <string name="txt_info7">
-        There are four types of rewards you can earn
-         a small prize, a medium prize, a big prize
-                      and a bonus prize
+        There are four types of rewards you can earn\n
+         a small prize, a medium prize, a big prize\n
+                      and a bonus prize\n
         Your meter will show you hoe closer you are
     </string>
     <string name="txt_info8">
-            START THE BALLOON
+            START THE BALLOON\n
         GAME WHEN YOU ARE READY!!!!
     </string>
-    <string name="next_button">>>NEXT</string>
+    <string name="next_button">NEXT</string>
     <string name="game_info1">
         In this game, you are asked to pump
                 up 30 balloons
 
     </string>
+    <string name="txt_back">BACK</string>
     <string name="pump">
         You pump up on the balloon by clicking  on the "PUMP"
         button with your Mouse
