@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wave__8_"
+    android:background="@drawable/bg"
+    android:rotation="360"
+    android:rotationX="360"
+    android:rotationY="360"
     tools:context="com.datagrandeur.neuropsych.UserLogin">
 
     <androidx.constraintlayout.widget.Guideline

@@ -2,10 +2,12 @@ package com.datagrandeur.neuropsych;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.neuropsych.R;
@@ -15,6 +17,8 @@ public class WelcomeActivity extends AppCompatActivity {
     private TextView[] mTextViews;
     private int mCurrentIndex;
     private TextView txtViewNext;
+    private ProgressBar progressBar;
+    private  Button btnFillReward;
 
     private TextView txtGoBack;
     private View balloonView;
@@ -32,6 +36,8 @@ public class WelcomeActivity extends AppCompatActivity {
         txtGoBack=findViewById(R.id.txtGoBack);
         btnInflate=findViewById(R.id.btnPump);
         balloonView=findViewById(R.id.balloon_view);
+        progressBar=findViewById(R.id.progressBar);
+        btnFillReward=findViewById(R.id.btnFillReward);
         txtViewNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +65,16 @@ public class WelcomeActivity extends AppCompatActivity {
                 params.height+=20;
                 balloonView.setLayoutParams(params);
                 balloonView.requestLayout();
+            }
+        });
+        btnFillReward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int progress = progressBar.getProgress();
+                if (progress < 100) {
+                    progress += 10; // Increase the progress by 10
+                    progressBar.setProgress(progress);
+                }
             }
         });
 
