@@ -13,43 +13,44 @@
 
     </string>
     <string name="txt_info1">
-        For each pump you get rewarded in this game\n
-                     BUT REMEMBER\n
+        For each pump you get rewarded in this game
+                     but remember
         balloons pops if you pump them up too much!!!
     </string>
     <string name="txt_info2">
-        If a balloon pops, You will not get a reward\n
-           You will have to wait for next balloon\n
-                   And try AGAIN!!
+        If a balloon pops, You will not get a reward
+        you will have to wait for next balloon
+                   And try Again!!
     </string>
     <string name="txt_info3">
         Some of these Balloons might pop after just
-               one pump others might not pop
-              Until they fill the entire screen
+        one pump others might not pop
+        Until they fill the entire screen
     </string>
     <string name="txt_info4">
-        It is up to you to decide how much\n
+        It is up to you to decide how much
         to pump up each of the 30 balloons
     </string>
     <string name="txt_info5">
-        You can stop pumping  at any time\n
-              by clicking on the\n
-             "FILL REWARD" button
+        You can stop pumping at any time
+        by clicking on the
+        "Fill Reward Meter"
+        button
     </string>
     <string name="txt_info6">
-        When the game is over, you will be able to collect\n
-            a prize which will depend on how high you\n
-                             reward meter is
+        When the game is over, you will be able to
+        collect a prize which will depend on how high your
+        reward meter is
     </string>
     <string name="txt_info7">
-        There are four types of rewards you can earn\n
-         a small prize, a medium prize, a big prize\n
-                      and a bonus prize\n
-        Your meter will show you hoe closer you are
+        There are four types of rewards you can earn
+         a small prize, a medium prize, a big prize
+                      and a bonus prize,
+        your meter will show you hoe closer you are
     </string>
     <string name="txt_info8">
-            START THE BALLOON\n
-        GAME WHEN YOU ARE READY!!!!
+                START THE BALLOON\n
+               GAME WHEN YOU ARE READY!!!!
     </string>
     <string name="next_button">NEXT</string>
     <string name="game_info1">
@@ -59,22 +60,11 @@
     </string>
     <string name="txt_back">BACK</string>
     <string name="pump">
-        You pump up on the balloon by clicking  on the "PUMP"
-        button with your Mouse
-        TRY IT!!!
+         You pump up on the balloon by clicking
+        on the Pump button with your Mouse\n
+                TRY IT!!!
     </string>
-    <string name="summary_description">
-        Summary
-        - You make $0.05 for each pump.
-        - You save the money from a balloon when you click "Collect $$$".
-        - You lose money from a balloon when it pops.
-        - There are just 30 balloons.
-        - You will be paid the exact amount you earned on the game.
-        Start when you are ready
 
-    </string>
-    <string name="btn_continue1">Click to Continue</string>
-    <string name="btn_continue2">Click to start</string>
 
     <string name="user_id">User ID</string>
     <string name="full_name">Full Name</string>

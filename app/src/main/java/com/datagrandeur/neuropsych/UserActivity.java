@@ -2,7 +2,6 @@ package com.datagrandeur.neuropsych;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -36,6 +35,7 @@ public class UserActivity extends AppCompatActivity {
 
                     Singleton.getInstance().setUserId(txtUserId.getText().toString().trim());
                     Singleton.getInstance().setFullname(txtFullName.getText().toString().trim());
+                    Singleton.getInstance().setTrialSequence(1);
 
 //                    Intent intent = new Intent(UserActivity.this, IntroActivity.class);
 //                    startActivity(intent);

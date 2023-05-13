@@ -12,13 +12,16 @@
         android:theme="@style/Theme.Neuropsych"
         tools:targetApi="31">
         <activity
-            android:name="com.datagrandeur.neuropsych.Login"
-            android:screenOrientation="landscape"
+            android:name="com.datagrandeur.neuropsych.ThankYouActivity"
             android:exported="false" />
         <activity
-            android:name="com.datagrandeur.neuropsych.UserLogin"
+            android:name="com.datagrandeur.neuropsych.PointLostActivity"
             android:exported="false"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name="com.datagrandeur.neuropsych.CongratulationActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
         <activity
             android:name="com.datagrandeur.neuropsych.ExperimentActivity"
             android:exported="false"

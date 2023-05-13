@@ -4,6 +4,18 @@ public class Singleton {
 
     private static Singleton instance;
 
+
+
+    public int getTrialSequence() {
+        return trialSequence;
+    }
+
+    public void setTrialSequence(int trialSequence) {
+        this.trialSequence = trialSequence;
+    }
+
+    private int trialSequence;
+
     private String userId;
     private String fullname;
     private String language = "en";

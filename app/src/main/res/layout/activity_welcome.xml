@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_theme_light"
     tools:context="com.datagrandeur.neuropsych.WelcomeActivity">
 
     <TextView
         android:id="@+id/text_instruction"
-        android:layout_width="900dp"
-        android:layout_height="350dp"
+        android:layout_width="893dp"
+        android:layout_height="252dp"
         android:background="@color/app_theme"
         android:fontFamily="sans-serif-black"
         android:textColor="@android:color/white"
@@ -23,26 +24,22 @@
 
     <TextView
         android:id="@+id/pump_info"
-        android:layout_width="783dp"
-        android:layout_height="136dp"
-
-
+        android:layout_width="716dp"
+        android:layout_height="202dp"
         android:text="@string/pump"
         android:textColor="@android:color/white"
         android:textSize="40dp"
         android:visibility="gone"
 
-
-
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
         app:layout_constraintEnd_toEndOf="@+id/text_instruction"
-        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toStartOf="@+id/text_instruction"
         app:layout_constraintTop_toTopOf="@+id/text_instruction"
-        app:layout_constraintVertical_bias="0.425" />
+        app:layout_constraintVertical_bias="0.512" />
 
     <TextView
-        android:id="@+id/next"
+        android:id="@+id/tvNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -61,64 +58,66 @@
 
     <TextView
         android:id="@+id/Game_info1"
-        android:layout_width="678dp"
-        android:layout_height="124dp"
+        android:layout_width="716dp"
+        android:layout_height="202dp"
 
 
         android:text="@string/game_info1"
         android:textColor="@color/white"
-        android:visibility="gone"
-
-
         android:textSize="40dp"
+        android:visibility="gone"
 
 
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
         app:layout_constraintEnd_toEndOf="@+id/text_instruction"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="@+id/text_instruction"
         app:layout_constraintTop_toTopOf="@+id/text_instruction"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintVertical_bias="0.385" />
 
     <TextView
-        android:id="@+id/txt_Welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tvWelcome"
+        android:layout_width="716dp"
+        android:layout_height="202dp"
         android:text="@string/welcome_game"
         android:textColor="@color/app_theme_light"
         android:textSize="40dp"
 
 
-
-
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
         app:layout_constraintEnd_toEndOf="@+id/text_instruction"
+        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="@+id/text_instruction"
-        app:layout_constraintTop_toTopOf="@+id/text_instruction" />
+        app:layout_constraintTop_toTopOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.34" />
 
     <TextView
         android:id="@+id/txt_info1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="716dp"
+        android:layout_height="202dp"
         android:text="@string/txt_info1"
         android:textColor="@color/app_theme_light"
-        android:textSize="35dp"
+        android:textSize="40dp"
         android:visibility="gone"
+
 
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
         app:layout_constraintEnd_toEndOf="@+id/text_instruction"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="@+id/text_instruction"
-        app:layout_constraintTop_toTopOf="@+id/text_instruction" />
+        app:layout_constraintTop_toTopOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.385" />
 
     <TextView
         android:id="@+id/txt_info2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="716dp"
+        android:layout_height="202dp"
         android:shadowColor="@color/black"
         android:text="@string/txt_info2"
         android:textColor="@color/app_theme_light"
         android:textSize="40dp"
         android:visibility="gone"
+
 
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
         app:layout_constraintEnd_toEndOf="@+id/text_instruction"
@@ -129,44 +128,47 @@
 
     <TextView
         android:id="@+id/txt_info3"
-        android:layout_width="880dp"
-        android:layout_height="220dp"
+        android:layout_width="716dp"
+        android:layout_height="202dp"
         android:text="@string/txt_info3"
         android:textColor="@color/app_theme_light"
         android:textSize="40dp"
         android:visibility="gone"
 
+
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
         app:layout_constraintEnd_toEndOf="@+id/text_instruction"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="@+id/text_instruction"
         app:layout_constraintTop_toTopOf="@+id/text_instruction"
-        app:layout_constraintVertical_bias="0.472" />
+        app:layout_constraintVertical_bias="0.385" />
 
     <TextView
         android:id="@+id/txt_info4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="716dp"
+        android:layout_height="202dp"
         android:text="@string/txt_info4"
         android:textColor="@color/app_theme_light"
         android:textSize="40dp"
         android:visibility="gone"
 
+
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
         app:layout_constraintEnd_toEndOf="@+id/text_instruction"
-        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="@+id/text_instruction"
         app:layout_constraintTop_toTopOf="@+id/text_instruction"
-        app:layout_constraintVertical_bias="0.401" />
+        app:layout_constraintVertical_bias="0.385" />
 
     <TextView
         android:id="@+id/txt_info5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="716dp"
+        android:layout_height="202dp"
         android:text="@string/txt_info5"
         android:textColor="@color/app_theme_light"
         android:textSize="40dp"
         android:visibility="gone"
+
 
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
         app:layout_constraintEnd_toEndOf="@+id/text_instruction"
@@ -175,8 +177,8 @@
 
     <TextView
         android:id="@+id/txt_info6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="716dp"
+        android:layout_height="202dp"
         android:text="@string/txt_info6"
         android:textColor="@color/app_theme_light"
         android:textSize="40dp"
@@ -184,14 +186,15 @@
 
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
         app:layout_constraintEnd_toEndOf="@+id/text_instruction"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="@+id/text_instruction"
-        app:layout_constraintTop_toTopOf="@+id/text_instruction" />
+        app:layout_constraintTop_toTopOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.385" />
 
     <TextView
         android:id="@+id/txt_info7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="716dp"
+        android:layout_height="202dp"
         android:text="@string/txt_info7"
         android:textColor="@color/app_theme_light"
         android:textSize="40dp"
@@ -199,22 +202,27 @@
 
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
         app:layout_constraintEnd_toEndOf="@+id/text_instruction"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="@+id/text_instruction"
-        app:layout_constraintTop_toTopOf="@+id/text_instruction" />
+        app:layout_constraintTop_toTopOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.385" />
 
     <TextView
         android:id="@+id/txt_info8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="716dp"
+        android:layout_height="202dp"
         android:text="@string/txt_info8"
         android:textColor="@color/app_theme_light"
         android:textSize="40dp"
         android:visibility="gone"
 
+
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
         app:layout_constraintEnd_toEndOf="@+id/text_instruction"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="@+id/text_instruction"
-        app:layout_constraintTop_toTopOf="@+id/text_instruction" />
+        app:layout_constraintTop_toTopOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.385" />
 
     <TextView
         android:id="@+id/txtGoBack"
@@ -232,40 +240,43 @@
 
     <Button
         android:id="@+id/btnPump"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="580dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="408dp"
+        android:background="@color/app_theme"
+        android:shadowColor="@color/app_theme"
         android:text="PUMP"
-        android:textColor="@color/app_theme"
+        android:textColor="@color/app_theme_light"
         android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/balloon_view"
+        app:layout_constraintVertical_bias="0.477"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/balloon_view"
         android:layout_width="199dp"
         android:layout_height="233dp"
-        android:layout_marginBottom="500dp"
+        android:layout_marginBottom="340dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintHorizontal_bias="0.191"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/balloon"
+
         tools:ignore="MissingConstraints" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.ProgressBar.Vertical"
-        android:layout_width="120dp"
-        android:layout_height="610dp"
-        android:layout_marginEnd="256dp"
-        android:layout_marginBottom="160dp"
-        android:progressDrawable="@drawable/custom_progress_bar"
+        android:layout_width="250dp"
+        android:layout_height="900dp"
+        android:layout_marginEnd="844dp"
+        android:layout_marginBottom="324dp"
         android:max="100"
         android:progress="0"
+        android:progressDrawable="@drawable/custom_progress_bar"
         android:rotation="360"
 
 
@@ -275,15 +286,45 @@
 
     <Button
         android:id="@+id/btnFillReward"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
         android:layout_marginTop="44dp"
+        android:layout_marginEnd="808dp"
+        android:background="@color/app_theme"
         android:text="Fill Reward Meter"
+        android:textColor="@color/app_theme_light"
+        android:textColorHint="@color/app_theme_light"
         android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.281"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/popBalloon"
+        android:layout_width="199dp"
+        android:layout_height="233dp"
+        android:layout_marginBottom="340dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.191"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/poppedballoon" />
+
+    <Button
+        android:id="@+id/clickToContinue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="900dp"
+        android:layout_marginBottom="1000dp"
+        android:text="Click to start the Game"
+        android:textSize="40dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.242"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

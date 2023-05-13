@@ -4,49 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_theme_light"
     tools:context="com.datagrandeur.neuropsych.ExperimentActivity">
 
     <ImageView
         android:id="@+id/balloon_view"
-        android:layout_width="200dp"
-        android:layout_height="240dp"
+        android:layout_width="199dp"
+        android:layout_height="233dp"
         android:layout_gravity="center"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="340dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintHorizontal_bias="0.191"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/balloon" />
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="Button"
+        android:id="@+id/pump"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="424dp"
+        android:background="@color/app_theme"
+        android:shadowColor="@color/app_theme"
+        android:text="PUMP"
+        android:textColor="@color/app_theme_light"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.174"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.664" />
+        app:layout_constraintVertical_bias="0.913"
+        tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/inflate_count_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+    <ImageView
+        android:id="@+id/popBalloon"
+        android:layout_width="199dp"
+        android:layout_height="233dp"
+        android:layout_marginBottom="340dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintHorizontal_bias="0.198"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:srcCompat="@drawable/poppedballoon" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.ProgressBar.Vertical"
+        android:layout_width="250dp"
+        android:layout_height="900dp"
+        android:layout_marginEnd="956dp"
+        android:layout_marginBottom="324dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/custom_progress_bar"
+        android:rotation="360"
+
+
+        android:scrollbarSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnFillReward"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="928dp"
+        android:background="@color/app_theme"
+        android:text="Fill Reward Meter"
+        android:textColor="@color/app_theme_light"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintVertical_bias="0.05"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
