@@ -11,10 +11,10 @@
         android:layout_width="196dp"
         android:layout_height="57dp"
         app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/btnShowInstruction" app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/Register" app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/txtSubject"
+        android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/txtUserId"
         android:layout_marginStart="16dp" app:layout_constraintVertical_bias="0.547" tools:text="दर्ता गर्नुहोस्"
         android:textSize="24sp"/>
 

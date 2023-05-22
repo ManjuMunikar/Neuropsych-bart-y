@@ -6,11 +6,30 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/img_1"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Neuropsych"
         tools:targetApi="31">
+        <activity
+            android:name="com.datagrandeur.neuropsych.ThankYouActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.datagrandeur.neuropsych.PointLostActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name="com.datagrandeur.neuropsych.CongratulationActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name="com.datagrandeur.neuropsych.ExperimentActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.datagrandeur.neuropsych.WelcomeActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name="com.datagrandeur.neuropsych.MenuActivity"
             android:exported="false"

@@ -1,11 +1,74 @@
 <resources>
-    <string name="app_name">Neuropsych Tool - BART-Y</string>
+    <string name="app_name"> Neuropsych Tool - BART-Y</string>
+    <string name="welcome">
+                  \t\tWELCOME! \n\n
+              \tTo the game of \n
+        Balloon Analogue Risk Task For Youth
+</string>
+    <string name="btn_continue">Click here to continue</string>
+    <string name="welcome_game">
+        \t\tWelcome to the Balloon Game! \n
+
+
+
+    </string>
+    <string name="txt_info1">
+        For each pump you get rewarded in this game
+                     but remember
+        balloons pops if you pump them up too much!!!
+    </string>
+    <string name="txt_info2">
+        If a balloon pops, You will not get a reward
+        you will have to wait for next balloon
+                   And try Again!!
+    </string>
+    <string name="txt_info3">
+        Some of these Balloons might pop after just
+        one pump others might not pop
+        Until they fill the entire screen
+    </string>
+    <string name="txt_info4">
+        It is up to you to decide how much
+        to pump up each of the 30 balloons
+    </string>
+    <string name="txt_info5">
+        You can stop pumping at any time
+        by clicking on the
+        "Fill Reward Meter"
+        button
+    </string>
+    <string name="txt_info6">
+        When the game is over, you will be able to
+        collect a prize which will depend on how high your
+        reward meter is
+    </string>
+    <string name="txt_info7">
+        There are four types of rewards you can earn
+         a small prize, a medium prize, a big prize
+                      and a bonus prize,
+        your meter will show you hoe closer you are
+    </string>
+    <string name="txt_info8">
+                START THE BALLOON\n
+               GAME WHEN YOU ARE READY!!!!
+    </string>
+    <string name="next_button">NEXT</string>
+    <string name="game_info1">
+        In this game, you are asked to pump
+                up 30 balloons
+
+    </string>
+    <string name="txt_back">BACK</string>
+    <string name="pump">
+         You pump up on the balloon by clicking
+        on the Pump button with your Mouse\n
+                TRY IT!!!
+    </string>
+
+
     <string name="user_id">User ID</string>
     <string name="full_name">Full Name</string>
     <string name="register">Register</string>
-
-
-
 
 
 </resources>

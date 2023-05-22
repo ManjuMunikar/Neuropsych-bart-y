@@ -24,4 +24,34 @@
     <style name="Theme.Neuropsych.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Neuropsych.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="custom_card_view_style" parent="Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/custom_card_view</item>
+    </style>
+    <style name="custom_card_view" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">48dp</item>
+        <item name="cornerSizeTopLeft">48dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+    <style name="Widget"/>
+    <style name="Widget.ProgressBar">
+        <item name="android:indeterminateOnly">true</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:indeterminateDuration">3500</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:maxWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:maxHeight">48dp</item>
+
+    </style>
+    <style name="Widget.ProgressBar.Vertical">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/custom_progress_bar</item>
+        <item name="android:indeterminateDrawable">
+            
+        </item>
+    </style>
+    
 </resources>
