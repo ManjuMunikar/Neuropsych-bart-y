@@ -14,27 +14,27 @@
         android:layout_gravity="center"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="340dp"
+        android:layout_marginBottom="280dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.191"
+        app:layout_constraintHorizontal_bias="0.221"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/balloon" />
 
     <Button
         android:id="@+id/pump"
-        android:layout_width="300dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="424dp"
+        android:layout_width="185dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="232dp"
         android:background="@color/app_theme"
         android:shadowColor="@color/app_theme"
         android:text="PUMP"
         android:textColor="@color/app_theme_light"
-        android:textSize="40dp"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.913"
+        app:layout_constraintVertical_bias="0.867"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -52,10 +52,10 @@
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.ProgressBar.Vertical"
-        android:layout_width="250dp"
-        android:layout_height="900dp"
-        android:layout_marginEnd="956dp"
-        android:layout_marginBottom="324dp"
+        android:layout_width="137dp"
+        android:layout_height="477dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginBottom="244dp"
         android:max="100"
         android:progress="0"
         android:progressDrawable="@drawable/custom_progress_bar"
@@ -68,18 +68,18 @@
 
     <Button
         android:id="@+id/btnFillReward"
-        android:layout_width="300dp"
-        android:layout_height="120dp"
+        android:layout_width="236dp"
+        android:layout_height="91dp"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="928dp"
+        android:layout_marginEnd="164dp"
         android:background="@color/app_theme"
         android:text="Fill Reward Meter"
         android:textColor="@color/app_theme_light"
-        android:textSize="40dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintVertical_bias="0.137"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

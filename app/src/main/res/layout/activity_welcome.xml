@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/text_instruction"
-        android:layout_width="893dp"
-        android:layout_height="252dp"
+        android:layout_width="763dp"
+        android:layout_height="188dp"
         android:background="@color/app_theme"
         android:fontFamily="sans-serif-black"
         android:textColor="@android:color/white"
@@ -48,13 +48,13 @@
         android:fontFamily="sans-serif-black"
         android:text="@string/next_button"
         android:textColor="@android:color/black"
-        android:textSize="50dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintHorizontal_bias="0.569"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_instruction"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.082" />
 
     <TextView
         android:id="@+id/Game_info1"
@@ -77,19 +77,19 @@
 
     <TextView
         android:id="@+id/tvWelcome"
-        android:layout_width="716dp"
-        android:layout_height="202dp"
+        android:layout_width="593dp"
+        android:layout_height="106dp"
         android:text="@string/welcome_game"
         android:textColor="@color/app_theme_light"
-        android:textSize="40dp"
+        android:textSize="30dp"
 
 
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
         app:layout_constraintEnd_toEndOf="@+id/text_instruction"
-        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintHorizontal_bias="0.308"
         app:layout_constraintStart_toStartOf="@+id/text_instruction"
         app:layout_constraintTop_toTopOf="@+id/text_instruction"
-        app:layout_constraintVertical_bias="0.34" />
+        app:layout_constraintVertical_bias="0.471" />
 
     <TextView
         android:id="@+id/txt_info1"
@@ -228,40 +228,40 @@
         android:id="@+id/txtGoBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="40dp"
 
         android:fontFamily="sans-serif-black"
         android:text="@string/txt_back"
         android:textColor="@color/black"
-        android:textSize="50dp"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_instruction" />
 
     <Button
         android:id="@+id/btnPump"
-        android:layout_width="300dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="408dp"
+        android:layout_width="159dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="228dp"
         android:background="@color/app_theme"
         android:shadowColor="@color/app_theme"
-        android:text="PUMP"
+        android:text="Pump"
         android:textColor="@color/app_theme_light"
-        android:textSize="40dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/balloon_view"
-        app:layout_constraintVertical_bias="0.477"
+        app:layout_constraintVertical_bias="0.699"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/balloon_view"
-        android:layout_width="199dp"
-        android:layout_height="233dp"
-        android:layout_marginBottom="340dp"
+        android:layout_width="154dp"
+        android:layout_height="157dp"
+        android:layout_marginBottom="168dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.191"
+        app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/balloon"
 
@@ -270,10 +270,10 @@
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.ProgressBar.Vertical"
-        android:layout_width="250dp"
-        android:layout_height="900dp"
-        android:layout_marginEnd="844dp"
-        android:layout_marginBottom="324dp"
+        android:layout_width="83dp"
+        android:layout_height="372dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginBottom="140dp"
         android:max="100"
         android:progress="0"
         android:progressDrawable="@drawable/custom_progress_bar"
@@ -286,19 +286,19 @@
 
     <Button
         android:id="@+id/btnFillReward"
-        android:layout_width="300dp"
-        android:layout_height="120dp"
+        android:layout_width="181dp"
+        android:layout_height="96dp"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="808dp"
+        android:layout_marginEnd="252dp"
         android:background="@color/app_theme"
         android:text="Fill Reward Meter"
         android:textColor="@color/app_theme_light"
         android:textColorHint="@color/app_theme_light"
-        android:textSize="40dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        app:layout_constraintVertical_bias="0.281"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -315,16 +315,15 @@
 
     <Button
         android:id="@+id/clickToContinue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="900dp"
-        android:layout_marginBottom="1000dp"
-        android:text="Click to start the Game"
-        android:textSize="40dp"
-        android:visibility="gone"
+        android:layout_width="549dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="89dp"
+        android:layout_marginBottom="388dp"
+        android:text="Click to start the Experiment"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.242"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_instruction" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
