@@ -16,9 +16,10 @@ import com.example.neuropsych.R;
 
 public class ExperimentActivity extends AppCompatActivity {
 
-private Button btn_pump;
+    private Button btnPump;
     private int[] balloonArray = {3,5,39,96,88,21,121,10,64,32,64,101,26,34,47,121,64,95,75,13,64,112,30,88,9,64,91,17,115,50};
     private int pumpCount =0;
+    private int countReward=0;
     private ProgressBar pbRewardMeter;
     private long startTime;
     private long endTime;
@@ -33,7 +34,7 @@ private Button btn_pump;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_experiment);
-        btn_pump=findViewById(R.id.pump);
+        btnPump =findViewById(R.id.pump);
         pbRewardMeter =findViewById(R.id.progressBar);
         btnFillRewardMeter=findViewById(R.id.btnFillReward);
         vwBalloon=findViewById(R.id.balloon_view);
@@ -41,7 +42,7 @@ private Button btn_pump;
 
         final MediaPlayer mediaPlayer= MediaPlayer.create(this,R.raw.inflate);
 
-        btn_pump.setOnClickListener(new View.OnClickListener() {
+        btnPump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -71,12 +72,26 @@ private Button btn_pump;
         btnFillRewardMeter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                countReward++;
+                if(countReward==3) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(new Intent(ExperimentActivity.this, ThankYouActivity.class));
+                            finish();
+                        }
+                    }, 100);
+                }
+
+
                 int progress = pbRewardMeter.getProgress();
                 if (progress < 100) {
                     progress += 10; // Increase the progress by 10
                     pbRewardMeter.setProgress(progress);
 
                 }
+
+
             }
         });
 
@@ -84,6 +99,8 @@ private Button btn_pump;
 
     }
     public void pumpBalloon(){
+
+
         ViewGroup.LayoutParams paramss= vwBalloon.getLayoutParams();
         ViewGroup.LayoutParams params1=vwPoppedBalloon.getLayoutParams();
 
@@ -96,10 +113,16 @@ private Button btn_pump;
         params1.height+=10;
         vwPoppedBalloon.setLayoutParams(params1);
         vwPoppedBalloon.requestLayout();
+
+    }
+    public void rewardMeter(){
+
     }
     public void popBalloon(){
+
         vwBalloon.setVisibility(View.GONE);
         vwPoppedBalloon.setVisibility(View.VISIBLE);
+
 
         new Handler().postDelayed(new Runnable() {
             @Override

@@ -95,13 +95,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 pumpCount++;
                 inflateBalloon();
                 mediaPlayer.start();
-
-
-
-
-
-
-
             }
         });
 
@@ -122,31 +115,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
     }
     private void inflateBalloon(){
-//        float startScale = scaleFactor;
-//        float endScale=scaleFactor+ 0.5f;
-//
-//        ObjectAnimator scaleAnimator= ObjectAnimator.ofPropertyValuesHolder(
-//                vwBalloon,
-//                PropertyValuesHolder.ofFloat(View.SCALE_X, startScale, endScale),
-//                PropertyValuesHolder.ofFloat(View.SCALE_Y, startScale, endScale)
-//        );
-//        int startY= vwBalloon.getBottom();
-//        int endY=startY+1;
-//        ObjectAnimator positionAnimator = ObjectAnimator.ofFloat(
-//                vwBalloon,
-//                "translationY",
-//                startY, endY
-//        );
-//        scaleAnimator.setDuration(1000); // Duration in milliseconds
-//        positionAnimator.setDuration(1000); // Duration in milliseconds
-//
-//        // Start the animations
-//        scaleAnimator.start();
-//        positionAnimator.start();
-
-        // Update the scale factor for subsequent inflations
-
-
 
         ViewGroup.LayoutParams params= vwBalloon.getLayoutParams();
         ViewGroup.LayoutParams params1=vwPoppedBalloon.getLayoutParams();
@@ -162,11 +130,7 @@ public class WelcomeActivity extends AppCompatActivity {
         vwPoppedBalloon.requestLayout();
     }
 
-//    public void poppedBalloon(){
-//        vwBalloon.setVisibility(View.GONE);
-//        vwPoppedBalloon.setVisibility(View.VISIBLE);
-//
-//    }
+
 
     private void updateTextView(){
         for(int i = 0; i< tvInstructions.length; i++){
