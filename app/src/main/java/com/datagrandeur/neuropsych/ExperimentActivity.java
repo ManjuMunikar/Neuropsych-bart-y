@@ -34,6 +34,7 @@ public class ExperimentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_experiment);
+
         btnPump =findViewById(R.id.pump);
         pbRewardMeter =findViewById(R.id.progressBar);
         btnFillRewardMeter=findViewById(R.id.btnFillReward);
@@ -56,7 +57,7 @@ public class ExperimentActivity extends AppCompatActivity {
 
                 if(pumpCount ==balloonArray[Singleton.getInstance().getTrialSequence()]){
 
-                    popBalloon();
+                    popBalloon(); //pumpCount 3 vaye pop
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {

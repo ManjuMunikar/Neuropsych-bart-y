@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/user_gradient"
     tools:context="com.datagrandeur.neuropsych.PointLostActivity">
 
     <TextView
@@ -11,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
-        android:text="Your points are lost!!!!"
+        android:text="Your points are lost !!!! -_-"
 
         android:textSize="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
