@@ -16,7 +16,7 @@ import com.example.neuropsych.R;
 
 public class ExperimentActivity extends AppCompatActivity {
 
-private Button btn_pump;
+    private Button btnPump;
     private int[] balloonArray = {3,5,39,96,88,21,121,10,64,32,64,101,26,34,47,121,64,95,75,13,64,112,30,88,9,64,91,17,115,50};
     private int pumpCount =0;
     private int countReward=0;
@@ -34,7 +34,7 @@ private Button btn_pump;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_experiment);
-        btn_pump=findViewById(R.id.pump);
+        btnPump =findViewById(R.id.pump);
         pbRewardMeter =findViewById(R.id.progressBar);
         btnFillRewardMeter=findViewById(R.id.btnFillReward);
         vwBalloon=findViewById(R.id.balloon_view);
@@ -42,7 +42,7 @@ private Button btn_pump;
 
         final MediaPlayer mediaPlayer= MediaPlayer.create(this,R.raw.inflate);
 
-        btn_pump.setOnClickListener(new View.OnClickListener() {
+        btnPump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
