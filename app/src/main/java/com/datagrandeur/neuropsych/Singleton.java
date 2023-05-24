@@ -20,6 +20,7 @@ public class Singleton {
     private String fullname;
     private String language = "en";
     private String location = "";
+    private  int reward =0;
 
     public static Singleton getInstance() {
         if (instance == null)
@@ -30,7 +31,10 @@ public class Singleton {
 
     private Singleton() {
     }
-
+    public int getReward(){  return reward;}
+    public void setReward(int reward){
+        this.reward=reward;
+    }
     public String getUserId() {
         return userId;
     }

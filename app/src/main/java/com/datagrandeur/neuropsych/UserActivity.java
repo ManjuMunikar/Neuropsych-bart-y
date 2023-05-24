@@ -41,6 +41,8 @@ public class UserActivity extends AppCompatActivity {
                     Intent intent = new Intent(UserActivity.this, WelcomeActivity.class);
                     startActivity(intent);
 
+                    Singleton.getInstance().setReward(0);
+
                 }
             }
         });
