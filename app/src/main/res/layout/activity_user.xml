@@ -16,14 +16,17 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/user_gradient"
+        android:textColor="@color/white"
         android:text="@string/register"
         android:textSize="24sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.544"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtUserId"
-        app:layout_constraintVertical_bias="0.097"
+        app:layout_constraintVertical_bias="0.067"
+
         tools:text="दर्ता गर्नुहोस्" />
 
     <EditText
@@ -33,15 +36,17 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/user_gradient"
         android:drawableLeft="@drawable/baseline_lock_24"
+        android:drawablePadding="20dp"
         android:ems="10"
-        android:gravity="center"
         android:hint="@string/user_id"
+        android:textColorHint="@color/white"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
         android:textSize="24sp"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.558"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtFullName" />
 
@@ -51,16 +56,18 @@
         android:layout_height="52dp"
         android:layout_marginTop="200dp"
         android:background="@drawable/user_gradient"
-        android:drawableStart="@drawable/baseline_account_circle_24"
+        android:drawableStart="@drawable/baseline_person_24"
         android:ems="10"
 
-        android:gravity="center"
+        android:drawablePadding="20dp"
         android:hint="@string/full_name"
         android:inputType="none|textPersonName"
         android:paddingLeft="20dp"
+        android:textColorHint="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/txtUserId"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

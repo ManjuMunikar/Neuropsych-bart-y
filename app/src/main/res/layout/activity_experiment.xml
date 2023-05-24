@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_theme_light"
     tools:context="com.datagrandeur.neuropsych.ExperimentActivity">
 
     <ImageView
@@ -24,18 +23,18 @@
     <Button
         android:id="@+id/pump"
         android:layout_width="185dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:background="@drawable/gradient"
         android:shadowColor="@color/app_theme"
         android:text="PUMP"
         android:textColor="@color/app_theme_light"
-        android:textSize="30dp"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
+        app:layout_constraintEnd_toStartOf="@+id/btnFillReward"
+        app:layout_constraintHorizontal_bias="0.424"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.858"
+        app:layout_constraintVertical_bias="0.888"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -55,33 +54,35 @@
         style="@style/Widget.ProgressBar.Vertical"
         android:layout_width="137dp"
         android:layout_height="477dp"
-        android:layout_marginEnd="340dp"
-        android:layout_marginBottom="228dp"
         android:max="100"
         android:progress="0"
         android:progressDrawable="@drawable/custom_progress_bar"
+
+
         android:rotation="360"
-
-
         android:scrollbarSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.726"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.294" />
 
     <Button
         android:id="@+id/btnFillReward"
-        android:layout_width="240dp"
-        android:layout_height="60dp"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
         android:layout_marginTop="44dp"
         android:background="@drawable/gradient"
         android:text="Fill Reward Meter"
         android:textColor="@color/app_theme_light"
-        android:textSize="20dp"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.745"
+        app:layout_constraintHorizontal_bias="0.767"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        app:layout_constraintVertical_bias="0.209"
+        app:layout_constraintVertical_bias="0.32"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/edit_text_background"
     tools:context="com.datagrandeur.neuropsych.WelcomeActivity">
 
     <TextView
@@ -259,7 +258,7 @@
 
     <Button
         android:id="@+id/btnPump"
-        android:layout_width="140dp"
+        android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginStart="296dp"
         android:background="@drawable/gradient"
@@ -293,8 +292,7 @@
         style="@style/Widget.ProgressBar.Vertical"
         android:layout_width="83dp"
         android:layout_height="372dp"
-        android:layout_marginEnd="196dp"
-        android:layout_marginBottom="172dp"
+        android:layout_marginBottom="152dp"
         android:max="100"
         android:progress="0"
         android:progressDrawable="@drawable/custom_progress_bar"
@@ -303,14 +301,16 @@
 
         android:scrollbarSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.814"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnFillReward"
-        android:layout_width="215dp"
-        android:layout_height="50dp"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="128dp"
+        android:layout_marginEnd="164dp"
         android:background="@drawable/gradient"
         android:text="Fill Reward Meter"
         android:textColor="@color/app_theme_light"
@@ -338,7 +338,7 @@
         android:id="@+id/clickToContinue"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginStart="296dp"
+        android:layout_marginStart="308dp"
         android:layout_marginTop="89dp"
         android:layout_marginBottom="388dp"
         android:background="@drawable/gradient"
