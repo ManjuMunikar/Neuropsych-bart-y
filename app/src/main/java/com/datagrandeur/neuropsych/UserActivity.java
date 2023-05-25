@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.datagrandeur.neuropsych.data.DatabaseHelper;
 import com.example.neuropsych.R;
 
 public class UserActivity extends AppCompatActivity {
@@ -27,6 +28,8 @@ public class UserActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
 
                 if (TextUtils.isEmpty(txtUserId.getText().toString().trim())) {
                     txtUserId.setError("Required!");
