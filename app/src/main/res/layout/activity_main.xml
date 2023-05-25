@@ -4,22 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_photo"
+    android:background="@drawable/bg_user"
     tools:context="com.datagrandeur.neuropsych.MainActivity">
 
     <TextView
         android:id="@+id/lblAppName"
         android:layout_width="1057dp"
         android:layout_height="142dp"
+        android:fontFamily="@font/robotobold"
         android:text="@string/app_name"
-        android:textColor="@color/material_dynamic_neutral_variant0"
+        android:textColor="@color/lavender"
         android:textColorHint="@color/app_theme_light"
-        android:textSize="80dp"
+        android:textSize="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.486" />
+        app:layout_constraintVertical_bias="0.469" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

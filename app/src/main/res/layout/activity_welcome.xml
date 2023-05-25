@@ -4,31 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_theme_light"
     tools:context="com.datagrandeur.neuropsych.WelcomeActivity">
 
     <TextView
         android:id="@+id/text_instruction"
         android:layout_width="763dp"
         android:layout_height="188dp"
-        android:background="@color/app_theme"
+        android:paddingLeft="5dp"
+        android:background="@drawable/gradient"
         android:fontFamily="sans-serif-black"
         android:textColor="@android:color/white"
         android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.114" />
+        app:layout_constraintVertical_bias="0.109" />
 
     <TextView
         android:id="@+id/pump_info"
         android:layout_width="716dp"
         android:layout_height="202dp"
+        android:gravity="center"
         android:text="@string/pump"
         android:textColor="@android:color/white"
-        android:textSize="40dp"
+        android:textSize="30sp"
         android:visibility="gone"
 
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
@@ -40,31 +41,33 @@
 
     <TextView
         android:id="@+id/tvNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:paddingLeft="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
 
         android:fontFamily="sans-serif-black"
         android:text="@string/next_button"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="20dp"
+        android:background="@drawable/gradient"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.569"
+        app:layout_constraintHorizontal_bias="0.601"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_instruction"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.044" />
 
     <TextView
         android:id="@+id/Game_info1"
         android:layout_width="716dp"
         android:layout_height="202dp"
-
+        android:gravity="center"
 
         android:text="@string/game_info1"
         android:textColor="@color/white"
-        android:textSize="40dp"
+        android:textSize="30sp"
         android:visibility="gone"
 
 
@@ -79,25 +82,27 @@
         android:id="@+id/tvWelcome"
         android:layout_width="593dp"
         android:layout_height="106dp"
+        android:gravity="center"
         android:text="@string/welcome_game"
         android:textColor="@color/app_theme_light"
-        android:textSize="30dp"
+        android:textSize="30sp"
 
 
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
         app:layout_constraintEnd_toEndOf="@+id/text_instruction"
-        app:layout_constraintHorizontal_bias="0.308"
+        app:layout_constraintHorizontal_bias="0.441"
         app:layout_constraintStart_toStartOf="@+id/text_instruction"
         app:layout_constraintTop_toTopOf="@+id/text_instruction"
-        app:layout_constraintVertical_bias="0.471" />
+        app:layout_constraintVertical_bias="0.402" />
 
     <TextView
         android:id="@+id/txt_info1"
         android:layout_width="716dp"
         android:layout_height="202dp"
+        android:gravity="center"
         android:text="@string/txt_info1"
         android:textColor="@color/app_theme_light"
-        android:textSize="40dp"
+        android:textSize="30sp"
         android:visibility="gone"
 
 
@@ -113,9 +118,10 @@
         android:layout_width="716dp"
         android:layout_height="202dp"
         android:shadowColor="@color/black"
+        android:gravity="center"
         android:text="@string/txt_info2"
         android:textColor="@color/app_theme_light"
-        android:textSize="40dp"
+        android:textSize="30sp"
         android:visibility="gone"
 
 
@@ -130,9 +136,10 @@
         android:id="@+id/txt_info3"
         android:layout_width="716dp"
         android:layout_height="202dp"
+        android:gravity="center"
         android:text="@string/txt_info3"
         android:textColor="@color/app_theme_light"
-        android:textSize="40dp"
+        android:textSize="30sp"
         android:visibility="gone"
 
 
@@ -147,9 +154,10 @@
         android:id="@+id/txt_info4"
         android:layout_width="716dp"
         android:layout_height="202dp"
+        android:gravity="center"
         android:text="@string/txt_info4"
         android:textColor="@color/app_theme_light"
-        android:textSize="40dp"
+        android:textSize="30sp"
         android:visibility="gone"
 
 
@@ -164,9 +172,10 @@
         android:id="@+id/txt_info5"
         android:layout_width="716dp"
         android:layout_height="202dp"
+        android:gravity="center"
         android:text="@string/txt_info5"
         android:textColor="@color/app_theme_light"
-        android:textSize="40dp"
+        android:textSize="30sp"
         android:visibility="gone"
 
 
@@ -179,9 +188,10 @@
         android:id="@+id/txt_info6"
         android:layout_width="716dp"
         android:layout_height="202dp"
+        android:gravity="center"
         android:text="@string/txt_info6"
         android:textColor="@color/app_theme_light"
-        android:textSize="40dp"
+        android:textSize="30sp"
         android:visibility="gone"
 
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
@@ -195,9 +205,10 @@
         android:id="@+id/txt_info7"
         android:layout_width="716dp"
         android:layout_height="202dp"
+        android:gravity="center"
         android:text="@string/txt_info7"
         android:textColor="@color/app_theme_light"
-        android:textSize="40dp"
+        android:textSize="30sp"
         android:visibility="gone"
 
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
@@ -211,9 +222,10 @@
         android:id="@+id/txt_info8"
         android:layout_width="716dp"
         android:layout_height="202dp"
+        android:gravity="center"
         android:text="@string/txt_info8"
         android:textColor="@color/app_theme_light"
-        android:textSize="40dp"
+        android:textSize="30sp"
         android:visibility="gone"
 
 
@@ -226,42 +238,50 @@
 
     <TextView
         android:id="@+id/txtGoBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:paddingLeft="10dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/gradient"
 
         android:fontFamily="sans-serif-black"
         android:text="@string/txt_back"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvNext"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_instruction" />
+        app:layout_constraintTop_toBottomOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnPump"
-        android:layout_width="159dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="228dp"
-        android:background="@color/app_theme"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="296dp"
+        android:background="@drawable/gradient"
         android:shadowColor="@color/app_theme"
         android:text="Pump"
         android:textColor="@color/app_theme_light"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnFillReward"
+        app:layout_constraintHorizontal_bias="0.187"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/balloon_view"
-        app:layout_constraintVertical_bias="0.699"
+        app:layout_constraintVertical_bias="0.419"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/balloon_view"
         android:layout_width="154dp"
         android:layout_height="157dp"
-        android:layout_marginBottom="168dp"
+        android:layout_marginBottom="152dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintHorizontal_bias="0.326"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/balloon"
 
@@ -272,8 +292,7 @@
         style="@style/Widget.ProgressBar.Vertical"
         android:layout_width="83dp"
         android:layout_height="372dp"
-        android:layout_marginEnd="300dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="152dp"
         android:max="100"
         android:progress="0"
         android:progressDrawable="@drawable/custom_progress_bar"
@@ -282,15 +301,17 @@
 
         android:scrollbarSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.814"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnFillReward"
-        android:layout_width="181dp"
-        android:layout_height="96dp"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="252dp"
-        android:background="@color/app_theme"
+        android:layout_marginEnd="164dp"
+        android:background="@drawable/gradient"
         android:text="Fill Reward Meter"
         android:textColor="@color/app_theme_light"
         android:textColorHint="@color/app_theme_light"
@@ -315,15 +336,18 @@
 
     <Button
         android:id="@+id/clickToContinue"
-        android:layout_width="549dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="164dp"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="308dp"
         android:layout_marginTop="89dp"
         android:layout_marginBottom="388dp"
+        android:background="@drawable/gradient"
         android:text="Click to start the Experiment"
+        android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_instruction" />
+        app:layout_constraintTop_toBottomOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

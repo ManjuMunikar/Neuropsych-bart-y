@@ -17,7 +17,7 @@ import com.example.neuropsych.R;
 public class ExperimentActivity extends AppCompatActivity {
 
     private Button btnPump;
-    private int[] balloonArray = {3,5,39,96,88,21,121,10,64,32,64,101,26,34,47,121,64,95,75,13,64,112,30,88,9,64,91,17,115,50};
+    private int[] balloonArray = {3,5,2,96,88,21,121,10,64,32,64,101,26,34,47,121,64,95,75,13,64,112,30,88,9,64,91,17,115,50};
     private int pumpCount =0;
     private int countReward=0;
     private ProgressBar pbRewardMeter;
@@ -34,6 +34,7 @@ public class ExperimentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_experiment);
+
         btnPump =findViewById(R.id.pump);
         pbRewardMeter =findViewById(R.id.progressBar);
         btnFillRewardMeter=findViewById(R.id.btnFillReward);
@@ -56,7 +57,7 @@ public class ExperimentActivity extends AppCompatActivity {
 
                 if(pumpCount ==balloonArray[Singleton.getInstance().getTrialSequence()]){
 
-                    popBalloon();
+                    popBalloon(); //pumpCount 3 vaye pop
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -85,8 +86,8 @@ public class ExperimentActivity extends AppCompatActivity {
 
 
                 int progress = pbRewardMeter.getProgress();
-                if (progress < 100) {
-                    progress += 10; // Increase the progress by 10
+                if (progress < 60) {
+                    progress += 2; // Increase the progress by 10
                     pbRewardMeter.setProgress(progress);
 
                 }

@@ -35,7 +35,7 @@ public class UserActivity extends AppCompatActivity {
                 } else {
 
                     Singleton.getInstance().setUserId(txtUserId.getText().toString().trim());
-                    Singleton.getInstance().setFullname(txtFullName.getText().toString().trim());
+                    Singleton.getInstance().setFullName(txtFullName.getText().toString().trim());
                     Singleton.getInstance().setTrialSequence(1);
 
                     Intent intent = new Intent(UserActivity.this, WelcomeActivity.class);

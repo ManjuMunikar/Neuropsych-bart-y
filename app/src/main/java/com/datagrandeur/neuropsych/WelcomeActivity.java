@@ -35,11 +35,11 @@ public class WelcomeActivity extends AppCompatActivity {
     private TextView tvNext;
     private ProgressBar pbRewardMeter;
     private  Button btnFillRewardMeter;
-    private Button btnClickToContinue;
+    private Button btnClickToContinue; //experiment start
 
     private TextView tvBack;
     private ImageView vwBalloon;
-    private View vwPoppedBalloon;
+    private ImageView vwPoppedBalloon;
     private  Button btnInflate;
 
     @Override
@@ -50,25 +50,25 @@ public class WelcomeActivity extends AppCompatActivity {
         tvInstructions =new TextView[] {findViewById(R.id.tvWelcome),findViewById(R.id.Game_info1),findViewById(R.id.pump_info),findViewById(R.id.txt_info1),findViewById(R.id.txt_info2),findViewById(R.id.txt_info3),findViewById(R.id.txt_info4),findViewById(R.id.txt_info5),findViewById(R.id.txt_info6),findViewById(R.id.txt_info7),findViewById(R.id.txt_info8)};
         instructionIndex =0;
 
-        tvNext =findViewById(R.id.tvNext);
-        tvInstructionBox=findViewById(R.id.text_instruction);
+        tvNext =findViewById(R.id.tvNext); //Next
+        tvInstructionBox=findViewById(R.id.text_instruction); //textView
+        tvBack =findViewById(R.id.txtGoBack); //Back
 
-        tvBack =findViewById(R.id.txtGoBack);
         btnInflate=findViewById(R.id.btnPump);
-        vwBalloon =findViewById(R.id.balloon_view);
-        vwPoppedBalloon=findViewById(R.id.popBalloon);
+
+        vwBalloon =findViewById(R.id.balloon_view); //balloon imageview
+
+        vwPoppedBalloon=findViewById(R.id.popBalloon); //balloon pop imageview
+
         btnClickToContinue =findViewById(R.id.clickToContinue);
-        pbRewardMeter =findViewById(R.id.progressBar);
-        btnFillRewardMeter =findViewById(R.id.btnFillReward);
+
+
         final MediaPlayer mediaPlayer= MediaPlayer.create(this,R.raw.inflate);
         tvNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                instructionIndex =(instructionIndex +1)% tvInstructions.length;
+                instructionIndex =(instructionIndex +1)% tvInstructions.length; //next button increase tv
                 updateTextView();
-
-
-
             }
         });
         btnClickToContinue.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +97,9 @@ public class WelcomeActivity extends AppCompatActivity {
                 mediaPlayer.start();
             }
         });
+        btnFillRewardMeter =findViewById(R.id.btnFillReward);
 
+        pbRewardMeter =findViewById(R.id.progressBar);
         btnFillRewardMeter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,7 +136,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void updateTextView(){
         for(int i = 0; i< tvInstructions.length; i++){
-            if(i== instructionIndex){
+            if(i== instructionIndex){ //instructionIndex=0
                 tvInstructions[i].setVisibility(View.VISIBLE);
             }else{
                 tvInstructions[i].setVisibility(View.GONE);
