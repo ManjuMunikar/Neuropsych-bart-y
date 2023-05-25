@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.datagrandeur.neuropsych.data.Trial;
 import com.example.neuropsych.R;
@@ -26,6 +27,8 @@ public class ExperimentActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private int[] balloonArray = {3,5,39,96,88,21,121,10,64,32,64,101,26,34,47,121,64,95,75,13,64,112,30,88,9,64,91,17,115,50};
     private int pumpCount =0;
+
+    private int rewardCount=0;
     private ProgressBar pbRewardMeter;
     private int progressValue;
     private long startTime;
@@ -58,6 +61,8 @@ public class ExperimentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pumpBalloon();
                 pumpCount++;
+                rewardCount+=2;
+
                 mediaPlayer.start();
                 startTime=System.currentTimeMillis();
                 endTime=System.currentTimeMillis();
@@ -89,7 +94,7 @@ public class ExperimentActivity extends AppCompatActivity {
 //
 //                }
                 int reward=Singleton.getInstance().getReward();
-                reward=reward+20;
+                reward+=rewardCount;
                 Singleton.getInstance().setReward(reward);
                 pbRewardMeter.setProgress(reward);
 

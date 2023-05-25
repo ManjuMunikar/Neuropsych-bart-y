@@ -17,7 +17,7 @@
         android:layout_marginBottom="232dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
+        app:layout_constraintHorizontal_bias="0.163"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/balloon" />
 
@@ -25,7 +25,7 @@
         android:id="@+id/pump"
         android:layout_width="185dp"
         android:layout_height="91dp"
-        android:layout_marginStart="260dp"
+        android:layout_marginStart="184dp"
         android:background="@color/app_theme"
         android:shadowColor="@color/app_theme"
         android:text="Pump"
@@ -57,8 +57,8 @@
         style="@style/Widget.ProgressBar.Vertical"
         android:layout_width="93dp"
         android:layout_height="469dp"
-        android:layout_marginEnd="472dp"
-        android:layout_marginBottom="232dp"
+        android:layout_marginEnd="580dp"
+        android:layout_marginBottom="220dp"
         android:max="100"
         android:progress="0"
         android:progressDrawable="@drawable/custom_progress_bar"
@@ -74,7 +74,7 @@
         android:layout_width="236dp"
         android:layout_height="91dp"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="376dp"
+        android:layout_marginEnd="500dp"
         android:background="@color/app_theme"
         android:text="Fill Reward Meter"
         android:textColor="@color/app_theme_light"
@@ -82,7 +82,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        app:layout_constraintVertical_bias="0.206"
+        app:layout_constraintVertical_bias="0.134"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
