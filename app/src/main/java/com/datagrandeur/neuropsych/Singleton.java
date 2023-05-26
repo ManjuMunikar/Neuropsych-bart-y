@@ -10,6 +10,7 @@ public class Singleton {
     private String fullName;
     private String language = "en";
     private String location = "";
+    private  int reward =0;
 
     public static Singleton getInstance() {
         if (instance == null)
@@ -17,6 +18,13 @@ public class Singleton {
         return instance;
     }
 
+    public int getReward() {
+        return reward;
+    }
+
+    public void setReward(int reward) {
+        this.reward = reward;
+    }
 
     private Singleton() {
     }

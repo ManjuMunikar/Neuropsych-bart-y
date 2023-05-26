@@ -17,9 +17,11 @@ import com.example.neuropsych.R;
 public class ExperimentActivity extends AppCompatActivity {
 
     private Button btnPump;
-    private int[] balloonArray = {3,5,2,96,88,21,121,10,64,32,64,101,26,34,47,121,64,95,75,13,64,112,30,88,9,64,91,17,115,50};
+    Constant constant=new Constant();
     private int pumpCount =0;
     private int countReward=0;
+    private int rewardCount=0;
+
     private ProgressBar pbRewardMeter;
     private long startTime;
     private long endTime;
@@ -42,6 +44,8 @@ public class ExperimentActivity extends AppCompatActivity {
         vwPoppedBalloon=findViewById(R.id.popBalloon);
 
         final MediaPlayer mediaPlayer= MediaPlayer.create(this,R.raw.inflate);
+        final MediaPlayer mediaPlayer2= MediaPlayer.create(this,R.raw.casino);
+
 
         btnPump.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,12 +54,14 @@ public class ExperimentActivity extends AppCompatActivity {
 
                 pumpBalloon();
                 pumpCount++;
+                rewardCount+=2;
+
 
                 mediaPlayer.start();
                 startTime=System.currentTimeMillis();
                 endTime=System.currentTimeMillis();
 
-                if(pumpCount ==balloonArray[Singleton.getInstance().getTrialSequence()]){
+                if(pumpCount ==constant.balloonArray[Singleton.getInstance().getTrialSequence()]){
 
                     popBalloon(); //pumpCount 3 vaye pop
                     new Handler().postDelayed(new Runnable() {
@@ -73,24 +79,19 @@ public class ExperimentActivity extends AppCompatActivity {
         btnFillRewardMeter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                countReward++;
-                if(countReward==3) {
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            startActivity(new Intent(ExperimentActivity.this, ThankYouActivity.class));
-                            finish();
-                        }
-                    }, 100);
-                }
+                mediaPlayer2.start();
+                int reward=Singleton.getInstance().getReward();
+                reward+=rewardCount;
+                Singleton.getInstance().setReward(reward);
+                pbRewardMeter.setProgress(reward);
 
-
-                int progress = pbRewardMeter.getProgress();
-                if (progress < 60) {
-                    progress += 2; // Increase the progress by 10
-                    pbRewardMeter.setProgress(progress);
-
-                }
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startActivity(new Intent(ExperimentActivity.this, CongratulationActivity.class));
+                        finish();
+                    }
+                }, 100);
 
 
             }
@@ -120,9 +121,13 @@ public class ExperimentActivity extends AppCompatActivity {
 
     }
     public void popBalloon(){
+        final MediaPlayer mediaPlayer1=MediaPlayer.create(this,R.raw.explosion);
+
 
         vwBalloon.setVisibility(View.GONE);
         vwPoppedBalloon.setVisibility(View.VISIBLE);
+        mediaPlayer1.start();
+
 
 
         new Handler().postDelayed(new Runnable() {
