@@ -8,7 +8,7 @@ public class User {
         return userId;
     }
 
-    public User(String userId, String fullName) {
+    public User() {
         this.userId = userId;
         this.fullName = fullName;
     }

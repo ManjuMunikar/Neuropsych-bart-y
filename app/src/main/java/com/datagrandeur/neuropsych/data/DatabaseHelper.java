@@ -29,6 +29,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public long insertUser(User user, SQLiteDatabase db){
         return UserRepository.insert(user, db);
     }
+    public SQLiteDatabase getDb() {
+        return db;
+    }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
