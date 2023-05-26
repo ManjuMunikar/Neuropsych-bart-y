@@ -49,12 +49,14 @@ public class UserActivity extends AppCompatActivity {
                     Intent intent = new Intent(UserActivity.this, WelcomeActivity.class);
                     startActivity(intent);
 
+                    User user = new User();
+                    user.setUserId(Singleton.getInstance().getUserId());
+                    // user.setFullName(Singleton.getInstance().getFullName());
+                    dbHelper.insertUser(user, dbHelper.getDb());
+
 
                 }
-                User user = new User();
-                user.setUserId(Singleton.getInstance().getUserId());
-                user.setFullName(Singleton.getInstance().getFullName());
-                dbHelper.insertUser(user, dbHelper.getDb());
+
             }
         });
     }
