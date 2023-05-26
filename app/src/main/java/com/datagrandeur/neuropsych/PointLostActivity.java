@@ -9,6 +9,7 @@ import android.os.Handler;
 import com.example.neuropsych.R;
 
 public class PointLostActivity extends AppCompatActivity {
+    Constant constant=new Constant();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +18,7 @@ public class PointLostActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(Singleton.getInstance().getTrialSequence()==30){
+                if(Singleton.getInstance().getTrialSequence()==constant.balloonArray.length-1){
                     Intent intent=new Intent(PointLostActivity.this,ThankYouActivity.class);
                     startActivity(intent);
                 }else{

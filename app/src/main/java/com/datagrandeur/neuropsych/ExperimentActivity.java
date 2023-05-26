@@ -21,14 +21,13 @@ import com.example.neuropsych.R;
 
 
 public class ExperimentActivity extends AppCompatActivity {
+    Constant constant=new Constant();
 
     private Button btnPump;
     private ProgressBar progressBar;
-    private SharedPreferences sharedPreferences;
-    private int[] balloonArray = {3,5,39,96,88,21,121,10,64,32,64,101,26,34,47,121,64,95,75,13,64,112,30,88,9,64,91,17,115,50};
     private int pumpCount =0;
-
     private int rewardCount=0;
+    private  int fillReward=0;
     private ProgressBar pbRewardMeter;
     private int progressValue;
     private long startTime;
@@ -53,8 +52,8 @@ public class ExperimentActivity extends AppCompatActivity {
         btnFillRewardMeter=findViewById(R.id.btnFillReward);
         vwBalloon=findViewById(R.id.balloon_view);
         vwPoppedBalloon=findViewById(R.id.popBalloon);
-
         final MediaPlayer mediaPlayer= MediaPlayer.create(this,R.raw.inflate);
+        final MediaPlayer mediaPlayer2=MediaPlayer.create(this,R.raw.casino);
 
         btnPump.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +66,7 @@ public class ExperimentActivity extends AppCompatActivity {
                 startTime=System.currentTimeMillis();
                 endTime=System.currentTimeMillis();
 
-                if(pumpCount ==balloonArray[Singleton.getInstance().getTrialSequence()]){
+                if(pumpCount ==constant.balloonArray[Singleton.getInstance().getTrialSequence()]){
 
                     popBalloon();
                     new Handler().postDelayed(new Runnable() {
@@ -80,19 +79,24 @@ public class ExperimentActivity extends AppCompatActivity {
 
 
                 }
+                if(pumpCount==constant.balloonArray.length-1){
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(new Intent(ExperimentActivity.this,ThankYouActivity.class));
+                            finish();
+                        }
+                    }, 100);
+
+                }
             }
         });
         btnFillRewardMeter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                // Example: Retrieving the progress value and updating the progress bar
+                fillReward++;
+                mediaPlayer2.start();
                 int progress = pbRewardMeter.getProgress();
-//                if (progress < 100) {
-//                    progress +=5; // Increase the progress by 10
-//                    pbRewardMeter.setProgress(progress);
-//
-//                }
                 int reward=Singleton.getInstance().getReward();
                 reward+=rewardCount;
                 Singleton.getInstance().setReward(reward);
@@ -107,37 +111,20 @@ public class ExperimentActivity extends AppCompatActivity {
                     }, 100);
                 progressBar.setProgress(progress);
 
-                // Save the progress value to SharedPreferences
-                //SharedPreferences.Editor editor = sharedPreferences.edit();
-//                editor.putInt("progress", progress);
-//                editor.apply();
+                if(fillReward==constant.balloonArray.length-1){
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(new Intent(ExperimentActivity.this, ThankYouActivity.class));
+                            finish();
+                        }
+                    }, 100);
 
-
-
+                }
             }
         });
-
-
-
     }
-
-
-//    protected void onResume() {
-//        super.onResume();
-//
-//        // Retrieve the saved progress value
-//        int progress = sharedPreferences.getInt("progress", 0);
-//        progressBar.setProgress(progress);
-//    }
-
-
-
-
-
-
     public void pumpBalloon(){
-
-
         ViewGroup.LayoutParams paramss= vwBalloon.getLayoutParams();
         ViewGroup.LayoutParams params1=vwPoppedBalloon.getLayoutParams();
 
@@ -152,15 +139,12 @@ public class ExperimentActivity extends AppCompatActivity {
         vwPoppedBalloon.requestLayout();
 
     }
-
-
-
-
-
     public void popBalloon(){
+        final MediaPlayer mediaPlayer1=MediaPlayer.create(this,R.raw.explosion);
 
         vwBalloon.setVisibility(View.GONE);
         vwPoppedBalloon.setVisibility(View.VISIBLE);
+        mediaPlayer1.start();
 
 
         new Handler().postDelayed(new Runnable() {
