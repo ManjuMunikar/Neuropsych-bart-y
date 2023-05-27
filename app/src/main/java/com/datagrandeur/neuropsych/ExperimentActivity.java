@@ -18,11 +18,14 @@ public class ExperimentActivity extends AppCompatActivity {
 
     private Button btnPump;
     Constant constant=new Constant();
+    private  int fillReward=0;
+
     private int pumpCount =0;
     private int countReward=0;
     private int rewardCount=0;
 
     private ProgressBar pbRewardMeter;
+    private ProgressBar progressBar;
     private long startTime;
     private long endTime;
 
@@ -38,6 +41,9 @@ public class ExperimentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_experiment);
 
         btnPump =findViewById(R.id.pump);
+        progressBar = findViewById(R.id.progressBar);
+        int progress=0;
+        progressBar.setProgress(progress);
         pbRewardMeter =findViewById(R.id.progressBar);
         btnFillRewardMeter=findViewById(R.id.btnFillReward);
         vwBalloon=findViewById(R.id.balloon_view);
@@ -79,9 +85,12 @@ public class ExperimentActivity extends AppCompatActivity {
         btnFillRewardMeter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fillReward++;
                 mediaPlayer2.start();
-                int reward=Singleton.getInstance().getReward();
-                reward+=rewardCount;
+                int progress = pbRewardMeter.getProgress();
+
+                int reward = Singleton.getInstance().getReward();
+                reward = 5 + progress;
                 Singleton.getInstance().setReward(reward);
                 pbRewardMeter.setProgress(reward);
 
@@ -93,7 +102,19 @@ public class ExperimentActivity extends AppCompatActivity {
                     }
                 }, 100);
 
+                progressBar.setProgress(reward);
 
+                if (fillReward == constant.balloonArray.length - 1) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(new Intent(ExperimentActivity.this, ThankYouActivity.class));
+                            finish();
+                        }
+                    }, 100);
+
+
+                }
             }
         });
 
