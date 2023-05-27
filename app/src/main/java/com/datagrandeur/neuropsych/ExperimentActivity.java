@@ -60,7 +60,7 @@ public class ExperimentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pumpBalloon();
                 pumpCount++;
-                rewardCount+=2;
+                rewardCount=5;
 
                 mediaPlayer.start();
                 startTime=System.currentTimeMillis();
@@ -97,10 +97,12 @@ public class ExperimentActivity extends AppCompatActivity {
                 fillReward++;
                 mediaPlayer2.start();
                 int progress = pbRewardMeter.getProgress();
+
                 int reward=Singleton.getInstance().getReward();
-                reward+=rewardCount;
+                reward= 5+progress;
                 Singleton.getInstance().setReward(reward);
                 pbRewardMeter.setProgress(reward);
+
 
                 new Handler().postDelayed(new Runnable() {
                         @Override
@@ -109,7 +111,7 @@ public class ExperimentActivity extends AppCompatActivity {
                             finish();
                         }
                     }, 100);
-                progressBar.setProgress(progress);
+                progressBar.setProgress(reward);
 
                 if(fillReward==constant.balloonArray.length-1){
                     new Handler().postDelayed(new Runnable() {
