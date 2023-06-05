@@ -39,20 +39,25 @@ public class UserActivity extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(txtFullName.getText().toString().trim())) {
                     txtFullName.setError("Required!");
                 } else {
+                    if(TextUtils.equals(txtUserId.getText().toString().trim(), "CONFIG")){
+                        Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
+                        startActivity(intent);
+                    }else {
 
-                    Singleton.getInstance().setUserId(txtUserId.getText().toString().trim());
-                    Singleton.getInstance().setFullName(txtFullName.getText().toString().trim());
+                        Singleton.getInstance().setUserId(txtUserId.getText().toString().trim());
+                        Singleton.getInstance().setFullName(txtFullName.getText().toString().trim());
 
 
-                    Singleton.getInstance().setTrialSequence(1);
+                        Singleton.getInstance().setTrialSequence(1);
 
-                    Intent intent = new Intent(UserActivity.this, WelcomeActivity.class);
-                    startActivity(intent);
+                        Intent intent = new Intent(UserActivity.this, WelcomeActivity.class);
+                        startActivity(intent);
 
-                    User user = new User();
-                    user.setUserId(Singleton.getInstance().getUserId());
-                    // user.setFullName(Singleton.getInstance().getFullName());
-                    dbHelper.insertUser(user, dbHelper.getDb());
+                        User user = new User();
+                        user.setUserId(Singleton.getInstance().getUserId());
+                        // user.setFullName(Singleton.getInstance().getFullName());
+                        dbHelper.insertUser(user, dbHelper.getDb());
+                    }
 
 
                 }
