@@ -121,12 +121,26 @@ public class ExperimentActivity extends AppCompatActivity {
                             finish();
                         }
                     }, 100);
+                }
+
+
+                progress = pbRewardMeter.getProgress();
+                if (progress < 100) {
+                    progress += 10; // Increase the progress by 10
+                    pbRewardMeter.setProgress(progress);
 
                 }
+
+
             }
         });
+
+
+
     }
     public void pumpBalloon(){
+
+
         ViewGroup.LayoutParams paramss= vwBalloon.getLayoutParams();
         ViewGroup.LayoutParams params1=vwPoppedBalloon.getLayoutParams();
 

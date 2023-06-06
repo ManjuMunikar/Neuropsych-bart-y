@@ -4,20 +4,10 @@ public class Singleton {
 
     private static Singleton instance;
 
-
-
-    public int getTrialSequence() {
-        return trialSequence;
-    }
-
-    public void setTrialSequence(int trialSequence) {
-        this.trialSequence = trialSequence;
-    }
-
     private int trialSequence;
 
     private String userId;
-    private String fullname;
+    private String fullName;
     private String language = "en";
     private String location = "";
     private  int reward =0;
@@ -28,12 +18,15 @@ public class Singleton {
         return instance;
     }
 
+    public int getReward() {
+        return reward;
+    }
+
+    public void setReward(int reward) {
+        this.reward = reward;
+    }
 
     private Singleton() {
-    }
-    public int getReward(){  return reward;}
-    public void setReward(int reward){
-        this.reward=reward;
     }
     public String getUserId() {
         return userId;
@@ -59,11 +52,18 @@ public class Singleton {
         this.location = location;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+    public int getTrialSequence() {
+        return trialSequence;
+    }
+
+    public void setTrialSequence(int trialSequence) {
+        this.trialSequence = trialSequence;
     }
 }

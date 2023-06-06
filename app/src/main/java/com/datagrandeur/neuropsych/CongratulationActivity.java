@@ -13,12 +13,13 @@ public class CongratulationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Constant constant=new Constant();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_congratulation);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(Singleton.getInstance().getTrialSequence()==30){
+                if(Singleton.getInstance().getTrialSequence()==constant.balloonArray.length-1){
                     Intent intent=new Intent(CongratulationActivity.this,ThankYouActivity.class);
                     startActivity(intent);
                 }else{

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Label ordering must match values -->
+    <array name="updateLocation">
+        <item>Global (English)</item>
+        <item>Nepal (Nepali)</item>
+
+    </array>
+
+    <array name="updateLocationValue">
+        <item>global</item>
+        <item>nepal</item>
+
+    </array>
+</resources>
