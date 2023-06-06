@@ -4,7 +4,7 @@ public class Pump {
     int trialId;//foreign key from trial id - autoincrement
     int trialSequence;//1-30
     int pumpSequence;
-    int id;//primary key auto increment
+    int id;// pump id-primary key auto increment //we can search through this id as well
     String currentPumpTime;
     String lastPumpTime;
     String pumpBtwPumps;
