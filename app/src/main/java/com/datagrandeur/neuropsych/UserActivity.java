@@ -44,7 +44,7 @@ public class UserActivity extends AppCompatActivity {
                         Singleton.getInstance().setFullName(txtFullName.getText().toString().trim());
 
 
-                        Singleton.getInstance().setTrialSequence(1);
+                        Singleton.getInstance().setTrialSequence(0);
 
                         Intent intent = new Intent(UserActivity.this, WelcomeActivity.class);
                         startActivity(intent);
@@ -56,6 +56,8 @@ public class UserActivity extends AppCompatActivity {
                     }
 
 
+
+                    Singleton.getInstance().setReward(0);
 
                 }
 

@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) { //DB create vayesi oncreate call
         db.execSQL(UserRepository.CREATE);
-
+        db.execSQL(TrialRepository.CREATE);
 
     }
 
@@ -37,3 +37,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 }
+
+
+

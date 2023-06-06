@@ -28,7 +28,6 @@ public class Singleton {
 
     private Singleton() {
     }
-
     public String getUserId() {
         return userId;
     }
