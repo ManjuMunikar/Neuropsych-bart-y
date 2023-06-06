@@ -1,9 +1,5 @@
 <resources>
     <string name="app_name"> Neuropsych Tool - BART-Y</string>
-    <string-array name="arr_language">
-        <item>Global(English)</item>
-        <item>Nepal(Nepali)</item>
-    </string-array>
 
     <string name="welcome">
                   \t\tWELCOME! \n\n

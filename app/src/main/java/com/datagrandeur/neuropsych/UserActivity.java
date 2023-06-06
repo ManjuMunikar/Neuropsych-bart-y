@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.datagrandeur.neuropsych.data.DatabaseHelper;
@@ -39,11 +40,6 @@ public class UserActivity extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(txtFullName.getText().toString().trim())) {
                     txtFullName.setError("Required!");
                 } else {
-                    if(TextUtils.equals(txtUserId.getText().toString().trim(), "CONFIG")){
-                        Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
-                        startActivity(intent);
-                    }else {
-
                         Singleton.getInstance().setUserId(txtUserId.getText().toString().trim());
                         Singleton.getInstance().setFullName(txtFullName.getText().toString().trim());
 
@@ -60,8 +56,17 @@ public class UserActivity extends AppCompatActivity {
                     }
 
 
+
                 }
 
+        });
+
+        ImageButton imgBtnSetting= findViewById(R.id.imgBtnSetting);
+        imgBtnSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(UserActivity.this, SettingActivity.class);
+                startActivity(intent);
             }
         });
     }

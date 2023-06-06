@@ -13,10 +13,12 @@
         tools:targetApi="31" >
         <activity
             android:name="com.datagrandeur.neuropsych.SettingActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape"/>
         <activity
             android:name="com.datagrandeur.neuropsych.ThankYouActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape"/>
         <activity
             android:name="com.datagrandeur.neuropsych.PointLostActivity"
             android:exported="false"

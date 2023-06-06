@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+
+
     <PreferenceCategory
-        android:title="Location"></PreferenceCategory>
-    <ListPreference
-        android:title="Select Your Location"
-        android:summary="Select your Location"
-        android:key="list_pref"
-        android:entries="@array/arr_language"
-        android:entryValues="@array/arr_language">
+        android:title="Location">
 
-    </ListPreference>
-
-
-
+        <ListPreference
+            android:defaultValue="global"
+            android:title="Select Location" android:entries="@array/updateLocation"
+            android:entryValues="@array/updateLocationValue" android:key="preferred_location"
+            android:summary="Select location"
+            />
+    </PreferenceCategory>
 </PreferenceScreen>
