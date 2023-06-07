@@ -1,5 +1,6 @@
 package com.datagrandeur.neuropsych;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -67,9 +68,51 @@ public class UserActivity extends AppCompatActivity {
         imgBtnSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(UserActivity.this, SettingActivity.class);
+                Intent intent= new Intent(UserActivity.this, CustomDialogActivity.class);
                 startActivity(intent);
             }
         });
     }
+
+//    public void btn_showDialog(View view) {
+//        final AlertDialog.Builder alert = new  AlertDialog.Builder(UserActivity.this);
+//        //Inflate the custom_dialog view
+//        View mView = getLayoutInflater().inflate(R.layout.dialog,null);
+//
+//        final EditText edtPassword =(EditText) mView.findViewById(R.id.edtPassword);
+//        Button btnOk= (Button)mView.findViewById(R.id.btnOk);
+//        Button btnCancel = (Button)mView.findViewById(R.id.btnCancel);
+//
+//        alert.setView(mView);
+//        //Create Dialog
+//        final AlertDialog alertDialog = alert.create();
+//        alertDialog.setCanceledOnTouchOutside(false);
+//
+//        btnCancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                alertDialog.dismiss();
+//
+//            }
+//        });
+//
+//
+//        btnOk.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(TextUtils.isEmpty(edtPassword.getText().toString().trim())){
+//                    edtPassword.setError("Required!");
+//                } else if (!TextUtils.equals(edtPassword.getText().toString(), "12345")) {
+//                    edtPassword.setError("Incorrect");
+//
+//                }else{
+//                    Intent intent= new Intent(UserActivity.this, SettingActivity.class);
+//                    startActivity(intent);
+//                }
+//
+//            }
+//        });
+//
+//
+//    }
 }
