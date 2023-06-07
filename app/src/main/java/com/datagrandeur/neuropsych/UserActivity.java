@@ -52,10 +52,9 @@ public class UserActivity extends AppCompatActivity {
 
                         User user = new User();
                         user.setUserId(Singleton.getInstance().getUserId());
-                        // user.setFullName(Singleton.getInstance().getFullName());
+                        user.setFullName(Singleton.getInstance().getFullName());
                         dbHelper.insertUser(user, dbHelper.getDb());
                     }
-
 
 
                     Singleton.getInstance().setReward(0);

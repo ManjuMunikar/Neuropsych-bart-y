@@ -1,64 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="30dp">
+    android:background="@drawable/bg_user"
+    android:layout_height="match_parent">
+
 
     <TextView
+        android:id="@+id/tvAdmin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Admin"
-        android:textColor="@color/lavender"
-        android:padding="20dp"
-        android:layout_margin="20dp"
+        android:layout_marginTop="250dp"
         android:fontFamily="@font/robotobold"
-        android:textSize="30sp"
-        android:textAlignment="center"/>
+        android:text="Admin"
+        android:textAlignment="center"
+        android:textColor="@color/lavender"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/edtPasscode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="350dp"
+        android:hint="Enter a passcode: "
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAdmin" />
+
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:id="@+id/edtPassword"
-        android:layout_marginTop="10dp"
-        android:text="Enter a password: "
-        android:textSize="22dp" />
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="300dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/lavender"
+        android:padding="10dp"
+        android:text="OK"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.393"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPasscode"
+        app:layout_constraintVertical_bias="0.06">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    </Button>
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginStart="600dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="550dp"
+        android:backgroundTint="@color/lavender"
+        android:text="CANCEL"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPasscode">
 
-        <Button
-            android:id="@+id/btnOk"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:padding="10dp"
-            android:layout_margin="20dp"
-            android:backgroundTint="@color/lavender"
-            android:text="OK"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:layout_weight="1">
+    </Button>
 
-        </Button>
-
-        <Button
-            android:id="@+id/btnCancel"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/lavender"
-            android:padding="10dp"
-            android:layout_margin="20dp"
-            android:text="CANCEL"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:layout_weight="1">
-
-        </Button>
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
