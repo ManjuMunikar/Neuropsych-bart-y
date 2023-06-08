@@ -1,5 +1,6 @@
 package com.datagrandeur.neuropsych;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -51,10 +52,9 @@ public class UserActivity extends AppCompatActivity {
 
                         User user = new User();
                         user.setUserId(Singleton.getInstance().getUserId());
-                        // user.setFullName(Singleton.getInstance().getFullName());
+                        user.setFullName(Singleton.getInstance().getFullName());
                         dbHelper.insertUser(user, dbHelper.getDb());
                     }
-
 
 
                     Singleton.getInstance().setReward(0);
@@ -67,9 +67,10 @@ public class UserActivity extends AppCompatActivity {
         imgBtnSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(UserActivity.this, SettingActivity.class);
+                Intent intent= new Intent(UserActivity.this, CustomDialogActivity.class);
                 startActivity(intent);
             }
         });
     }
+
 }
