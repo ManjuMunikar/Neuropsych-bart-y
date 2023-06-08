@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.datagrandeur.neuropsych.data.DatabaseHelper;
+import com.datagrandeur.neuropsych.data.Trial;
 import com.datagrandeur.neuropsych.data.User;
 import com.example.neuropsych.R;
 
@@ -33,7 +34,6 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
-
 
 
                 if (TextUtils.isEmpty(txtUserId.getText().toString().trim())) {
