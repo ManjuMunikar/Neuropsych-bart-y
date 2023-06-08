@@ -22,7 +22,6 @@ public class UserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Trial trial=new Trial();
         setContentView(R.layout.activity_user);
 
         Button nextButton = findViewById(R.id.Register);
@@ -36,7 +35,6 @@ public class UserActivity extends AppCompatActivity {
                 DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
 
 
-                trial.setUserId(txtUserId.getText().toString().trim());
                 if (TextUtils.isEmpty(txtUserId.getText().toString().trim())) {
                     txtUserId.setError("Required!");
                 } else if (TextUtils.isEmpty(txtFullName.getText().toString().trim())) {

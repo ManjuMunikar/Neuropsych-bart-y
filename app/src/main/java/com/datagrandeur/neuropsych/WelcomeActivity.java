@@ -31,7 +31,6 @@ public class WelcomeActivity extends AppCompatActivity {
     private int[] balloonArray = {3,5,39,96,88,21,121,10,64,32,64,101,26,34,47,121,64,95,75,13,64,112,30,88,9,64,91,17,115,50};
     private int pumpCount =0;
 
-   // private Trial trial;
     private int instructionIndex;
     private TextView tvNext;
     private ProgressBar pbRewardMeter;
@@ -46,7 +45,6 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Trial trial1=new Trial();
 
         setContentView(R.layout.activity_welcome);
         tvInstructions =new TextView[] {findViewById(R.id.tvWelcome),findViewById(R.id.Game_info1),findViewById(R.id.pump_info),findViewById(R.id.txt_info1),findViewById(R.id.txt_info2),findViewById(R.id.txt_info3),findViewById(R.id.txt_info4),findViewById(R.id.txt_info5),findViewById(R.id.txt_info6),findViewById(R.id.txt_info7),findViewById(R.id.txt_info8)};
@@ -76,11 +74,6 @@ public class WelcomeActivity extends AppCompatActivity {
         btnClickToContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                trial=new Trial(TrialId++,String.valueOf(startTime),String.valueOf(endTime));
-
-
-
 
                 Intent intent =new Intent(WelcomeActivity.this,ExperimentActivity.class);
                 startActivity(intent);
