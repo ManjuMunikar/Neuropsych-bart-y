@@ -73,45 +73,4 @@ public class UserActivity extends AppCompatActivity {
         });
     }
 
-//    public void btn_showDialog(View view) {
-//        final AlertDialog.Builder alert = new  AlertDialog.Builder(UserActivity.this);
-//        //Inflate the custom_dialog view
-//        View mView = getLayoutInflater().inflate(R.layout.dialog,null);
-//
-//        final EditText edtPassword =(EditText) mView.findViewById(R.id.edtPassword);
-//        Button btnOk= (Button)mView.findViewById(R.id.btnOk);
-//        Button btnCancel = (Button)mView.findViewById(R.id.btnCancel);
-//
-//        alert.setView(mView);
-//        //Create Dialog
-//        final AlertDialog alertDialog = alert.create();
-//        alertDialog.setCanceledOnTouchOutside(false);
-//
-//        btnCancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                alertDialog.dismiss();
-//
-//            }
-//        });
-//
-//
-//        btnOk.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(TextUtils.isEmpty(edtPassword.getText().toString().trim())){
-//                    edtPassword.setError("Required!");
-//                } else if (!TextUtils.equals(edtPassword.getText().toString(), "12345")) {
-//                    edtPassword.setError("Incorrect");
-//
-//                }else{
-//                    Intent intent= new Intent(UserActivity.this, SettingActivity.class);
-//                    startActivity(intent);
-//                }
-//
-//            }
-//        });
-//
-//
-//    }
 }
