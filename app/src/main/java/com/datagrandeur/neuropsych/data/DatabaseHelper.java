@@ -9,10 +9,12 @@ import androidx.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private final SQLiteDatabase db;
+    public static final String DATABASE_NAME = "bart-y.db";
 
+    public static final int DATABASE_VERSION = 1;
 
     public DatabaseHelper(Context context) {
-        super(context, Database.DATABASE_NAME, null, Database.DATABASE_VERSION);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
         db= this.getWritableDatabase();
     }
 
@@ -26,9 +28,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public long insertUser(User user, SQLiteDatabase db){
         return UserRepository.insert(user, db);
-    }
-    public long insertTrial( Trial trial, SQLiteDatabase db){
-        return TrialRepository.insert(trial, db);
     }
     public SQLiteDatabase getDb() {
         return db;
