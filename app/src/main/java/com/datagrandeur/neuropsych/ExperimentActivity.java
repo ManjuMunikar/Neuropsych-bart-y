@@ -100,10 +100,10 @@ public class ExperimentActivity extends AppCompatActivity {
 
                     int progress = pbRewardMeter.getProgress();
 
-                  int bar = Singleton.getInstance().getReward();
-                    bar = 5 + progress;
-                    Singleton.getInstance().setReward(bar);
-                    pbRewardMeter.setProgress(bar);
+                  int barValue = Singleton.getInstance().getReward();
+                    barValue = 5 + progress;
+                    Singleton.getInstance().setReward(barValue);
+                    pbRewardMeter.setProgress(barValue);
 
                     trial.setBalloonEndWidth(vwBalloon.getWidth());
                     trial.setBalloonEndHeight(vwBalloon.getHeight());
@@ -120,7 +120,7 @@ public class ExperimentActivity extends AppCompatActivity {
                             finish();
                         }
                     }, 100);
-                progressBar.setProgress(bar);
+                progressBar.setProgress(barValue);
 
                 if(fillReward==constant.balloonArray.length-1){
                     new Handler().postDelayed(new Runnable() {
@@ -188,8 +188,8 @@ public class ExperimentActivity extends AppCompatActivity {
 
         trial.setBalloonEndWidth(vwBalloon.getWidth());
         trial.setBalloonEndHeight(vwBalloon.getHeight());
-        long i = dbHelper.insertTrial(trial, dbHelper.getDb());
-        System.out.println(i);
+        dbHelper.insertTrial(trial, dbHelper.getDb());
+
 
 
 
