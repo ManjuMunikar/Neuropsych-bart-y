@@ -52,6 +52,7 @@ public class ExperimentActivity extends AppCompatActivity {
         btnFillRewardMeter=findViewById(R.id.btnFillReward);
         vwBalloon=findViewById(R.id.balloon_view);
         vwPoppedBalloon=findViewById(R.id.popBalloon);
+
         final MediaPlayer mediaPlayer= MediaPlayer.create(this,R.raw.inflate);
         final MediaPlayer mediaPlayer2=MediaPlayer.create(this,R.raw.casino);
 

@@ -20,6 +20,22 @@ public class Pump {
         this.trialId = trialId;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getTrialSequence() {
+        return trialSequence;
+    }
+
+    public void setTrialSequence(int trialSequence) {
+        this.trialSequence = trialSequence;
+    }
+
     public int getPumpSequence() {
         return pumpSequence;
     }
@@ -32,8 +48,14 @@ public class Pump {
         return currentPumpTime;
     }
 
+
     public void setCurrentPumpTime(String currentPumpTime) {
         this.currentPumpTime = currentPumpTime;
+    }
+    public String getLastPumpTime(){ return lastPumpTime;}
+
+    public void setLastPumpTime(String lastPumpTime) {
+        this.lastPumpTime = lastPumpTime;
     }
 
     public String getPumpBtwPumps() {
