@@ -19,6 +19,9 @@ import android.widget.TextView;
 import com.datagrandeur.neuropsych.data.Trial;
 import com.example.neuropsych.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class WelcomeActivity extends AppCompatActivity {
     private TextView[] tvInstructions;
@@ -27,10 +30,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private int[] balloonArray = {3,5,39,96,88,21,121,10,64,32,64,101,26,34,47,121,64,95,75,13,64,112,30,88,9,64,91,17,115,50};
     private int pumpCount =0;
-    private long startTime;
-    private long endTime;
 
-    private Trial trial;
     private int instructionIndex;
     private TextView tvNext;
     private ProgressBar pbRewardMeter;
@@ -74,6 +74,7 @@ public class WelcomeActivity extends AppCompatActivity {
         btnClickToContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent =new Intent(WelcomeActivity.this,ExperimentActivity.class);
                 startActivity(intent);
 
@@ -110,12 +111,13 @@ public class WelcomeActivity extends AppCompatActivity {
                 }
 
 
-//                trial=new Trial(TrialId++,String.valueOf(startTime),String.valueOf(endTime));
 
             }
         });
 
     }
+
+
     private void inflateBalloon(){
 
         ViewGroup.LayoutParams params= vwBalloon.getLayoutParams();

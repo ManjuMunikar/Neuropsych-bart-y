@@ -33,7 +33,6 @@ public class UserActivity extends AppCompatActivity {
                 DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
 
 
-
                 if (TextUtils.isEmpty(txtUserId.getText().toString().trim())) {
                     txtUserId.setError("Required!");
                 } else if (TextUtils.isEmpty(txtFullName.getText().toString().trim())) {
