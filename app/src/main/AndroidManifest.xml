@@ -12,9 +12,12 @@
         android:theme="@style/Theme.Neuropsych"
         tools:targetApi="31">
         <activity
-            android:name="com.datagrandeur.neuropsych.CustomDialogActivity"
+            android:name="com.datagrandeur.neuropsych.DataExportActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.datagrandeur.neuropsych.AdminActivity"
             android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name="com.datagrandeur.neuropsych.SettingActivity"
             android:exported="false"
