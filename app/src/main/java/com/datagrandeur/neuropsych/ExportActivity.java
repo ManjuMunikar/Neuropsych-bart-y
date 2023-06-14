@@ -29,23 +29,23 @@ import java.io.IOException;
 
 public class ExportActivity extends AppCompatActivity {
 
-    public static String[] permissions() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            return new String[]{
-                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    android.Manifest.permission.READ_EXTERNAL_STORAGE
-
-            };
-        } else {
-            return new String[]{
-
-                    android.Manifest.permission.READ_MEDIA_IMAGES,
-                    android.Manifest.permission.READ_MEDIA_AUDIO,
-                    Manifest.permission.READ_MEDIA_VIDEO
-
-            };
-        }
-    }
+//    public static String[] permissions() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//            return new String[]{
+//                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+//                    android.Manifest.permission.READ_EXTERNAL_STORAGE
+//
+//            };
+//        } else {
+//            return new String[]{
+//
+//                    android.Manifest.permission.READ_MEDIA_IMAGES,
+//                    android.Manifest.permission.READ_MEDIA_AUDIO,
+//                    Manifest.permission.READ_MEDIA_VIDEO
+//
+//            };
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,16 +74,19 @@ public class ExportActivity extends AppCompatActivity {
         }
 
         //ActivityCompat.requestPermissions(this, permissions(), 23);
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "barty.csv");
 
-        File exportDir = new File(Environment.getExternalStorageDirectory(), "barty");
-        if(!exportDir.exists()){
-            exportDir.mkdir();
 
-        }
-        Log.w("Data Export", "Created file");
-
+//        File exportDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS, "barty");
+//        if(!exportDir.exists()){
+//            exportDir.mkdir();
+//
+//        }
+//        Log.w("Data Export", "Created file");
+//
+//        Cursor result = null;
+//        File file = new File(exportDir, "barty.csv");
         Cursor result = null;
-        File file = new File(exportDir, "barty.csv");
         try{
             file.createNewFile();
             CSVWriter csvWriter = new CSVWriter(new FileWriter(file));
