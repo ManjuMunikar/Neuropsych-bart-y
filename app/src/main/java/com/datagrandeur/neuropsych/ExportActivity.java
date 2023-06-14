@@ -3,9 +3,11 @@ package com.datagrandeur.neuropsych;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
@@ -66,9 +68,14 @@ public class ExportActivity extends AppCompatActivity {
     private void export() {
 
         DatabaseHelper dbHelper = new DatabaseHelper(this);
-        ActivityCompat.requestPermissions(this, permissions(), 23);
-        File exportDir = new File(Environment.getExternalStorageDirectory(), "barty");
+        if(ContextCompat.checkSelfPermission(ExportActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
 
+            ActivityCompat.requestPermissions(ExportActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+        }
+
+        //ActivityCompat.requestPermissions(this, permissions(), 23);
+
+        File exportDir = new File(Environment.getExternalStorageDirectory(), "barty");
         if(!exportDir.exists()){
             exportDir.mkdir();
 
@@ -76,7 +83,7 @@ public class ExportActivity extends AppCompatActivity {
         Log.w("Data Export", "Created file");
 
         Cursor result = null;
-        File file = new File(exportDir, "barty");
+        File file = new File(exportDir, "barty.csv");
         try{
             file.createNewFile();
             CSVWriter csvWriter = new CSVWriter(new FileWriter(file));
