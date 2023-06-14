@@ -58,6 +58,7 @@ public class ExportActivity extends AppCompatActivity {
         tvDataExport.setText("Data Exporting In Progress");
         export();
 
+        tvDataExport.setText("Data Exporting In Progress");
 
         tvDataExport.setText("Data export completed");
 
@@ -68,12 +69,18 @@ public class ExportActivity extends AppCompatActivity {
     private void export() {
 
         DatabaseHelper dbHelper = new DatabaseHelper(this);
+
         if(ContextCompat.checkSelfPermission(ExportActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
 
             ActivityCompat.requestPermissions(ExportActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
         }
 
         //ActivityCompat.requestPermissions(this, permissions(), 23);
+        File exportDir = new File(getApplicationContext().getFilesDir(), "barty");
+        if(!exportDir.exists()){
+            exportDir.mkdir();
+
+        }
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "barty.csv");
 
 
@@ -86,6 +93,7 @@ public class ExportActivity extends AppCompatActivity {
 //
 //        Cursor result = null;
 //        File file = new File(exportDir, "barty.csv");
+
         Cursor result = null;
         try{
             file.createNewFile();
