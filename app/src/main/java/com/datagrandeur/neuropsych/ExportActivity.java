@@ -1,5 +1,7 @@
 package com.datagrandeur.neuropsych;
 
+import static android.os.Environment.DIRECTORY_DOCUMENTS;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -75,13 +77,11 @@ public class ExportActivity extends AppCompatActivity {
 
         //ActivityCompat.requestPermissions(this, permissions(), 23);
 
-        File exportDir = new File(Environment.getExternalStorageDirectory(), "barty");
+        File exportDir = new File(Environment.getExternalStoragePublicDirectory(DIRECTORY_DOCUMENTS), "barty");
         if(!exportDir.exists()){
             exportDir.mkdir();
-
         }
         Log.w("Data Export", "Created file");
-
         Cursor result = null;
         File file = new File(exportDir, "barty.csv");
         try{
