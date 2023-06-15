@@ -1,22 +1,25 @@
 package com.datagrandeur.neuropsych.data;
 
+import java.time.LocalDateTime;
+
 public class Pump {
-    int trialId;//foreign key from trial id - autoincrement
+    long trialId;//foreign key from trial id - autoincrement
     int trialSequence;//1-30
     int pumpSequence;
+    String userId;
     int id;// pump id-primary key auto increment //we can search through this id as well
-    String currentPumpTime;
-    String lastPumpTime;
+    LocalDateTime currentPumpTime;
+    LocalDateTime lastPumpTime;
     String pumpBtwPumps;
     int balloonHeight;
     int balloonWidth;
     boolean exploded;
 
-    public int getTrialId() {
+    public long getTrialId() {
         return trialId;
     }
 
-    public void setTrialId(int trialId) {
+    public void setTrialId(long trialId) {
         this.trialId = trialId;
     }
 
@@ -26,6 +29,14 @@ public class Pump {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public int getTrialSequence() {
@@ -44,17 +55,17 @@ public class Pump {
         this.pumpSequence = pumpSequence;
     }
 
-    public String getCurrentPumpTime() {
+    public LocalDateTime getCurrentPumpTime() {
         return currentPumpTime;
     }
 
 
-    public void setCurrentPumpTime(String currentPumpTime) {
+    public void setCurrentPumpTime(LocalDateTime currentPumpTime) {
         this.currentPumpTime = currentPumpTime;
     }
-    public String getLastPumpTime(){ return lastPumpTime;}
+    public LocalDateTime getLastPumpTime(){ return lastPumpTime;}
 
-    public void setLastPumpTime(String lastPumpTime) {
+    public void setLastPumpTime(LocalDateTime lastPumpTime) {
         this.lastPumpTime = lastPumpTime;
     }
 
@@ -90,7 +101,7 @@ public class Pump {
         this.exploded = exploded;
     }
 
-    public Pump(int trialId, int pumpSequence, String currentPumpTime, String pumpBtwPumps, int balloonHeight, int balloonWidth, boolean exploded) {
+    public Pump(int trialId, int pumpSequence, LocalDateTime currentPumpTime, String pumpBtwPumps, int balloonHeight, int balloonWidth, boolean exploded) {
         this.trialId = trialId;
         this.pumpSequence = pumpSequence;
         this.currentPumpTime = currentPumpTime;
@@ -98,6 +109,9 @@ public class Pump {
         this.balloonHeight = balloonHeight;
         this.balloonWidth = balloonWidth;
         this.exploded = exploded;
+    }
+    public Pump(){
+
     }
 
 

@@ -1,6 +1,7 @@
 package com.datagrandeur.neuropsych.data;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -9,6 +10,7 @@ import androidx.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private final SQLiteDatabase db;
+    private Pump pump;
 
 
     public DatabaseHelper(Context context) {
@@ -18,17 +20,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     @Override
-    public void onCreate(SQLiteDatabase db) { //DB create vayesi oncreate call
+    public void onCreate(SQLiteDatabase db) {
         db.execSQL(UserRepository.CREATE);
         db.execSQL(TrialRepository.CREATE);
+        db.execSQL(PumpRepository.CREATE);
 
     }
 
     public long insertUser(User user, SQLiteDatabase db){
+
         return UserRepository.insert(user, db);
     }
     public long insertTrial( Trial trial, SQLiteDatabase db){
         return TrialRepository.insert(trial, db);
+    }
+    public long insertPump( Pump pump, SQLiteDatabase db){
+        return PumpRepository.insert(pump, db);
+    }
+    public long updateTrial( Trial trial, SQLiteDatabase db){
+        return TrialRepository.update(trial, db);
     }
     public SQLiteDatabase getDb() {
         return db;
@@ -36,7 +46,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+
     }
+
 }
 
 

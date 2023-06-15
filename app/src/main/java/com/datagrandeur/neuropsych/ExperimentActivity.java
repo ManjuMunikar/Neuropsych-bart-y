@@ -12,42 +12,50 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.datagrandeur.neuropsych.data.DatabaseHelper;
+import com.datagrandeur.neuropsych.data.Pump;
 import com.datagrandeur.neuropsych.data.Trial;
 import com.example.neuropsych.R;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 
 public class ExperimentActivity extends AppCompatActivity {
     Constant constant=new Constant();
     private Button btnPump;
     private ProgressBar progressBar;
-    private int pumpCount =0;
+    private int pumpCount ;
     private int rewardCount=0;
     private double reward;
-
     private  int fillReward=0;
     private ProgressBar pbRewardMeter;
-
     private DatabaseHelper dbHelper;
     private Trial trial;
+    private int trial_id;
+    private Pump pump;
     private View vwBalloon;
     private View vwPoppedBalloon;
     private Button btnFillRewardMeter;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         reward=0.0;
+        trial_id=0;
         dbHelper = new DatabaseHelper(getApplicationContext());
         trial = new Trial();
+        pump=new Pump();
         trial.setUserId(Singleton.getInstance().getUserId());
-
-
+        pump.setUserId(Singleton.getInstance().getUserId());
         trial.setTrialSequence(Singleton.getInstance().getTrialSequence()+1);
-
-
-        trial.setStartTimeOfTrial(DateUtils.getCurrentDateTime());
-
+        pump.setTrialSequence(trial.getTrialSequence());
+        pump.setLastPumpTime(DateUtils.getCurrentDateTime());
+        trial.setStartTimeOfTrial(DateUtils.getFormatDateTime(LocalDateTime.now()));
+        trial.setId((int)dbHelper.insertTrial(trial,dbHelper.getDb()));
+        pump.setTrialId(trial.getId());
         setContentView(R.layout.activity_experiment);
+
         progressBar = findViewById(R.id.progressBar);
         int progress=0;
         progressBar.setProgress(progress);
@@ -64,13 +72,12 @@ public class ExperimentActivity extends AppCompatActivity {
         btnPump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 pumpCount++;
+                pumpBalloon();
                 rewardCount = 5;
+
                 mediaPlayer.start();
-
-
-                if (pumpCount == constant.balloonArray[Singleton.getInstance().getTrialSequence()]) {
+                if (isPop()) {
                     popBalloon();
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -79,40 +86,29 @@ public class ExperimentActivity extends AppCompatActivity {
                             finish();
                         }
                     }, 100);
-
-                } else {
-                    pumpBalloon();
                 }
-
-
             }
         });
+
         btnFillRewardMeter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 trial.setReward(reward);
-
-                trial.setEndTimeOfTrial(DateUtils.getCurrentDateTime());
+                trial.setEndTimeOfTrial(DateUtils.getFormatDateTime(LocalDateTime.now()));
 
                 fillReward++;
                 mediaPlayer2.start();
+                int progress = pbRewardMeter.getProgress();
 
-
-                    int progress = pbRewardMeter.getProgress();
-
-                  int barValue = Singleton.getInstance().getReward();
+                int barValue = Singleton.getInstance().getReward();
                     barValue = 5 + progress;
                     Singleton.getInstance().setReward(barValue);
                     pbRewardMeter.setProgress(barValue);
 
                     trial.setBalloonEndWidth(vwBalloon.getWidth());
                     trial.setBalloonEndHeight(vwBalloon.getHeight());
-                    dbHelper.insertTrial(trial, dbHelper.getDb());
-
-
-
-
+                    dbHelper.updateTrial(trial, dbHelper.getDb());
 
                 new Handler().postDelayed(new Runnable() {
                         @Override
@@ -148,31 +144,52 @@ public class ExperimentActivity extends AppCompatActivity {
 
             }
         });
-
-
-
+    }
+    public Boolean isPop(){
+        if (pumpCount == constant.balloonArray[Singleton.getInstance().getTrialSequence()]){
+            return true;
+        }else {
+            return false;
+        }
     }
     public void pumpBalloon(){
+
+        pump.setPumpSequence(pumpCount);
         reward=reward+0.5;
-        ViewGroup.LayoutParams paramss= vwBalloon.getLayoutParams();
+        ViewGroup.LayoutParams params= vwBalloon.getLayoutParams();
         ViewGroup.LayoutParams params1=vwPoppedBalloon.getLayoutParams();
 
-        paramss.width+=5;
-        paramss.height+=10;
-        vwBalloon.setLayoutParams(paramss);
+        params.width+=5;
+        params.height+=10;
+        vwBalloon.setLayoutParams(params);
         vwBalloon.requestLayout();
-
-
 
         params1.width+=5;
         params1.height+=10;
         vwPoppedBalloon.setLayoutParams(params1);
         vwPoppedBalloon.requestLayout();
+        trial.setReward(reward);
+        pump.setCurrentPumpTime(DateUtils.getCurrentDateTime());
+        pump.setPumpBtwPumps(String.valueOf(DateUtils.getDifferenceInMillisecond(pump.getLastPumpTime(),pump.getCurrentPumpTime())));
 
 
+        if(isPop()) {
+            pump.setExploded(true);
+            pump.setBalloonWidth(0);
+            pump.setBalloonHeight(0);
+        }else{
+            pump.setExploded(false);
+            pump.setBalloonHeight(vwBalloon.getHeight());
+            pump.setBalloonWidth(vwBalloon.getWidth());
+        }
+
+        dbHelper.insertPump(pump, dbHelper.getDb());
+        pump.setLastPumpTime(pump.getCurrentPumpTime());
 
     }
+
     public boolean isEndExperiment(){
+
         return pumpCount == (constant.balloonArray.length - 1);
     }
     public void popBalloon(){
@@ -182,18 +199,13 @@ public class ExperimentActivity extends AppCompatActivity {
         vwBalloon.setVisibility(View.GONE);
         vwPoppedBalloon.setVisibility(View.VISIBLE);
         mediaPlayer1.start();
+
         trial.setReward(0.0);
-
-
-        trial.setEndTimeOfTrial(DateUtils.getCurrentDateTime());
+        trial.setEndTimeOfTrial(DateUtils.getFormatDateTime(LocalDateTime.now()));
 
         trial.setBalloonEndWidth(vwBalloon.getWidth());
         trial.setBalloonEndHeight(vwBalloon.getHeight());
-        dbHelper.insertTrial(trial, dbHelper.getDb());
-
-
-
-
+        dbHelper.updateTrial(trial, dbHelper.getDb());
 
         new Handler().postDelayed(new Runnable() {
             @Override
