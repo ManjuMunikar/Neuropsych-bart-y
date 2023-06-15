@@ -1,5 +1,9 @@
 package com.datagrandeur.neuropsych;
 
+import static android.os.Environment.DIRECTORY_DOCUMENTS;
+import static android.os.Environment.DIRECTORY_DOWNLOADS;
+import static android.os.Environment.DIRECTORY_MOVIES;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -29,23 +33,24 @@ import java.io.IOException;
 
 public class ExportActivity extends AppCompatActivity {
 
-//    public static String[] permissions() {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-//            return new String[]{
-//                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-//                    android.Manifest.permission.READ_EXTERNAL_STORAGE
-//
-//            };
-//        } else {
-//            return new String[]{
-//
-//                    android.Manifest.permission.READ_MEDIA_IMAGES,
-//                    android.Manifest.permission.READ_MEDIA_AUDIO,
-//                    Manifest.permission.READ_MEDIA_VIDEO
-//
-//            };
-//        }
-//    }
+    public static String[] permissions() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            return new String[]{
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.MANAGE_EXTERNAL_STORAGE
+
+            };
+        } else {
+            return new String[]{
+
+                    android.Manifest.permission.READ_MEDIA_IMAGES,
+                    android.Manifest.permission.READ_MEDIA_AUDIO,
+                    Manifest.permission.READ_MEDIA_VIDEO
+
+            };
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,52 +63,40 @@ public class ExportActivity extends AppCompatActivity {
         tvDataExport.setText("Data Exporting In Progress");
         export();
 
-        tvDataExport.setText("Data Exporting In Progress");
 
         tvDataExport.setText("Data export completed");
 
-//        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "barty.csv");
-//        android.util.Log.d("OK", "onCreate: " + file.canRead());
-    }
+   }
 
     private void export() {
 
         DatabaseHelper dbHelper = new DatabaseHelper(this);
-
         if(ContextCompat.checkSelfPermission(ExportActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
 
             ActivityCompat.requestPermissions(ExportActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
         }
 
         //ActivityCompat.requestPermissions(this, permissions(), 23);
-        File exportDir = new File(getApplicationContext().getFilesDir(), "barty");
+        //File exportDir = new File(getApplicationContext().getFilesDir(), "barty");
+        //File exportDir = new File(getApplicationContext().getExternalFilesDir(DIRECTORY_DOCUMENTS), "barty");
+
+        File exportDir = new File(Environment.getExternalStoragePublicDirectory(DIRECTORY_DOWNLOADS), "barty");
         if(!exportDir.exists()){
             exportDir.mkdir();
-
         }
-        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "barty.csv");
-
-
-//        File exportDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS, "barty");
-//        if(!exportDir.exists()){
-//            exportDir.mkdir();
-//
-//        }
-//        Log.w("Data Export", "Created file");
-//
-//        Cursor result = null;
-//        File file = new File(exportDir, "barty.csv");
-
+        Log.w("Data Export", "Created file");
         Cursor result = null;
+        File file = new File(exportDir, "barty.csv");
         try{
             file.createNewFile();
             CSVWriter csvWriter = new CSVWriter(new FileWriter(file));
             SQLiteDatabase db = dbHelper.getReadableDatabase();
             result= db.rawQuery("SELECT * FROM User", null);
+            csvWriter.writeNext(result.getColumnNames());
             while(result.moveToNext()){
                 String arrStr[] ={
-                        result.getColumnName(0),
-                        result.getColumnName(1)
+                        result.getString(0),
+                        result.getString(1)
                 };
                 csvWriter.writeNext(arrStr);
             }
