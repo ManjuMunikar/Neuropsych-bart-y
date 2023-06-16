@@ -20,7 +20,7 @@
         android:theme="@style/Theme.Neuropsych"
         tools:targetApi="31">
         <activity
-            android:name="com.datagrandeur.neuropsych.ExportActivity"
+            android:name="com.datagrandeur.neuropsych.DataExportActivity"
             android:exported="false" />
         <activity
             android:name="com.datagrandeur.neuropsych.DataExportActivity"
