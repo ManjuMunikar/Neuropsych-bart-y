@@ -11,12 +11,12 @@ import android.widget.EditText;
 
 import com.example.neuropsych.R;
 
-public class CustomDialogActivity extends AppCompatActivity {
+public class AdminActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_dialog);
+        setContentView(R.layout.activity_admin);
 
         EditText edtPasscode = findViewById(R.id.edtPasscode);
         Button btnOk = findViewById(R.id.btnOk);
@@ -33,7 +33,7 @@ public class CustomDialogActivity extends AppCompatActivity {
                 }else if(!TextUtils.equals(edtPasscode.getText().toString(), "12345")){
                     edtPasscode.setError("Incorrect");
                 } else{
-                        Intent intent= new Intent(CustomDialogActivity.this, SettingActivity.class);
+                        Intent intent= new Intent(AdminActivity.this, SettingActivity.class);
                         startActivity(intent);
                     }
                 }
@@ -42,7 +42,7 @@ public class CustomDialogActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(CustomDialogActivity.this, UserActivity.class);
+                Intent intent= new Intent(AdminActivity.this, UserActivity.class);
                 startActivity(intent);
 
             }
