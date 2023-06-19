@@ -44,6 +44,18 @@ final class TrialRepository  {
         values.put(TrialRepository.COLUMN_NAME_END_TIME_OF_TRIAL,trial.getEndTimeOfTrial());
         return db.insert(TrialRepository.TABLE_NAME,null,values);
     }
+    public static long update(Trial trial, SQLiteDatabase db){
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(TrialRepository.COLUMN_NAME_REWARD,trial.getReward());
+        contentValues.put(TrialRepository.COLUMN_NAME_BALLOON_END_HEIGHT,trial.getBalloonEndHeight());
+        contentValues.put(TrialRepository.COLUMN_NAME_BALLOON_END_WIDTH,trial.getBalloonEndWidth());
+        contentValues.put(TrialRepository.COLUMN_NAME_END_TIME_OF_TRIAL,trial.getEndTimeOfTrial());
+
+        String whereClause = TrialRepository.COLUMN_NAME_ID + " = ?";
+        String[] whereArgs = {String.valueOf(trial.getId())};
+        return db.update(TrialRepository.TABLE_NAME,contentValues, whereClause, whereArgs);
+    }
+
 
 
 
