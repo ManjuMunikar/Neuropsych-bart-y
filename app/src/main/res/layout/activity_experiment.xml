@@ -8,35 +8,37 @@
 
     <ImageView
         android:id="@+id/balloon_view"
-        android:layout_width="154dp"
+        android:layout_width="0dp"
         android:layout_height="157dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="20dp"
 
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginBottom="108dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/balloon" />
 
     <Button
         android:id="@+id/pump"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginStart="296dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginBottom="48dp"
         android:background="@drawable/gradient"
         android:shadowColor="@color/app_theme"
         android:text="PUMP"
         android:textColor="@color/app_theme_light"
-        android:textSize="25dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnFillReward"
-        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/balloon_view"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@id/balloon_view"
+        app:layout_constraintVertical_bias="0.826" />
 
     <ImageView
         android:id="@+id/popBalloon"
@@ -57,41 +59,43 @@
         android:id="@+id/progressBar"
         style="@style/Widget.ProgressBar.Vertical"
         android:layout_width="83dp"
-        android:layout_height="372dp"
-        android:layout_marginBottom="152dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="108dp"
         android:max="100"
+
+
         android:progress="0"
-
-
         android:progressDrawable="@drawable/custom_progress_bar"
         android:rotation="360"
         android:scrollbarSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.814"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnFillReward"
-        android:layout_width="230dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="164dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="48dp"
         android:background="@drawable/gradient"
         android:text="Fill Reward Meter"
         android:textColor="@color/app_theme_light"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.838"
+        app:layout_constraintStart_toEndOf="@+id/pump"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvBonus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="176dp"
         android:text="bonus"
         android:textColor="@color/black"
@@ -104,7 +108,7 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="75dp"
         android:layout_marginEnd="272dp"
         android:text="big prize"
         android:textColor="@color/black"
@@ -117,7 +121,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="75dp"
         android:text="middle prize"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,7 +133,7 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="75dp"
         android:text="small prize"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
