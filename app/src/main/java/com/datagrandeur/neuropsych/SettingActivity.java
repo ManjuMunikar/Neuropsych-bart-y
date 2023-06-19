@@ -38,7 +38,6 @@ public class SettingActivity extends AppCompatActivity {
                 public boolean onPreferenceClick(Preference preference) {
                     // Start the other activity when the button preference is clicked
                     Intent intent = new Intent(getActivity(), DataExportActivity.class);
-//                    intent.putExtra("preferenceKey", "btnExport");
                     startActivity(intent);
                     return true;
                 }
