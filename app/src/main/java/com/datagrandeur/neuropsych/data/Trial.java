@@ -5,9 +5,9 @@ public class Trial {
      public int trialSequence;//1-30
      private String userId;
      private  int id;
-     private double reward;//0.5$
-    public int balloonStartHeight=157;
-    public int balloonStartWidth=154;
+     private double reward;
+    public int balloonStartHeight=80;
+    public int balloonStartWidth=80;
     public int balloonEndHeight;
     public int balloonEndWidth;
     public String startTimeOfTrial;

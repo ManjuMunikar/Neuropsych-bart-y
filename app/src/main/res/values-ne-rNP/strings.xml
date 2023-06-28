@@ -15,7 +15,7 @@
     <string name="next_button">अर्को</string>
     <string name="game_info1">"यो गेममा तिमीले ३० वटा बेलुन फुलाउन पर्नेछ । "</string>
     <string name="txt_back">फिर्ता</string>
-    <string name="pump">तिमीले “PUMP” बटनमा थिचेर बेलुनहरु फुलाउनु पर्नेछ।एक चोटी बेलुन फुलाएर हेर्नुहोस् !</string>
+    <string name="pump">PUMP</string>
     <string name="Pump1">PUMP</string>
     <string name="clickToStartTheExperiment">प्रयोग सुरु गर्न क्लिक गर्नुहोस्</string>
     <string name="bonus">बोनस</string>

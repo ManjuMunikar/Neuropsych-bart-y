@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"> Neuropsych Tool - BART-Y</string>
+    <string name="app_name">ALIVE - BART-Y</string>
 
     <string name="welcome">"                   \t\tWELCOME!                  \tTo the game of           Balloon Analogue Risk Task For Youth "</string>
     <string name="btn_continue">Click here to continue</string>

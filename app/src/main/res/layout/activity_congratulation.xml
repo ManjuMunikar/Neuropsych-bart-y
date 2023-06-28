@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/user_gradient"
+    android:background="@color/lavender"
     tools:context="com.datagrandeur.neuropsych.CongratulationActivity">
 
     <TextView
