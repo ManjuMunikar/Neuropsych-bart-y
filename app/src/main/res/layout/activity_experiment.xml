@@ -8,18 +8,17 @@
 
     <ImageView
         android:id="@+id/balloon_view"
-        android:layout_width="0dp"
-        android:layout_height="157dp"
-        android:layout_gravity="center"
-
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="300dp"
         android:layout_marginBottom="108dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/balloon" />
+        app:srcCompat="@drawable/balloon"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/pump"
@@ -42,8 +41,8 @@
 
     <ImageView
         android:id="@+id/popBalloon"
-        android:layout_width="199dp"
-        android:layout_height="233dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="228dp"

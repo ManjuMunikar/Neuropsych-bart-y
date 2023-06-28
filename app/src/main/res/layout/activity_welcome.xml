@@ -298,8 +298,8 @@
 
     <ImageView
         android:id="@+id/balloon_view"
-        android:layout_width="0dp"
-        android:layout_height="157dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="300dp"
         android:layout_marginBottom="108dp"
