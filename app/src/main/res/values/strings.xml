@@ -1,11 +1,7 @@
 <resources>
     <string name="app_name"> Neuropsych Tool - BART-Y</string>
 
-    <string name="welcome">
-                  \t\tWELCOME! \n\n
-              \tTo the game of \n
-        Balloon Analogue Risk Task For Youth
-</string>
+    <string name="welcome">"                   \t\tWELCOME!                  \tTo the game of           Balloon Analogue Risk Task For Youth "</string>
     <string name="btn_continue">Click here to continue</string>
     <string name="welcome_game">
         \t\tWelcome to the Balloon Game! \n
@@ -65,6 +61,13 @@
         on the Pump button with your Mouse\n
                 TRY IT!!!
     </string>
+    <string name="Pump1">Pump</string>
+    <string name="fillRewardMeter">Fill Reward Meter</string>
+    <string name="clickToStartTheExperiment">Click to start the Experiment</string>
+    <string name="bonus">Bonus</string>
+    <string name="bigPrize">big prize</string>
+    <string name="middlePrize">middle prize</string>
+    <string name="smallPrize">small prize</string>
 
 
     <string name="user_id">User ID</string>

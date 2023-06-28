@@ -4,12 +4,14 @@
     <array name="updateLocation">
         <item>Global (English)</item>
         <item>Nepal (Nepali)</item>
+        <item>South Africa (English)</item>
 
     </array>
 
     <array name="updateLocationValue">
         <item>global</item>
         <item>nepal</item>
+        <item>southAfricaEnglish</item>
 
     </array>
 </resources>
