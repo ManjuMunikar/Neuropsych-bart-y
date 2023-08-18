@@ -59,11 +59,11 @@
     <string name="pump">"          You pump up on the balloon by clicking         on the Pump button with your Mouse                  TRY IT!!!     "</string>
     <string name="Pump1">Pump</string>
     <string name="fillRewardMeter">Fill Reward Meter</string>
-    <string name="clickToStartTheExperiment">Click to start the Experiment</string>
+    <string name="clickToStartTheExperiment">Click to start the Game</string>
     <string name="bonus">Bonus</string>
-    <string name="bigPrize">big prize</string>
-    <string name="middlePrize">middle prize</string>
-    <string name="smallPrize">small prize</string>
+    <string name="bigPrize">Big prize</string>
+    <string name="middlePrize">Middle prize</string>
+    <string name="smallPrize">Small prize</string>
 
 
     <string name="user_id">User ID</string>
