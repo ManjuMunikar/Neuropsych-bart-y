@@ -2,15 +2,12 @@ package com.datagrandeur.neuropsych;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
 
 import com.example.neuropsych.R;
-
-import org.w3c.dom.Text;
 
 public class CongratulationActivity extends AppCompatActivity {
     TextView tvPointCollected;
@@ -28,7 +25,7 @@ public class CongratulationActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(Singleton.getInstance().getTrialSequence()==constant.balloonArray.length-1){
+                if(Singleton.getInstance().getTrialSequence()==constant.explosionPoints.length-1){
                     Intent intent=new Intent(CongratulationActivity.this,ThankYouActivity.class);
                     startActivity(intent);
                 }else{

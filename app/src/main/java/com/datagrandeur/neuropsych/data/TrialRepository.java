@@ -11,6 +11,8 @@ final class TrialRepository  {
     public static final String COLUMN_NAME_USER_ID ="user_id";
 
     public static final String COLUMN_NAME_PUMP_COUNT = "pump_count";
+    public static final String COLUMN_NAME_EXPLOSION_POINT = "explosion_point";
+
 
     public static final String COLUMN_NAME_POPPED = "popped";
     public static final String COLUMN_NAME_BALLOON_START_HEIGHT="balloon_start_height";
@@ -28,6 +30,7 @@ final class TrialRepository  {
                     TrialRepository.COLUMN_NAME_TRIAL_SEQUENCE_NUMBER +" INTEGER, " +
                     TrialRepository.COLUMN_NAME_POPPED +" BOOLEAN, " +
                     TrialRepository.COLUMN_NAME_PUMP_COUNT +" INTEGER, " +
+                    TrialRepository.COLUMN_NAME_EXPLOSION_POINT +" INTEGER, " +
                     TrialRepository.COLUMN_NAME_REWARD +" REAL, " +
                     TrialRepository.COLUMN_NAME_BALLOON_START_HEIGHT +" TEXT, " +
                     TrialRepository.COLUMN_NAME_BALLOON_START_WIDTH +" TEXT, " +
@@ -42,6 +45,7 @@ final class TrialRepository  {
         values.put(TrialRepository.COLUMN_NAME_TRIAL_SEQUENCE_NUMBER,trial.getTrialSequence());
         values.put(TrialRepository.COLUMN_NAME_USER_ID,trial.getUserId());
         values.put(TrialRepository.COLUMN_NAME_REWARD,trial.getReward());
+        values.put(TrialRepository.COLUMN_NAME_EXPLOSION_POINT,trial.getExplosionPoint());
         values.put(TrialRepository.COLUMN_NAME_PUMP_COUNT,trial.getPumpCount());
         values.put(TrialRepository.COLUMN_NAME_POPPED,trial.isPopped());
         values.put(TrialRepository.COLUMN_NAME_BALLOON_START_HEIGHT,trial.balloonStartHeight);
@@ -55,6 +59,7 @@ final class TrialRepository  {
     public static long update(Trial trial, SQLiteDatabase db){
         ContentValues contentValues=new ContentValues();
         contentValues.put(TrialRepository.COLUMN_NAME_REWARD,trial.getReward());
+        contentValues.put(TrialRepository.COLUMN_NAME_EXPLOSION_POINT,trial.getExplosionPoint());
         contentValues.put(TrialRepository.COLUMN_NAME_PUMP_COUNT,trial.getPumpCount());
         contentValues.put(TrialRepository.COLUMN_NAME_POPPED,trial.isPopped());
         contentValues.put(TrialRepository.COLUMN_NAME_BALLOON_END_HEIGHT,trial.getBalloonEndHeight());

@@ -8,6 +8,8 @@ public class Trial {
      private double reward;
      private int pumpCount;
 
+     private int explosionPoint;
+
      private boolean popped;
     public int balloonStartHeight=80;
     public int balloonStartWidth=80;
@@ -103,5 +105,13 @@ public class Trial {
 
     public void setPopped(boolean popped) {
         this.popped = popped;
+    }
+
+    public int getExplosionPoint() {
+        return explosionPoint;
+    }
+
+    public void setExplosionPoint(int explosionPoint) {
+        this.explosionPoint = explosionPoint;
     }
 }
