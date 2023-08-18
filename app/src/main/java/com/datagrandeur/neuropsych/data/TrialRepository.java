@@ -9,6 +9,10 @@ final class TrialRepository  {
     public static final String COLUMN_NAME_TRIAL_SEQUENCE_NUMBER ="trial_sequence";
     public static final String COLUMN_NAME_REWARD ="reward";
     public static final String COLUMN_NAME_USER_ID ="user_id";
+
+    public static final String COLUMN_NAME_PUMP_COUNT = "pump_count";
+
+    public static final String COLUMN_NAME_POPPED = "popped";
     public static final String COLUMN_NAME_BALLOON_START_HEIGHT="balloon_start_height";
     public static final String COLUMN_NAME_BALLOON_START_WIDTH="balloon_start_width";
     public static final String COLUMN_NAME_BALLOON_END_HEIGHT="balloon_end_height";
@@ -20,9 +24,11 @@ final class TrialRepository  {
     public  static final String CREATE=
             "CREATE TABLE "+ TrialRepository.TABLE_NAME+" ( "+
                     TrialRepository.COLUMN_NAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    TrialRepository.COLUMN_NAME_TRIAL_SEQUENCE_NUMBER +" INTEGER, " +
-                    TrialRepository.COLUMN_NAME_REWARD +" REAL, " +
                     TrialRepository.COLUMN_NAME_USER_ID +" TEXT, " +
+                    TrialRepository.COLUMN_NAME_TRIAL_SEQUENCE_NUMBER +" INTEGER, " +
+                    TrialRepository.COLUMN_NAME_POPPED +" BOOLEAN, " +
+                    TrialRepository.COLUMN_NAME_PUMP_COUNT +" INTEGER, " +
+                    TrialRepository.COLUMN_NAME_REWARD +" REAL, " +
                     TrialRepository.COLUMN_NAME_BALLOON_START_HEIGHT +" TEXT, " +
                     TrialRepository.COLUMN_NAME_BALLOON_START_WIDTH +" TEXT, " +
                     TrialRepository.COLUMN_NAME_BALLOON_END_HEIGHT +" TEXT, " +
@@ -34,8 +40,10 @@ final class TrialRepository  {
         ContentValues values=new ContentValues();
 
         values.put(TrialRepository.COLUMN_NAME_TRIAL_SEQUENCE_NUMBER,trial.getTrialSequence());
-        values.put(TrialRepository.COLUMN_NAME_REWARD,trial.getReward());
         values.put(TrialRepository.COLUMN_NAME_USER_ID,trial.getUserId());
+        values.put(TrialRepository.COLUMN_NAME_REWARD,trial.getReward());
+        values.put(TrialRepository.COLUMN_NAME_PUMP_COUNT,trial.getPumpCount());
+        values.put(TrialRepository.COLUMN_NAME_POPPED,trial.isPopped());
         values.put(TrialRepository.COLUMN_NAME_BALLOON_START_HEIGHT,trial.balloonStartHeight);
         values.put(TrialRepository.COLUMN_NAME_BALLOON_START_WIDTH,trial.balloonStartWidth);
         values.put(TrialRepository.COLUMN_NAME_BALLOON_END_HEIGHT,trial.getBalloonEndHeight());
@@ -47,6 +55,8 @@ final class TrialRepository  {
     public static long update(Trial trial, SQLiteDatabase db){
         ContentValues contentValues=new ContentValues();
         contentValues.put(TrialRepository.COLUMN_NAME_REWARD,trial.getReward());
+        contentValues.put(TrialRepository.COLUMN_NAME_PUMP_COUNT,trial.getPumpCount());
+        contentValues.put(TrialRepository.COLUMN_NAME_POPPED,trial.isPopped());
         contentValues.put(TrialRepository.COLUMN_NAME_BALLOON_END_HEIGHT,trial.getBalloonEndHeight());
         contentValues.put(TrialRepository.COLUMN_NAME_BALLOON_END_WIDTH,trial.getBalloonEndWidth());
         contentValues.put(TrialRepository.COLUMN_NAME_END_TIME_OF_TRIAL,trial.getEndTimeOfTrial());

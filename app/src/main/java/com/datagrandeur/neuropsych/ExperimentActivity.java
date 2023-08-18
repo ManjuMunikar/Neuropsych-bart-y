@@ -105,6 +105,8 @@ public class ExperimentActivity extends AppCompatActivity {
                     pbRewardMeter.setProgress(barValue);
 
                     trial.setReward(barValue);
+                    trial.setPopped(false);
+                    trial.setPumpCount(pumpCount);
                     trial.setBalloonEndWidth(vwBalloon.getWidth());
                     trial.setBalloonEndHeight(vwBalloon.getHeight());
                     dbHelper.updateTrial(trial, dbHelper.getDb());
@@ -233,6 +235,8 @@ public class ExperimentActivity extends AppCompatActivity {
             Singleton.getInstance().setReward(barValue);
 
         trial.setReward(Singleton.getInstance().getReward());
+        trial.setPopped(true);
+        trial.setPumpCount(pumpCount);
         pbRewardMeter.setProgress(barValue);
         dbHelper.updateTrial(trial, dbHelper.getDb());
 
