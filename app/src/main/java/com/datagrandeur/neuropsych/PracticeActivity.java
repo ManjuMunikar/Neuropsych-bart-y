@@ -110,10 +110,12 @@ public class PracticeActivity extends AppCompatActivity {
 
                     int progress = pbRewardMeter.getProgress();
                     int barValue = (int) (pumpCount + progress);
-                    pumpCount=0;
                     pbRewardMeter.setProgress(barValue);
 
                     Singleton.getInstance().setPracticeSessionOver(true);
+                    Singleton.getInstance().setCurrentTrialReward(pumpCount);
+
+                    pumpCount=0;
 
                     new Handler().postDelayed(new Runnable() {
                         @Override

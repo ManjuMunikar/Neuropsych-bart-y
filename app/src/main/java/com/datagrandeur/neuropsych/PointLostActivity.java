@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.TextView;
 
 import com.example.neuropsych.R;
 
@@ -15,6 +16,11 @@ public class PointLostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_point_lost);
+
+        String lostPoints = getString(R.string.LostPoints);
+        String finalLostPoint = String.format(lostPoints, ""+ (-1 * Singleton.getInstance().getCurrentTrialReward()));
+        TextView tvLostPoint = findViewById(R.id.tvLostPoint);
+        tvLostPoint.setText(finalLostPoint);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -33,6 +39,8 @@ public class PointLostActivity extends AppCompatActivity {
                 }
             }
         }, 2000);
+
+        Singleton.getInstance().setCurrentTrialReward(0);
 
     }
 }

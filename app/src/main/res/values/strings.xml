@@ -69,6 +69,8 @@
     <string name="user_id">User ID</string>
     <string name="full_name">Full Name</string>
     <string name="register">Register</string>
+    <string name="PointsCollected">Your have collected %s points!!!</string>
+    <string name="LostPoints">You have lost %s points!!!! -_-</string>
 
 
 </resources>

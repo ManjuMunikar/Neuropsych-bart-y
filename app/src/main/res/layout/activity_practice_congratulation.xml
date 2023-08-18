@@ -8,11 +8,11 @@
     tools:context="com.datagrandeur.neuropsych.CongratulationActivity">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvPointCollected"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Your points are Collected !!!"
+        android:text="@string/PointsCollected"
         android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

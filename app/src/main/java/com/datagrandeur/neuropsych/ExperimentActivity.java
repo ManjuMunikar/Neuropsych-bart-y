@@ -16,6 +16,7 @@ import com.datagrandeur.neuropsych.data.Pump;
 import com.datagrandeur.neuropsych.data.Trial;
 import com.example.neuropsych.R;
 
+import java.security.Signature;
 import java.time.LocalDateTime;
 
 public class ExperimentActivity extends AppCompatActivity {
@@ -91,7 +92,7 @@ public class ExperimentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(pumpCount>0) {
-                    trial.setReward(reward);
+
                     trial.setEndTimeOfTrial(DateUtils.getFormatDateTime(LocalDateTime.now()));
 
                     fillReward++;
@@ -99,9 +100,11 @@ public class ExperimentActivity extends AppCompatActivity {
                     int progress = pbRewardMeter.getProgress();
 
                     int barValue = (int) (reward + progress);
+                    Singleton.getInstance().setCurrentTrialReward(pumpCount);
                     Singleton.getInstance().setReward(barValue);
                     pbRewardMeter.setProgress(barValue);
 
+                    trial.setReward(barValue);
                     trial.setBalloonEndWidth(vwBalloon.getWidth());
                     trial.setBalloonEndHeight(vwBalloon.getHeight());
                     dbHelper.updateTrial(trial, dbHelper.getDb());
@@ -175,7 +178,7 @@ public class ExperimentActivity extends AppCompatActivity {
         poppedBalloonParams.height+=3;
         vwPoppedBalloon.setLayoutParams(poppedBalloonParams);
         vwPoppedBalloon.requestLayout();
-        trial.setReward(reward);
+        // trial.setReward(reward);
         pump.setCurrentPumpTime(DateUtils.getCurrentDateTime());
         pump.setPumpBtwPumps(String.valueOf(DateUtils.getDifferenceInMillisecond(pump.getLastPumpTime(),pump.getCurrentPumpTime())));
 
@@ -212,11 +215,25 @@ public class ExperimentActivity extends AppCompatActivity {
         vwPoppedBalloon.setVisibility(View.VISIBLE);
         mediaPlayer1.start();
 
-        trial.setReward(0.0);
         trial.setEndTimeOfTrial(DateUtils.getFormatDateTime(LocalDateTime.now()));
 
         trial.setBalloonEndWidth(vwBalloon.getWidth());
         trial.setBalloonEndHeight(vwBalloon.getHeight());
+        Singleton.getInstance().setCurrentTrialReward(pumpCount);
+
+
+        int progress = pbRewardMeter.getProgress();
+
+        int barValue = (int) (-1 * pumpCount + progress);
+        Singleton.getInstance().setCurrentTrialReward(pumpCount);
+
+        if(barValue<0)
+            Singleton.getInstance().setReward(0);
+        else
+            Singleton.getInstance().setReward(barValue);
+
+        trial.setReward(Singleton.getInstance().getReward());
+        pbRewardMeter.setProgress(barValue);
         dbHelper.updateTrial(trial, dbHelper.getDb());
 
         new Handler().postDelayed(new Runnable() {

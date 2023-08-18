@@ -14,6 +14,8 @@ public class Singleton {
     private String location = "";
     private  int reward =0;
 
+    private int currentTrialReward = 0;
+
     public static Singleton getInstance() {
         if (instance == null)
             instance = new Singleton();
@@ -75,5 +77,13 @@ public class Singleton {
 
     public void setPracticeSessionOver(boolean practiceSessionOver) {
         this.practiceSessionOver = practiceSessionOver;
+    }
+
+    public int getCurrentTrialReward() {
+        return currentTrialReward;
+    }
+
+    public void setCurrentTrialReward(int currentTrialReward) {
+        this.currentTrialReward = currentTrialReward;
     }
 }

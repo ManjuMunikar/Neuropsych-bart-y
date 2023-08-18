@@ -3,6 +3,7 @@ package com.datagrandeur.neuropsych;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +16,11 @@ public class PracticeCongratulationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice_congratulation);
+
+        String pointCollected = getString(R.string.PointsCollected);
+        String finalPointCollected = String.format(pointCollected, ""+Singleton.getInstance().getCurrentTrialReward());
+        TextView tvPointCollected = findViewById(R.id.tvPointCollected);
+        tvPointCollected.setText(finalPointCollected);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -23,6 +29,6 @@ public class PracticeCongratulationActivity extends AppCompatActivity {
             }
         }, 2000);
 
-
+        Singleton.getInstance().setCurrentTrialReward(0);
     }
 }
