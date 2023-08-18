@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -41,6 +42,8 @@ public class ExperimentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         reward=0.0;
         trial_id=0;
         dbHelper = new DatabaseHelper(getApplicationContext());
@@ -93,15 +96,15 @@ public class ExperimentActivity extends AppCompatActivity {
         btnFillRewardMeter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(pumpCount>0) {
+                    trial.setReward(reward);
+                    trial.setEndTimeOfTrial(DateUtils.getFormatDateTime(LocalDateTime.now()));
 
-                trial.setReward(reward);
-                trial.setEndTimeOfTrial(DateUtils.getFormatDateTime(LocalDateTime.now()));
+                    fillReward++;
+                    mediaPlayer2.start();
+                    int progress = pbRewardMeter.getProgress();
 
-                fillReward++;
-                mediaPlayer2.start();
-                int progress = pbRewardMeter.getProgress();
-
-                int barValue = Singleton.getInstance().getReward();
+                    int barValue = Singleton.getInstance().getReward();
                     barValue = 5 + progress;
                     Singleton.getInstance().setReward(barValue);
                     pbRewardMeter.setProgress(barValue);
@@ -110,23 +113,24 @@ public class ExperimentActivity extends AppCompatActivity {
                     trial.setBalloonEndHeight(vwBalloon.getHeight());
                     dbHelper.updateTrial(trial, dbHelper.getDb());
 
-                new Handler().postDelayed(new Runnable() {
+                    new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             startActivity(new Intent(ExperimentActivity.this, CongratulationActivity.class));
                             finish();
                         }
                     }, 100);
-                progressBar.setProgress(barValue);
+                    progressBar.setProgress(barValue);
 
-                if(fillReward==constant.balloonArray.length-1){
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            startActivity(new Intent(ExperimentActivity.this, ThankYouActivity.class));
-                            finish();
-                        }
-                    }, 100);
+                    if (fillReward == constant.balloonArray.length - 1) {
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(new Intent(ExperimentActivity.this, ThankYouActivity.class));
+                                finish();
+                            }
+                        }, 100);
+                    }
                 }
 
 
@@ -156,17 +160,27 @@ public class ExperimentActivity extends AppCompatActivity {
 
         pump.setPumpSequence(pumpCount);
         reward=reward+0.5;
-        ViewGroup.LayoutParams params= vwBalloon.getLayoutParams();
-        ViewGroup.LayoutParams params1=vwPoppedBalloon.getLayoutParams();
 
-        params.width+=5;
-        params.height+=10;
-        vwBalloon.setLayoutParams(params);
+        int initialX = (int) vwBalloon.getX();
+        int initialY = (int) vwBalloon.getY();
+        
+        ViewGroup.LayoutParams balloonParams= vwBalloon.getLayoutParams();
+        ViewGroup.LayoutParams poppedBalloonParams=vwPoppedBalloon.getLayoutParams();
+
+
+        balloonParams.width+=5;
+        balloonParams.height+=3;
+        
+        // Set the balloon's position to the initial position
+        vwBalloon.setX(initialX);
+        vwBalloon.setY(initialY);
+
+        vwBalloon.setLayoutParams(balloonParams);
         vwBalloon.requestLayout();
 
-        params1.width+=5;
-        params1.height+=10;
-        vwPoppedBalloon.setLayoutParams(params1);
+        poppedBalloonParams.width+=5;
+        poppedBalloonParams.height+=3;
+        vwPoppedBalloon.setLayoutParams(poppedBalloonParams);
         vwPoppedBalloon.requestLayout();
         trial.setReward(reward);
         pump.setCurrentPumpTime(DateUtils.getCurrentDateTime());
@@ -177,10 +191,15 @@ public class ExperimentActivity extends AppCompatActivity {
             pump.setExploded(true);
             pump.setBalloonWidth(0);
             pump.setBalloonHeight(0);
+            vwPoppedBalloon.setVisibility(View.VISIBLE);
+            vwPoppedBalloon.setX(vwBalloon.getX());
+            vwPoppedBalloon.setY(vwBalloon.getY());
+            btnPump.setVisibility(View.INVISIBLE);
         }else{
             pump.setExploded(false);
             pump.setBalloonHeight(vwBalloon.getHeight());
             pump.setBalloonWidth(vwBalloon.getWidth());
+            vwPoppedBalloon.setVisibility(View.INVISIBLE);
         }
 
         dbHelper.insertPump(pump, dbHelper.getDb());
@@ -218,3 +237,7 @@ public class ExperimentActivity extends AppCompatActivity {
     }
 
     }
+
+
+
+
