@@ -16,11 +16,9 @@ import android.widget.TextView;
 import com.example.neuropsych.R;
 
 
-public class WelcomeActivity extends AppCompatActivity {
+public class PracticeActivity extends AppCompatActivity {
     private TextView[] tvInstructions;
-    private float scaleFactor = 1.0f;
 
-    private int[] balloonArray = {3,5,39,96,88,21,121,10,64,32,64,101,26,34,47,121,64,95,75,13,64,112,30,88,9,64,91,17,115,50};
     private int pumpCount =0;
 
     private int instructionIndex;
@@ -39,7 +37,7 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-        setContentView(R.layout.activity_welcome);
+        setContentView(R.layout.activity_practice);
         tvInstructions =new TextView[] {findViewById(R.id.tvWelcome),findViewById(R.id.Game_info1),findViewById(R.id.pump_info),findViewById(R.id.txt_info1),findViewById(R.id.txt_info2),findViewById(R.id.txt_info3),findViewById(R.id.txt_info4),findViewById(R.id.txt_info5),findViewById(R.id.txt_info6),findViewById(R.id.txt_info7),findViewById(R.id.txt_info8)};
         instructionIndex =0;
 
@@ -77,7 +75,7 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent =new Intent(WelcomeActivity.this,ExperimentActivity.class);
+                Intent intent =new Intent(PracticeActivity.this,ExperimentActivity.class);
                 startActivity(intent);
 
             }
@@ -120,7 +118,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            startActivity(new Intent(WelcomeActivity.this, PracticeCongratulationActivity.class));
+                            startActivity(new Intent(PracticeActivity.this, PracticeCongratulationActivity.class));
                             finish();
                         }
                     }, 400);

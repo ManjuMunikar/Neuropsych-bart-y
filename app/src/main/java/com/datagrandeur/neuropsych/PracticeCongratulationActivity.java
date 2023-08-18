@@ -18,7 +18,7 @@ public class PracticeCongratulationActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(PracticeCongratulationActivity.this,WelcomeActivity.class);
+                Intent intent=new Intent(PracticeCongratulationActivity.this, PracticeActivity.class);
                 startActivity(intent);
             }
         }, 2000);
