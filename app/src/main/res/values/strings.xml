@@ -56,11 +56,7 @@
 
     </string>
     <string name="txt_back">BACK</string>
-    <string name="pump">
-         You pump up on the balloon by clicking
-        on the Pump button with your Mouse\n
-                TRY IT!!!
-    </string>
+    <string name="pump">"          You pump up on the balloon by clicking         on the Pump button with your Mouse                  TRY IT!!!     "</string>
     <string name="Pump1">Pump</string>
     <string name="fillRewardMeter">Fill Reward Meter</string>
     <string name="clickToStartTheExperiment">Click to start the Experiment</string>

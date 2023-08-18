@@ -29,7 +29,7 @@
         android:layout_marginBottom="48dp"
         android:background="@drawable/gradient"
         android:shadowColor="@color/app_theme"
-        android:text="@string/pump"
+        android:text="@string/Pump1"
         android:textColor="@color/app_theme_light"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
