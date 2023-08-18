@@ -309,7 +309,7 @@
         tools:ignore="MissingConstraints" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressPracticeBar"
         style="@style/Widget.ProgressBar.Vertical"
         android:layout_width="81dp"
         android:layout_height="0dp"
@@ -385,7 +385,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/progressBar"
+        app:layout_constraintStart_toEndOf="@+id/progressPracticeBar"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -397,7 +397,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/progressBar"
+        app:layout_constraintStart_toEndOf="@+id/progressPracticeBar"
         app:layout_constraintTop_toBottomOf="@+id/tvBonus" />
 
     <TextView
@@ -409,7 +409,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/progressBar"
+        app:layout_constraintStart_toEndOf="@+id/progressPracticeBar"
         app:layout_constraintTop_toBottomOf="@+id/tvBigPrize" />
 
     <TextView
@@ -421,7 +421,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/progressBar"
+        app:layout_constraintStart_toEndOf="@+id/progressPracticeBar"
         app:layout_constraintTop_toBottomOf="@+id/tvMiddlePrize" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

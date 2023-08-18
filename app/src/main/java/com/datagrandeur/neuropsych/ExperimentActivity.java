@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,20 +17,17 @@ import com.datagrandeur.neuropsych.data.Trial;
 import com.example.neuropsych.R;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class ExperimentActivity extends AppCompatActivity {
     Constant constant=new Constant();
     private Button btnPump;
     private ProgressBar progressBar;
     private int pumpCount ;
-    private int rewardCount=0;
     private double reward;
     private  int fillReward=0;
     private ProgressBar pbRewardMeter;
     private DatabaseHelper dbHelper;
     private Trial trial;
-    private int trial_id;
     private Pump pump;
     private View vwBalloon;
     private View vwPoppedBalloon;
@@ -45,7 +41,6 @@ public class ExperimentActivity extends AppCompatActivity {
 
 
         reward=0.0;
-        trial_id=0;
         dbHelper = new DatabaseHelper(getApplicationContext());
         trial = new Trial();
         pump=new Pump();
@@ -77,7 +72,6 @@ public class ExperimentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pumpCount++;
                 pumpBalloon();
-                rewardCount = 5;
 
                 mediaPlayer.start();
                 if (isPop()) {

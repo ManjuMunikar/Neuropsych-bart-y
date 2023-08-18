@@ -2,27 +2,18 @@ package com.datagrandeur.neuropsych;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.datagrandeur.neuropsych.data.Trial;
 import com.example.neuropsych.R;
-
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -44,11 +35,6 @@ public class WelcomeActivity extends AppCompatActivity {
     private ImageView vwPoppedBalloon;
     private  Button btnInflate;
 
-    private int height;
-    private int width;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,12 +55,6 @@ public class WelcomeActivity extends AppCompatActivity {
         vwPoppedBalloon=findViewById(R.id.popBalloon); //balloon pop imageview
 
         btnClickToContinue =findViewById(R.id.clickToContinue);
-
-        height = vwBalloon.getLayoutParams().height;
-        width = vwBalloon.getLayoutParams().width;
-
-
-
 
         final MediaPlayer mediaPlayer= MediaPlayer.create(this,R.raw.inflate);
         final MediaPlayer mediaPlayer2=MediaPlayer.create(this,R.raw.casino);
@@ -113,9 +93,9 @@ public class WelcomeActivity extends AppCompatActivity {
                 mediaPlayer.start();
             }
         });
-        btnFillRewardMeter =findViewById(R.id.btnFillReward);
 
-        pbRewardMeter =findViewById(R.id.progressBar);
+        btnFillRewardMeter = findViewById(R.id.btnFillReward);
+        pbRewardMeter =findViewById(R.id.progressPracticeBar);
         btnFillRewardMeter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,7 +106,6 @@ public class WelcomeActivity extends AppCompatActivity {
                     int progress = pbRewardMeter.getProgress();
                     int barValue = (int) (pumpCount + progress);
                     pumpCount=0;
-                    Singleton.getInstance().setReward(barValue);
                     pbRewardMeter.setProgress(barValue);
 
                     new Handler().postDelayed(new Runnable() {
@@ -135,7 +114,7 @@ public class WelcomeActivity extends AppCompatActivity {
                             startActivity(new Intent(WelcomeActivity.this, PracticeCongratulationActivity.class));
                             finish();
                         }
-                    }, 1000);
+                    }, 400);
                 }
             }
         });
