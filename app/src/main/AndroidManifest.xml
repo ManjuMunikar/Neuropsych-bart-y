@@ -41,6 +41,10 @@
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
+            android:name="com.datagrandeur.neuropsych.PracticeCongratulationActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
             android:name="com.datagrandeur.neuropsych.ExperimentActivity"
             android:exported="false"
             android:screenOrientation="landscape" />

@@ -7,6 +7,7 @@ import android.animation.PropertyValuesHolder;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -20,6 +21,7 @@ import com.datagrandeur.neuropsych.data.Trial;
 import com.example.neuropsych.R;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -42,9 +44,15 @@ public class WelcomeActivity extends AppCompatActivity {
     private ImageView vwPoppedBalloon;
     private  Button btnInflate;
 
+    private int height;
+    private int width;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
         setContentView(R.layout.activity_welcome);
         tvInstructions =new TextView[] {findViewById(R.id.tvWelcome),findViewById(R.id.Game_info1),findViewById(R.id.pump_info),findViewById(R.id.txt_info1),findViewById(R.id.txt_info2),findViewById(R.id.txt_info3),findViewById(R.id.txt_info4),findViewById(R.id.txt_info5),findViewById(R.id.txt_info6),findViewById(R.id.txt_info7),findViewById(R.id.txt_info8)};
@@ -62,8 +70,15 @@ public class WelcomeActivity extends AppCompatActivity {
 
         btnClickToContinue =findViewById(R.id.clickToContinue);
 
+        height = vwBalloon.getLayoutParams().height;
+        width = vwBalloon.getLayoutParams().width;
+
+
+
 
         final MediaPlayer mediaPlayer= MediaPlayer.create(this,R.raw.inflate);
+        final MediaPlayer mediaPlayer2=MediaPlayer.create(this,R.raw.casino);
+
         tvNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,14 +119,24 @@ public class WelcomeActivity extends AppCompatActivity {
         btnFillRewardMeter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int progress = pbRewardMeter.getProgress();
-                if (progress < 100) {
-                    progress += 10; // Increase the progress by 10
-                    pbRewardMeter.setProgress(progress);
+                if (pumpCount > 0) {
+
+                    mediaPlayer2.start();
+
+                    int progress = pbRewardMeter.getProgress();
+                    int barValue = (int) (pumpCount + progress);
+                    pumpCount=0;
+                    Singleton.getInstance().setReward(barValue);
+                    pbRewardMeter.setProgress(barValue);
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(new Intent(WelcomeActivity.this, PracticeCongratulationActivity.class));
+                            finish();
+                        }
+                    }, 1000);
                 }
-
-
-
             }
         });
 
@@ -120,20 +145,25 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void inflateBalloon(){
 
-        ViewGroup.LayoutParams params= vwBalloon.getLayoutParams();
-        ViewGroup.LayoutParams params1=vwPoppedBalloon.getLayoutParams();
+        int initialX = (int) vwBalloon.getX();
+        int initialY = (int) vwBalloon.getY();
 
-        params.width+=5;
-        params.height+=10;
-        vwBalloon.setLayoutParams(params);
+        ViewGroup.LayoutParams balloonParams= vwBalloon.getLayoutParams();
+        ViewGroup.LayoutParams poppedBalloonParams=vwPoppedBalloon.getLayoutParams();
+
+
+        balloonParams.width+=5;
+        balloonParams.height+=3;
+
+        // Set the balloon's position to the initial position
+        vwBalloon.setX(initialX);
+        vwBalloon.setY(initialY);
+
+        vwBalloon.setLayoutParams(balloonParams);
         vwBalloon.requestLayout();
 
-        params1.width+=5;
-        params1.height+=10;
-        vwPoppedBalloon.setLayoutParams(params1);
-        vwPoppedBalloon.requestLayout();
-    }
 
+    }
 
 
     private void updateTextView(){

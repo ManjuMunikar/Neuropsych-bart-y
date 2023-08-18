@@ -32,7 +32,7 @@ public class PointLostActivity extends AppCompatActivity {
 
                 }
             }
-        }, 3000);
+        }, 2000);
 
     }
 }

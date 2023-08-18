@@ -104,8 +104,7 @@ public class ExperimentActivity extends AppCompatActivity {
                     mediaPlayer2.start();
                     int progress = pbRewardMeter.getProgress();
 
-                    int barValue = Singleton.getInstance().getReward();
-                    barValue = 5 + progress;
+                    int barValue = (int) (reward + progress);
                     Singleton.getInstance().setReward(barValue);
                     pbRewardMeter.setProgress(barValue);
 
@@ -159,7 +158,7 @@ public class ExperimentActivity extends AppCompatActivity {
     public void pumpBalloon(){
 
         pump.setPumpSequence(pumpCount);
-        reward=reward+0.5;
+        reward=reward+1.0;
 
         int initialX = (int) vwBalloon.getX();
         int initialY = (int) vwBalloon.getY();
