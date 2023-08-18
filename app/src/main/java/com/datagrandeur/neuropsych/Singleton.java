@@ -6,6 +6,8 @@ public class Singleton {
 
     private int trialSequence;
 
+    private boolean practiceSessionOver;
+
     private String userId;
     private String fullName;
     private String language = "en";
@@ -65,5 +67,13 @@ public class Singleton {
 
     public void setTrialSequence(int trialSequence) {
         this.trialSequence = trialSequence;
+    }
+
+    public boolean isPracticeSessionOver() {
+        return practiceSessionOver;
+    }
+
+    public void setPracticeSessionOver(boolean practiceSessionOver) {
+        this.practiceSessionOver = practiceSessionOver;
     }
 }

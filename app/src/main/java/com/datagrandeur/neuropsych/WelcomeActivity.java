@@ -19,7 +19,6 @@ import com.example.neuropsych.R;
 public class WelcomeActivity extends AppCompatActivity {
     private TextView[] tvInstructions;
     private float scaleFactor = 1.0f;
-    private TextView tvInstructionBox;
 
     private int[] balloonArray = {3,5,39,96,88,21,121,10,64,32,64,101,26,34,47,121,64,95,75,13,64,112,30,88,9,64,91,17,115,50};
     private int pumpCount =0;
@@ -45,7 +44,6 @@ public class WelcomeActivity extends AppCompatActivity {
         instructionIndex =0;
 
         tvNext =findViewById(R.id.tvNext); //Next
-        tvInstructionBox=findViewById(R.id.text_instruction); //textView
         tvBack =findViewById(R.id.txtGoBack); //Back
 
         btnInflate=findViewById(R.id.btnPump);
@@ -56,6 +54,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         btnClickToContinue =findViewById(R.id.clickToContinue);
 
+
         final MediaPlayer mediaPlayer= MediaPlayer.create(this,R.raw.inflate);
         final MediaPlayer mediaPlayer2=MediaPlayer.create(this,R.raw.casino);
 
@@ -64,6 +63,14 @@ public class WelcomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 instructionIndex =(instructionIndex +1)% tvInstructions.length; //next button increase tv
                 updateTextView();
+
+                if(instructionIndex==tvInstructions.length-1){
+                    btnFillRewardMeter.setVisibility(View.VISIBLE);
+                    btnInflate.setVisibility(View.VISIBLE);
+                    tvNext.setVisibility(View.GONE);
+                    tvBack.setVisibility(View.GONE);
+
+                }
             }
         });
         btnClickToContinue.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +115,8 @@ public class WelcomeActivity extends AppCompatActivity {
                     pumpCount=0;
                     pbRewardMeter.setProgress(barValue);
 
+                    Singleton.getInstance().setPracticeSessionOver(true);
+
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -118,6 +127,25 @@ public class WelcomeActivity extends AppCompatActivity {
                 }
             }
         });
+
+        if(!Singleton.getInstance().isPracticeSessionOver()){
+
+            btnFillRewardMeter.setVisibility(View.GONE);
+            btnInflate.setVisibility(View.GONE);
+            btnClickToContinue.setVisibility(View.GONE);
+            tvNext.setVisibility(View.VISIBLE);
+            tvBack.setVisibility(View.GONE);
+        }
+
+
+        if(Singleton.getInstance().isPracticeSessionOver()){
+
+            btnFillRewardMeter.setVisibility(View.GONE);
+            btnInflate.setVisibility(View.GONE);
+            btnClickToContinue.setVisibility(View.VISIBLE);
+            tvNext.setVisibility(View.GONE);
+            tvBack.setVisibility(View.GONE);
+        }
 
     }
 
@@ -146,17 +174,13 @@ public class WelcomeActivity extends AppCompatActivity {
 
 
     private void updateTextView(){
+
         for(int i = 0; i< tvInstructions.length; i++){
             if(i== instructionIndex){ //instructionIndex=0
                 tvInstructions[i].setVisibility(View.VISIBLE);
             }else{
                 tvInstructions[i].setVisibility(View.GONE);
-            }if(tvInstructions[i]==findViewById(R.id.txt_info8)){
-                btnClickToContinue.setVisibility(View.VISIBLE);
-
             }
-
-
         }
 
     }
