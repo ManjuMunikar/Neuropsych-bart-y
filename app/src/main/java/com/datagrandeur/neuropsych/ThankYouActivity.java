@@ -15,6 +15,8 @@ public class ThankYouActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thank_you);
 
+        Singleton.getInstance().setPracticeSessionOver(false);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

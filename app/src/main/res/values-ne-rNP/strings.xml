@@ -11,13 +11,13 @@
     <string name="txt_info5">तिमीले कुनै पनि बेला “Fill Reward Meter” बटनमा थिचेर बेलुन फुलाउन रोक्न सक्छौ ।</string>
     <string name="txt_info6">"खेल सकिएपछि तिमीले पुरस्कार लिन सक्नेछौ र तिमीले कुन पुरस्कार पाउँछौ भन्ने कुरा Reward Meter को आकारले तय गर्नेछ । "</string>
     <string name="txt_info7">तिमीले यो खेल खेलेर सानो, मध्यम, ठुलो र बोनस पुरस्कार  मध्य कुनै एक पुरस्कार पाउँन सक्नेछौ ।</string>
-    <string name="txt_info8">तिमी तयार भएपछि यो बेलुन सम्बन्धि खेल सुरु गर। अगाडि बढ्न Screen मा थिच।</string>
+    <string name="txt_info8">तिमी तयार भएपछि यो बेलुन सम्बन्धि खेल सुरु गर।</string>
     <string name="next_button">अर्को</string>
     <string name="game_info1">"यो गेममा तिमीले ३० वटा बेलुन फुलाउन पर्नेछ । "</string>
     <string name="txt_back">फिर्ता</string>
     <string name="pump">"तिमीले “PUMP” बटनमा थिचेर बेलुनहरु फुलाउनु पर्नेछ।एक चोटी बेलुन फुलाएर हेर्नुहोस् ! "</string>
     <string name="Pump1">PUMP</string>
-    <string name="clickToStartTheExperiment">खेल सुरु गर्न क्लिक गर्नुहोस्</string>
+    <string name="clickToStartTheExperiment">खेल सुरु गर्न यहाँ थिच्नुहोस्</string>
     <string name="bonus">बोनस</string>
     <string name="bigPrize">ठुलो पुरस्कार</string>
 

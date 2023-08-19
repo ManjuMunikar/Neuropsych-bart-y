@@ -25,7 +25,7 @@ public class PointLostActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if(Singleton.getInstance().getTrialSequence()==constant.explosionPoints.length-1){
-                    Intent intent=new Intent(PointLostActivity.this,ThankYouActivity.class);
+                    Intent intent=new Intent(PointLostActivity.this,RewardActivity.class);
                     startActivity(intent);
                 }else{
                     int trialId=Singleton.getInstance().getTrialSequence();

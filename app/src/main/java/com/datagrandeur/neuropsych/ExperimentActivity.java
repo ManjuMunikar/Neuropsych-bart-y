@@ -120,28 +120,28 @@ public class ExperimentActivity extends AppCompatActivity {
                     }, 100);
                     progressBar.setProgress(barValue);
 
-                    if (fillReward == constant.explosionPoints.length - 1) {
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(new Intent(ExperimentActivity.this, ThankYouActivity.class));
-                                finish();
-                            }
-                        }, 100);
-                    }
+//                    if (isEndExperiment()) {
+//                        new Handler().postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                startActivity(new Intent(ExperimentActivity.this, RewardActivity.class));
+//                                finish();
+//                            }
+//                        }, 100);
+//                    }
                 }
 
-
-                if(isEndExperiment()==true){
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            startActivity(new Intent(ExperimentActivity.this,ThankYouActivity.class));
-                            finish();
-                        }
-                    }, 100);
-
-                }
+//
+//                if(isEndExperiment()==true){
+//                    new Handler().postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            startActivity(new Intent(ExperimentActivity.this,RewardActivity.class));
+//                            finish();
+//                        }
+//                    }, 100);
+//
+//                }
 
 
             }
@@ -207,7 +207,7 @@ public class ExperimentActivity extends AppCompatActivity {
 
     public boolean isEndExperiment(){
 
-        return pumpCount == (constant.explosionPoints.length - 1);
+        return Singleton.getInstance().getTrialSequence()-1 == (constant.explosionPoints.length);
     }
     public void popBalloon(){
 

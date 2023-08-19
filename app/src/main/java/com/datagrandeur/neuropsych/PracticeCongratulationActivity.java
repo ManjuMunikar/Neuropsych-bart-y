@@ -28,7 +28,5 @@ public class PracticeCongratulationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }, 2000);
-
-        Singleton.getInstance().setCurrentTrialReward(0);
     }
 }

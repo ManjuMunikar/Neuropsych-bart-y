@@ -10,19 +10,18 @@
 
     </string>
     <string name="txt_info1">
-        For each pump you get rewarded in this game
-                     but remember
-        balloons pops if you pump them up too much!!!
+        For each pump you get rewarded in this game.
+                     But remember, balloons pops if you pump them up too much!
     </string>
     <string name="txt_info2">
-        If a balloon pops, You will not get a reward
-        you will have to wait for next balloon
-                   And try Again!!
+        If a balloon pops, you will not get the reward
+        you have to wait for the next balloon
+                   and try Again!!
     </string>
     <string name="txt_info3">
         Some of these Balloons might pop after just
-        one pump others might not pop
-        Until they fill the entire screen
+        one pump. Others might not pop
+        until they fill the entire screen
     </string>
     <string name="txt_info4">
         It is up to you to decide how much
@@ -30,24 +29,24 @@
     </string>
     <string name="txt_info5">
         You can stop pumping at any time
-        by clicking on the
+        by touching on the
         "Fill Reward Meter"
-        button
+        button.
     </string>
     <string name="txt_info6">
         When the game is over, you will be able to
-        collect a prize which will depend on how high your
-        reward meter is
+        collect a prize. Which prize you will get depends on how high your
+        reward meter is.
     </string>
     <string name="txt_info7">
-        There are four types of rewards you can earn
+        There are four types of rewards you can earn:
          a small prize, a medium prize, a big prize
-                      and a bonus prize,
-        your meter will show you hoe closer you are
+                      and a bonus prize.
+        Your meter will show you how much close you are to each.
     </string>
     <string name="txt_info8">
                 Start the Balloon Game\n
-               Click the button to start the game!!!!
+               when you are ready.
     </string>
     <string name="next_button">NEXT</string>
     <string name="game_info1">
@@ -56,7 +55,7 @@
 
     </string>
     <string name="txt_back">BACK</string>
-    <string name="pump">"          You pump up on the balloon by clicking         on the Pump button with your Mouse                  TRY IT!!!     "</string>
+    <string name="pump">"          You pump up on the balloon by touching         on the "Pump" button with your finger.                  TRY IT!!!     "</string>
     <string name="Pump1">Pump</string>
     <string name="fillRewardMeter">Fill Reward Meter</string>
     <string name="clickToStartTheExperiment">Click to start the Game</string>

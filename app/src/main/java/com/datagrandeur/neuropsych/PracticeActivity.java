@@ -51,6 +51,7 @@ public class PracticeActivity extends AppCompatActivity {
         vwPoppedBalloon=findViewById(R.id.popBalloon); //balloon pop imageview
 
         btnClickToContinue =findViewById(R.id.clickToContinue);
+        btnClickToContinue.setVisibility(View.GONE);
 
 
         final MediaPlayer mediaPlayer= MediaPlayer.create(this,R.raw.inflate);
@@ -62,11 +63,24 @@ public class PracticeActivity extends AppCompatActivity {
                 instructionIndex =(instructionIndex +1)% tvInstructions.length; //next button increase tv
                 updateTextView();
 
-                if(instructionIndex==tvInstructions.length-1){
-                    btnFillRewardMeter.setVisibility(View.VISIBLE);
+                if(instructionIndex==2){
                     btnInflate.setVisibility(View.VISIBLE);
                     tvNext.setVisibility(View.GONE);
+                }else{
+                    btnInflate.setVisibility(View.GONE);
+                }
+
+                if(instructionIndex==tvInstructions.length-4){
+                    btnFillRewardMeter.setVisibility(View.VISIBLE);
+                    tvNext.setVisibility(View.GONE);
                     tvBack.setVisibility(View.GONE);
+
+                }
+
+                if(instructionIndex==tvInstructions.length-1){
+                    tvNext.setVisibility(View.GONE);
+                    tvBack.setVisibility(View.GONE);
+                    btnClickToContinue.setVisibility(View.VISIBLE);
 
                 }
             }
@@ -86,6 +100,8 @@ public class PracticeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 instructionIndex =(instructionIndex -1+ tvInstructions.length)% tvInstructions.length;
+
+
                 updateTextView();
 
             }
@@ -94,6 +110,7 @@ public class PracticeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pumpCount++;
+                tvNext.setVisibility(View.VISIBLE);
                 inflateBalloon();
                 mediaPlayer.start();
             }
@@ -115,8 +132,6 @@ public class PracticeActivity extends AppCompatActivity {
                     Singleton.getInstance().setPracticeSessionOver(true);
                     Singleton.getInstance().setCurrentTrialReward(pumpCount);
 
-                    pumpCount=0;
-
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -132,19 +147,27 @@ public class PracticeActivity extends AppCompatActivity {
 
             btnFillRewardMeter.setVisibility(View.GONE);
             btnInflate.setVisibility(View.GONE);
-            btnClickToContinue.setVisibility(View.GONE);
             tvNext.setVisibility(View.VISIBLE);
             tvBack.setVisibility(View.GONE);
         }
 
 
         if(Singleton.getInstance().isPracticeSessionOver()){
-
+            instructionIndex=tvInstructions.length-3;
+            updateTextView();
             btnFillRewardMeter.setVisibility(View.GONE);
             btnInflate.setVisibility(View.GONE);
-            btnClickToContinue.setVisibility(View.VISIBLE);
-            tvNext.setVisibility(View.GONE);
+            //btnClickToContinue.setVisibility(View.VISIBLE);
+            tvNext.setVisibility(View.VISIBLE);
             tvBack.setVisibility(View.GONE);
+            pumpCount=Singleton.getInstance().getCurrentTrialReward();
+
+            int progress = pbRewardMeter.getProgress();
+            int barValue = (int) (pumpCount + progress);
+            pbRewardMeter.setProgress(barValue);
+
+            Singleton.getInstance().setCurrentTrialReward(0);
+
         }
 
     }

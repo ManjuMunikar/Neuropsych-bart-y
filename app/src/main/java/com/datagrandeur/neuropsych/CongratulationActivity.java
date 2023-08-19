@@ -26,7 +26,7 @@ public class CongratulationActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if(Singleton.getInstance().getTrialSequence()==constant.explosionPoints.length-1){
-                    Intent intent=new Intent(CongratulationActivity.this,ThankYouActivity.class);
+                    Intent intent=new Intent(CongratulationActivity.this,RewardActivity.class);
                     startActivity(intent);
                 }else{
                     int trialId=Singleton.getInstance().getTrialSequence();
