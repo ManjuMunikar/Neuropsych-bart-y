@@ -9,15 +9,17 @@
     <TextView
         android:id="@+id/text_instruction"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="300dp"
         android:layout_marginStart="32dp"
-        android:layout_marginEnd="300dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/gradient"
         android:paddingLeft="10dp"
+        android:textAlignment="viewStart"
         android:textColor="@android:color/white"
         android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/progressPracticeBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.071" />
@@ -30,8 +32,9 @@
         android:layout_marginEnd="16dp"
         android:gravity="center"
         android:text="@string/pump"
-        android:textColor="@android:color/white"
+        android:textAlignment="viewStart"
 
+        android:textColor="@android:color/white"
         android:textSize="30sp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
@@ -46,14 +49,14 @@
         android:layout_width="80dp"
         android:layout_height="35dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="320dp"
-        android:gravity="center"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/gradient"
+        android:gravity="center"
         android:text="@string/next_button"
         android:textColor="@android:color/white"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/progressPracticeBar"
         app:layout_constraintTop_toBottomOf="@+id/text_instruction"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -66,9 +69,10 @@
         android:layout_marginEnd="16dp"
         android:gravity="center"
         android:text="@string/game_info1"
+        android:textAlignment="viewStart"
+
+
         android:textColor="@color/white"
-
-
         android:textSize="30sp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
@@ -80,14 +84,17 @@
 
     <TextView
         android:id="@+id/tvWelcome"
-        android:layout_width="359dp"
-        android:layout_height="107dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginEnd="44dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
 
 
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
         android:gravity="center"
         android:text="@string/welcome_game"
+        android:textAlignment="viewStart"
         android:textColor="@color/app_theme_light"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
@@ -106,6 +113,7 @@
         android:text="@string/txt_info1"
 
 
+        android:textAlignment="viewStart"
         android:textColor="@color/app_theme_light"
         android:textSize="30sp"
         android:visibility="gone"
@@ -125,9 +133,10 @@
         android:gravity="center"
         android:shadowColor="@color/black"
         android:text="@string/txt_info2"
+        android:textAlignment="viewStart"
+
+
         android:textColor="@color/app_theme_light"
-
-
         android:textSize="30sp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
@@ -145,9 +154,10 @@
         android:layout_marginEnd="16dp"
         android:gravity="center"
         android:text="@string/txt_info3"
+        android:textAlignment="viewStart"
+
+
         android:textColor="@color/app_theme_light"
-
-
         android:textSize="30sp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
@@ -165,85 +175,12 @@
         android:layout_marginEnd="16dp"
         android:gravity="center"
         android:text="@string/txt_info4"
-        android:textColor="@color/app_theme_light"
+        android:textAlignment="center"
 
 
-        android:textSize="30sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
-        app:layout_constraintEnd_toEndOf="@+id/text_instruction"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="@+id/text_instruction"
-        app:layout_constraintTop_toTopOf="@+id/text_instruction"
-        app:layout_constraintVertical_bias="0.385" />
-
-    <TextView
-        android:id="@+id/txt_info5"
-        android:layout_width="0dp"
-        android:layout_height="202dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:text="@string/txt_info5"
-        android:textColor="@color/app_theme_light"
-
-
-        android:textSize="30sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
-        app:layout_constraintEnd_toEndOf="@+id/text_instruction"
-        app:layout_constraintStart_toStartOf="@+id/text_instruction"
-        app:layout_constraintTop_toTopOf="@+id/text_instruction" />
-
-    <TextView
-        android:id="@+id/txt_info6"
-        android:layout_width="0dp"
-        android:layout_height="202dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:text="@string/txt_info6"
-        android:textColor="@color/app_theme_light"
-
-        android:textSize="30sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
-        app:layout_constraintEnd_toEndOf="@+id/text_instruction"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="@+id/text_instruction"
-        app:layout_constraintTop_toTopOf="@+id/text_instruction"
-        app:layout_constraintVertical_bias="0.385" />
-
-    <TextView
-        android:id="@+id/txt_info7"
-        android:layout_width="0dp"
-        android:layout_height="202dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:text="@string/txt_info7"
-        android:textColor="@color/app_theme_light"
-
-        android:textSize="30sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
-        app:layout_constraintEnd_toEndOf="@+id/text_instruction"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="@+id/text_instruction"
-        app:layout_constraintTop_toTopOf="@+id/text_instruction"
-        app:layout_constraintVertical_bias="0.385" />
-
-    <TextView
-        android:id="@+id/txt_info8"
-        android:layout_width="716dp"
-        android:layout_height="202dp"
-        android:gravity="center"
-        android:text="@string/txt_info8"
         android:textColor="@color/app_theme_light"
         android:textSize="30sp"
         android:visibility="gone"
-
-
         app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
         app:layout_constraintEnd_toEndOf="@+id/text_instruction"
         app:layout_constraintHorizontal_bias="0.428"
