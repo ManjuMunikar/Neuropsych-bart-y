@@ -6,6 +6,6 @@
 
     </gradient>
     <corners
-        android:radius="30dp"></corners>
+        android:radius="10dp"></corners>
 
 </shape>

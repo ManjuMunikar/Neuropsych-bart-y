@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.datagrandeur.neuropsych.data.DatabaseHelper;
 import com.datagrandeur.neuropsych.data.User;
@@ -44,7 +43,7 @@ public class UserActivity extends AppCompatActivity {
 
                         Singleton.getInstance().setTrialSequence(0);
 
-                        Intent intent = new Intent(UserActivity.this, WelcomeActivity.class);
+                        Intent intent = new Intent(UserActivity.this, PracticeActivity.class);
                         startActivity(intent);
 
                         User user = new User();

@@ -6,6 +6,11 @@ public class Trial {
      private String userId;
      private  int id;
      private double reward;
+     private int pumpCount;
+
+     private int explosionPoint;
+
+     private boolean popped;
     public int balloonStartHeight=80;
     public int balloonStartWidth=80;
     public int balloonEndHeight;
@@ -85,11 +90,28 @@ public class Trial {
     }
 
 
+    public int getPumpCount() {
+        return pumpCount;
+    }
+
+    public void setPumpCount(int pumpCount) {
+        this.pumpCount = pumpCount;
+    }
 
 
+    public boolean isPopped() {
+        return popped;
+    }
 
+    public void setPopped(boolean popped) {
+        this.popped = popped;
+    }
 
+    public int getExplosionPoint() {
+        return explosionPoint;
+    }
 
-
-
+    public void setExplosionPoint(int explosionPoint) {
+        this.explosionPoint = explosionPoint;
+    }
 }

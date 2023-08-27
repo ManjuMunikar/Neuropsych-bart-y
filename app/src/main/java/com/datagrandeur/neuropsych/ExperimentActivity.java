@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,20 +17,17 @@ import com.datagrandeur.neuropsych.data.Trial;
 import com.example.neuropsych.R;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class ExperimentActivity extends AppCompatActivity {
     Constant constant=new Constant();
     private Button btnPump;
     private ProgressBar progressBar;
     private int pumpCount ;
-    private int rewardCount=0;
     private double reward;
     private  int fillReward=0;
     private ProgressBar pbRewardMeter;
     private DatabaseHelper dbHelper;
     private Trial trial;
-    private int trial_id;
     private Pump pump;
     private View vwBalloon;
     private View vwPoppedBalloon;
@@ -45,7 +41,6 @@ public class ExperimentActivity extends AppCompatActivity {
 
 
         reward=0.0;
-        trial_id=0;
         dbHelper = new DatabaseHelper(getApplicationContext());
         trial = new Trial();
         pump=new Pump();
@@ -77,7 +72,6 @@ public class ExperimentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pumpCount++;
                 pumpBalloon();
-                rewardCount = 5;
 
                 mediaPlayer.start();
                 if (isPop()) {
@@ -97,20 +91,24 @@ public class ExperimentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(pumpCount>0) {
-                    trial.setReward(reward);
+
                     trial.setEndTimeOfTrial(DateUtils.getFormatDateTime(LocalDateTime.now()));
 
                     fillReward++;
                     mediaPlayer2.start();
                     int progress = pbRewardMeter.getProgress();
 
-                    int barValue = Singleton.getInstance().getReward();
-                    barValue = 5 + progress;
+                    int barValue = (int) (reward + progress);
+                    Singleton.getInstance().setCurrentTrialReward(pumpCount);
                     Singleton.getInstance().setReward(barValue);
                     pbRewardMeter.setProgress(barValue);
 
+                    trial.setReward(barValue);
+                    trial.setPopped(false);
+                    trial.setPumpCount(pumpCount);
                     trial.setBalloonEndWidth(vwBalloon.getWidth());
                     trial.setBalloonEndHeight(vwBalloon.getHeight());
+                    trial.setExplosionPoint(constant.explosionPoints[Singleton.getInstance().getTrialSequence()]);
                     dbHelper.updateTrial(trial, dbHelper.getDb());
 
                     new Handler().postDelayed(new Runnable() {
@@ -122,35 +120,35 @@ public class ExperimentActivity extends AppCompatActivity {
                     }, 100);
                     progressBar.setProgress(barValue);
 
-                    if (fillReward == constant.balloonArray.length - 1) {
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(new Intent(ExperimentActivity.this, ThankYouActivity.class));
-                                finish();
-                            }
-                        }, 100);
-                    }
+//                    if (isEndExperiment()) {
+//                        new Handler().postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                startActivity(new Intent(ExperimentActivity.this, RewardActivity.class));
+//                                finish();
+//                            }
+//                        }, 100);
+//                    }
                 }
 
-
-                if(isEndExperiment()==true){
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            startActivity(new Intent(ExperimentActivity.this,ThankYouActivity.class));
-                            finish();
-                        }
-                    }, 100);
-
-                }
+//
+//                if(isEndExperiment()==true){
+//                    new Handler().postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            startActivity(new Intent(ExperimentActivity.this,RewardActivity.class));
+//                            finish();
+//                        }
+//                    }, 100);
+//
+//                }
 
 
             }
         });
     }
     public Boolean isPop(){
-        if (pumpCount == constant.balloonArray[Singleton.getInstance().getTrialSequence()]){
+        if (pumpCount == constant.explosionPoints[Singleton.getInstance().getTrialSequence()]){
             return true;
         }else {
             return false;
@@ -159,7 +157,7 @@ public class ExperimentActivity extends AppCompatActivity {
     public void pumpBalloon(){
 
         pump.setPumpSequence(pumpCount);
-        reward=reward+0.5;
+        reward=reward+1.0;
 
         int initialX = (int) vwBalloon.getX();
         int initialY = (int) vwBalloon.getY();
@@ -182,7 +180,7 @@ public class ExperimentActivity extends AppCompatActivity {
         poppedBalloonParams.height+=3;
         vwPoppedBalloon.setLayoutParams(poppedBalloonParams);
         vwPoppedBalloon.requestLayout();
-        trial.setReward(reward);
+        // trial.setReward(reward);
         pump.setCurrentPumpTime(DateUtils.getCurrentDateTime());
         pump.setPumpBtwPumps(String.valueOf(DateUtils.getDifferenceInMillisecond(pump.getLastPumpTime(),pump.getCurrentPumpTime())));
 
@@ -209,7 +207,7 @@ public class ExperimentActivity extends AppCompatActivity {
 
     public boolean isEndExperiment(){
 
-        return pumpCount == (constant.balloonArray.length - 1);
+        return Singleton.getInstance().getTrialSequence()-1 == (constant.explosionPoints.length);
     }
     public void popBalloon(){
 
@@ -219,11 +217,28 @@ public class ExperimentActivity extends AppCompatActivity {
         vwPoppedBalloon.setVisibility(View.VISIBLE);
         mediaPlayer1.start();
 
-        trial.setReward(0.0);
         trial.setEndTimeOfTrial(DateUtils.getFormatDateTime(LocalDateTime.now()));
 
         trial.setBalloonEndWidth(vwBalloon.getWidth());
         trial.setBalloonEndHeight(vwBalloon.getHeight());
+        Singleton.getInstance().setCurrentTrialReward(pumpCount);
+
+
+        int progress = pbRewardMeter.getProgress();
+
+        int barValue = (int) (-1 * pumpCount + progress);
+        Singleton.getInstance().setCurrentTrialReward(pumpCount);
+
+        if(barValue<0)
+            Singleton.getInstance().setReward(0);
+        else
+            Singleton.getInstance().setReward(barValue);
+
+        trial.setReward(Singleton.getInstance().getReward());
+        trial.setPopped(true);
+        trial.setPumpCount(pumpCount);
+        trial.setExplosionPoint(constant.explosionPoints[Singleton.getInstance().getTrialSequence()]);
+        pbRewardMeter.setProgress(barValue);
         dbHelper.updateTrial(trial, dbHelper.getDb());
 
         new Handler().postDelayed(new Runnable() {

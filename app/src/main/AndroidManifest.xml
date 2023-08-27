@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/img"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Neuropsych"
@@ -29,6 +29,10 @@
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
+            android:name="com.datagrandeur.neuropsych.RewardActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
             android:name="com.datagrandeur.neuropsych.ThankYouActivity"
             android:exported="false"
             android:screenOrientation="landscape" />
@@ -41,11 +45,15 @@
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
+            android:name="com.datagrandeur.neuropsych.PracticeCongratulationActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
             android:name="com.datagrandeur.neuropsych.ExperimentActivity"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name="com.datagrandeur.neuropsych.WelcomeActivity"
+            android:name="com.datagrandeur.neuropsych.PracticeActivity"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity

@@ -6,11 +6,15 @@ public class Singleton {
 
     private int trialSequence;
 
+    private boolean practiceSessionOver;
+
     private String userId;
     private String fullName;
     private String language = "en";
     private String location = "";
     private  int reward =0;
+
+    private int currentTrialReward = 0;
 
     public static Singleton getInstance() {
         if (instance == null)
@@ -65,5 +69,21 @@ public class Singleton {
 
     public void setTrialSequence(int trialSequence) {
         this.trialSequence = trialSequence;
+    }
+
+    public boolean isPracticeSessionOver() {
+        return practiceSessionOver;
+    }
+
+    public void setPracticeSessionOver(boolean practiceSessionOver) {
+        this.practiceSessionOver = practiceSessionOver;
+    }
+
+    public int getCurrentTrialReward() {
+        return currentTrialReward;
+    }
+
+    public void setCurrentTrialReward(int currentTrialReward) {
+        this.currentTrialReward = currentTrialReward;
     }
 }
