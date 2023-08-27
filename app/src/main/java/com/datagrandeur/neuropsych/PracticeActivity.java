@@ -116,7 +116,7 @@ public class PracticeActivity extends AppCompatActivity {
             }
         });
 
-        btnFillRewardMeter = findViewById(R.id.btnFillReward);
+        btnFillRewardMeter = findViewById(R.id.btnCollectPoints);
         pbRewardMeter =findViewById(R.id.progressPracticeBar);
         btnFillRewardMeter.setOnClickListener(new View.OnClickListener() {
             @Override

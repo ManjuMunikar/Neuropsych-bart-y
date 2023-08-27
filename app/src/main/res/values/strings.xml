@@ -57,7 +57,7 @@
     <string name="txt_back">BACK</string>
     <string name="pump">"          You pump up on the balloon by touching         on the "Pump" button with your finger.                  TRY IT!!!     "</string>
     <string name="Pump1">Pump</string>
-    <string name="fillRewardMeter">Fill Reward Meter</string>
+    <string name="collectPoints">Collect Points</string>
     <string name="clickToStartTheExperiment">Click to start the Game</string>
     <string name="bonus">Bonus</string>
     <string name="bigPrize">Big prize</string>

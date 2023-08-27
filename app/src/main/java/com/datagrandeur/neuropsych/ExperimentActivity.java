@@ -60,7 +60,7 @@ public class ExperimentActivity extends AppCompatActivity {
         btnPump =findViewById(R.id.pump);
         pbRewardMeter =findViewById(R.id.progressBar);
         pbRewardMeter.setProgress(Singleton.getInstance().getReward());
-        btnFillRewardMeter=findViewById(R.id.btnFillReward);
+        btnFillRewardMeter=findViewById(R.id.btnCollectPoints);
         vwBalloon=findViewById(R.id.balloon_view);
         vwPoppedBalloon=findViewById(R.id.popBalloon);
 
