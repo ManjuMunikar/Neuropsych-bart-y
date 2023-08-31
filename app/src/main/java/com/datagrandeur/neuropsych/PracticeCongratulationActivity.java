@@ -22,16 +22,16 @@ public class PracticeCongratulationActivity extends AppCompatActivity {
         String pointLost = getString(R.string.LostPoints);
 
         if(SingletonPractice.getInstance().isPop()){
-            int diff = SingletonPractice.getInstance().getPoints() - SingletonPractice.getInstance().getCurrentTrialReward();
-            if(diff>0) {
+            float diff = SingletonPractice.getInstance().getPoints() - SingletonPractice.getInstance().getCurrentTrialReward();
+            if(diff>0.0) {
                 SingletonPractice.getInstance().setPoints(diff);
             }else{
                 SingletonPractice.getInstance().setPoints(0);
             }
         }else{
-            int sum = SingletonPractice.getInstance().getPoints() + SingletonPractice.getInstance().getCurrentTrialReward();
-            if(sum>100) {
-                SingletonPractice.getInstance().setPoints(100);
+            float sum = SingletonPractice.getInstance().getPoints() + SingletonPractice.getInstance().getCurrentTrialReward();
+            if(sum>100.0f) {
+                SingletonPractice.getInstance().setPoints(100.0f);
             }else{
                 SingletonPractice.getInstance().setPoints(sum);
             }

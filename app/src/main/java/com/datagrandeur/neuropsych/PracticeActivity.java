@@ -21,6 +21,7 @@ public class PracticeActivity extends AppCompatActivity {
     private TextView[] tvInstructions;
 
     private int pumpCount =0;
+    private float pointValue = 0.5f;
 
     static int instructionIndex=0;
     private TextView tvNext;
@@ -131,7 +132,7 @@ public class PracticeActivity extends AppCompatActivity {
                 pumpCount++;
                 inflateBalloon();
                 mediaPlayer.start();
-                SingletonPractice.getInstance().setCurrentTrialReward(pumpCount);
+                SingletonPractice.getInstance().setCurrentTrialReward(pumpCount*pointValue);
 
                 if(isPop()){
 
@@ -160,11 +161,11 @@ public class PracticeActivity extends AppCompatActivity {
                     mediaPlayer2.start();
 
                     int progress = pbRewardMeter.getProgress();
-                    int barValue = (int) (pumpCount + progress);
+                    int barValue = (int) (pumpCount*pointValue + progress);
                     pbRewardMeter.setProgress(barValue);
 
                     Singleton.getInstance().setPracticeSessionOver(true);
-                    SingletonPractice.getInstance().setCurrentTrialReward(pumpCount);
+                    SingletonPractice.getInstance().setCurrentTrialReward(pumpCount*pointValue);
                     SingletonPractice.getInstance().setPop(false);
 
                     new Handler().postDelayed(new Runnable() {

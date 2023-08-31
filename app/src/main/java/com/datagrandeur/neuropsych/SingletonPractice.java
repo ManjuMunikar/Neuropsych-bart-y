@@ -5,10 +5,10 @@ public class SingletonPractice {
     private static SingletonPractice instance;
     private int instructionIndex;
 
-    private int currentTrialReward = 0;
+    private float currentTrialReward = 0;
     private boolean pop = false;
 
-    private int points;
+    private float points;
 
     public static SingletonPractice getInstance() {
         if (instance == null)
@@ -24,19 +24,19 @@ public class SingletonPractice {
         this.instructionIndex = instructionIndex;
     }
 
-    public int getPoints() {
+    public float getPoints() {
         return points;
     }
 
-    public void setPoints(int points) {
+    public void setPoints(float points) {
         this.points = points;
     }
 
-    public int getCurrentTrialReward() {
+    public float getCurrentTrialReward() {
         return currentTrialReward;
     }
 
-    public void setCurrentTrialReward(int currentTrialReward) {
+    public void setCurrentTrialReward(float currentTrialReward) {
         this.currentTrialReward = currentTrialReward;
     }
 

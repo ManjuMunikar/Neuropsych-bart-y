@@ -5,7 +5,7 @@
     <string name="welcome_game">
         Welcome to the balloon game!
         \n\nIn this game you are asked to pump up 30 balloons.
-        \n\nTo pump up a balloon tap the “PUMP“ button. Try it! (the nex button appears to continue)
+        \n\nTo pump up a balloon tap the “PUMP“ button. Try it!
     </string>
     <string name="game_info1">
         For each pump you get points.
@@ -18,7 +18,7 @@
     </string>
     <string name="txt_info2">
         You can stop pumping at any time by tapping the “COLLECT POINTS” button.
-        Try it!(the “collect points” button appears below the reward meter).
+        Try it!
     </string>
     <string name="txt_info3">
        The more points you collect the higher the prize will be.
@@ -26,14 +26,14 @@
         The meter will show you how close you are to each.
     </string>
     <string name="txt_info4">
-        Start the Balloon Game when you are ready” (the “Start the game” button appears below the balloon)
+        Start the Balloon Game when you are ready.
     </string>
     <string name="next_button">NEXT</string>
     <string name="txt_back">BACK</string>
     <string name="pump">"          You pump up on the balloon by touching         on the "Pump" button with your finger.                  TRY IT!!!     "</string>
     <string name="Pump1">Pump</string>
     <string name="collectPoints">Collect Points</string>
-    <string name="clickToStartTheExperiment">Click to start the Game</string>
+    <string name="clickToStartTheExperiment">Start the Game</string>
     <string name="bonus">Bonus</string>
     <string name="bigPrize">Big prize</string>
     <string name="middlePrize">Middle prize</string>
