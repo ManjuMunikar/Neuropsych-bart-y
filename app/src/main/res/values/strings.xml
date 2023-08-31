@@ -5,7 +5,7 @@
     <string name="welcome_game">
         Welcome to the balloon game!
         \n\nIn this game you are asked to pump up 30 balloons.
-        \n\nTo pump up a balloon tap the PUMP button. Try it! (the nex button appears to continue)
+        \n\nTo pump up a balloon tap the “PUMP“ button. Try it! (the nex button appears to continue)
     </string>
     <string name="game_info1">
         For each pump you get points.
@@ -43,8 +43,8 @@
     <string name="user_id">User ID</string>
     <string name="full_name">Full Name</string>
     <string name="register">Register</string>
-    <string name="PointsCollected">Your have collected %s points!!!</string>
-    <string name="LostPoints">You have lost %s points!!!! -_-</string>
+    <string name="PointsCollected">YOU WON %s points!!!</string>
+    <string name="LostPoints">YOU LOST %s points!!!! -_-</string>
 
 
 </resources>

@@ -24,7 +24,12 @@ public class UserActivity extends AppCompatActivity {
         Button nextButton = findViewById(R.id.Register);
         final EditText txtUserId = findViewById(R.id.txtUserId);
         final EditText txtFullName = findViewById(R.id.txtFullName);
-       // final TextView txtLoginScreenMessage = findViewById(R.id.txtLoginScreenMessage);
+
+        SingletonPractice singletonPractice = SingletonPractice.getInstance();
+        singletonPractice.setInstructionIndex(0);
+        singletonPractice.setPoints(0);
+
+        // final TextView txtLoginScreenMessage = findViewById(R.id.txtLoginScreenMessage);
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override

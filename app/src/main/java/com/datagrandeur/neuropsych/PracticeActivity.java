@@ -17,11 +17,12 @@ import com.example.neuropsych.R;
 
 
 public class PracticeActivity extends AppCompatActivity {
+
     private TextView[] tvInstructions;
 
     private int pumpCount =0;
 
-    private int instructionIndex;
+    static int instructionIndex=0;
     private TextView tvNext;
     private ProgressBar pbRewardMeter;
     private  Button btnFillRewardMeter;
@@ -39,10 +40,13 @@ public class PracticeActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_practice);
         tvInstructions =new TextView[] {findViewById(R.id.tvWelcome),findViewById(R.id.Game_info1),findViewById(R.id.txt_info1),findViewById(R.id.txt_info2),findViewById(R.id.txt_info3),findViewById(R.id.txt_info4)};
-        instructionIndex =0;
+        instructionIndex = SingletonPractice.getInstance().getInstructionIndex();
 
         tvNext =findViewById(R.id.tvNext); //Next
+        tvNext.setVisibility(View.VISIBLE);
+
         tvBack =findViewById(R.id.txtGoBack); //Back
+        tvBack.setVisibility(View.GONE);
 
         btnInflate=findViewById(R.id.btnPump);
 
@@ -54,35 +58,35 @@ public class PracticeActivity extends AppCompatActivity {
         btnClickToContinue.setVisibility(View.GONE);
 
 
+        updateTextView();
+
+
         final MediaPlayer mediaPlayer= MediaPlayer.create(this,R.raw.inflate);
         final MediaPlayer mediaPlayer2=MediaPlayer.create(this,R.raw.casino);
 
         tvNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                instructionIndex =(instructionIndex +1)% tvInstructions.length; //next button increase tv
+                //instructionIndex =(instructionIndex +1)% tvInstructions.length; //next button increase tv
+                instructionIndex++;
+                SingletonPractice.getInstance().setInstructionIndex(instructionIndex);
                 updateTextView();
 
-                if(instructionIndex==2){
-                    btnInflate.setVisibility(View.VISIBLE);
-                    tvNext.setVisibility(View.GONE);
+                if(instructionIndex>0){
+                    tvBack.setVisibility(View.VISIBLE);
                 }else{
-                    btnInflate.setVisibility(View.GONE);
-                }
-
-                if(instructionIndex==tvInstructions.length-4){
-                    btnFillRewardMeter.setVisibility(View.VISIBLE);
-                    tvNext.setVisibility(View.GONE);
                     tvBack.setVisibility(View.GONE);
-
                 }
 
                 if(instructionIndex==tvInstructions.length-1){
                     tvNext.setVisibility(View.GONE);
-                    tvBack.setVisibility(View.GONE);
                     btnClickToContinue.setVisibility(View.VISIBLE);
+                }else{
+                    btnClickToContinue.setVisibility(View.GONE);
+                    tvNext.setVisibility(View.VISIBLE);
 
                 }
+
             }
         });
         btnClickToContinue.setOnClickListener(new View.OnClickListener() {
@@ -99,10 +103,25 @@ public class PracticeActivity extends AppCompatActivity {
         tvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                instructionIndex =(instructionIndex -1+ tvInstructions.length)% tvInstructions.length;
-
+                instructionIndex--;
+                SingletonPractice.getInstance().setInstructionIndex(instructionIndex);
 
                 updateTextView();
+
+                if(instructionIndex>0){
+                    tvBack.setVisibility(View.VISIBLE);
+                }else{
+                    tvBack.setVisibility(View.GONE);
+                }
+
+                if(instructionIndex==tvInstructions.length-1){
+                    tvNext.setVisibility(View.GONE);
+                    btnClickToContinue.setVisibility(View.VISIBLE);
+                }else{
+                    btnClickToContinue.setVisibility(View.GONE);
+                    tvNext.setVisibility(View.VISIBLE);
+
+                }
 
             }
         });
@@ -110,9 +129,24 @@ public class PracticeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pumpCount++;
-                tvNext.setVisibility(View.VISIBLE);
                 inflateBalloon();
                 mediaPlayer.start();
+                SingletonPractice.getInstance().setCurrentTrialReward(pumpCount);
+
+                if(isPop()){
+
+                    SingletonPractice.getInstance().setPop(true);
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(new Intent(PracticeActivity.this, PracticeCongratulationActivity.class));
+                            finish();
+                        }
+                    }, 400);
+
+
+                }
             }
         });
 
@@ -130,7 +164,8 @@ public class PracticeActivity extends AppCompatActivity {
                     pbRewardMeter.setProgress(barValue);
 
                     Singleton.getInstance().setPracticeSessionOver(true);
-                    Singleton.getInstance().setCurrentTrialReward(pumpCount);
+                    SingletonPractice.getInstance().setCurrentTrialReward(pumpCount);
+                    SingletonPractice.getInstance().setPop(false);
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -143,32 +178,9 @@ public class PracticeActivity extends AppCompatActivity {
             }
         });
 
-        if(!Singleton.getInstance().isPracticeSessionOver()){
-
-            btnFillRewardMeter.setVisibility(View.GONE);
-            btnInflate.setVisibility(View.GONE);
-            tvNext.setVisibility(View.VISIBLE);
-            tvBack.setVisibility(View.GONE);
-        }
-
-
-        if(Singleton.getInstance().isPracticeSessionOver()){
-            instructionIndex=tvInstructions.length-3;
-            updateTextView();
-            btnFillRewardMeter.setVisibility(View.GONE);
-            btnInflate.setVisibility(View.GONE);
-            //btnClickToContinue.setVisibility(View.VISIBLE);
-            tvNext.setVisibility(View.VISIBLE);
-            tvBack.setVisibility(View.GONE);
-            pumpCount=Singleton.getInstance().getCurrentTrialReward();
-
-            int progress = pbRewardMeter.getProgress();
-            int barValue = (int) (pumpCount + progress);
-            pbRewardMeter.setProgress(barValue);
-
-            Singleton.getInstance().setCurrentTrialReward(0);
-
-        }
+        int progress = pbRewardMeter.getProgress();
+        int barValue = (int) (SingletonPractice.getInstance().getPoints() + progress);
+        pbRewardMeter.setProgress(barValue);
 
     }
 
@@ -192,6 +204,19 @@ public class PracticeActivity extends AppCompatActivity {
         vwBalloon.setLayoutParams(balloonParams);
         vwBalloon.requestLayout();
 
+        vwPoppedBalloon.setLayoutParams(poppedBalloonParams);
+        vwPoppedBalloon.requestLayout();
+
+        if(isPop()) {
+            final MediaPlayer mediaPlayer1=MediaPlayer.create(this,R.raw.explosion);
+            vwPoppedBalloon.setX(initialX);
+            vwPoppedBalloon.setY(initialY);
+            vwPoppedBalloon.setVisibility(View.VISIBLE);
+            vwBalloon.setVisibility(View.GONE);
+            mediaPlayer1.start();
+        }else{
+            vwPoppedBalloon.setVisibility(View.INVISIBLE);
+        }
 
     }
 
@@ -206,5 +231,13 @@ public class PracticeActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    public Boolean isPop(){
+        if (pumpCount == 15){
+            return true;
+        }else {
+            return false;
+        }
     }
 }
