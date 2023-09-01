@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.datagrandeur.neuropsych.data.DatabaseHelper;
 import com.datagrandeur.neuropsych.data.Pump;
@@ -30,6 +31,9 @@ public class ExperimentActivity extends AppCompatActivity {
     private View vwBalloon;
     private View vwPoppedBalloon;
     private Button btnFillRewardMeter;
+
+
+    private TextView tvPotentialEarning;
 
 
 
@@ -59,6 +63,15 @@ public class ExperimentActivity extends AppCompatActivity {
         vwBalloon=findViewById(R.id.balloon_view);
         vwPoppedBalloon=findViewById(R.id.popBalloon);
 
+        TextView tvBalloonNumber = findViewById(R.id.tvBallonNumber);
+        String str = String.format(getString(R.string.BalloonNumber), ""+(1+Singleton.getInstance().getTrialSequence()));
+        tvBalloonNumber.setText(str);
+
+        tvPotentialEarning = findViewById(R.id.tvPotentialEarning);
+        String strPE = String.format(getString(R.string.PotentialEarning), ""+ (pumpCount*pointValue) );
+        tvPotentialEarning.setText(strPE);
+
+
         final MediaPlayer mediaPlayer= MediaPlayer.create(this,R.raw.inflate);
         final MediaPlayer mediaPlayer2=MediaPlayer.create(this,R.raw.casino);
 
@@ -67,6 +80,9 @@ public class ExperimentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pumpCount++;
                 pumpBalloon();
+
+                String strPE = String.format(getString(R.string.PotentialEarning), ""+ (pumpCount*pointValue) );
+                tvPotentialEarning.setText(strPE);
 
                 mediaPlayer.start();
                 if (isPop()) {
