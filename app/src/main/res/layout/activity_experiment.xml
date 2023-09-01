@@ -72,7 +72,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.82"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnCollectPoints"
@@ -110,7 +111,7 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="85dp"
         android:layout_marginEnd="272dp"
         android:text="@string/bigPrize"
         android:textColor="@color/black"
@@ -125,7 +126,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="85dp"
         android:text="@string/middlePrize"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -139,7 +140,7 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="85dp"
         android:text="@string/smallPrize"
         android:textColor="@color/black"
         android:textSize="20sp"
