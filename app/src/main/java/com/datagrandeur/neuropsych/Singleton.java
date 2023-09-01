@@ -4,6 +4,8 @@ public class Singleton {
 
     private static Singleton instance;
 
+    private int[] explosionPoints;
+
     private int trialSequence;
     private String userId;
     private String fullName;
@@ -84,5 +86,13 @@ public class Singleton {
 
     public void setCurrentPumpCount(int currentPumpCount) {
         this.currentPumpCount = currentPumpCount;
+    }
+
+    public int[] getExplosionPoints() {
+        return explosionPoints;
+    }
+
+    public void setExplosionPoints(int[] explosionPoints) {
+        this.explosionPoints = explosionPoints;
     }
 }

@@ -19,7 +19,6 @@ import com.example.neuropsych.R;
 import java.time.LocalDateTime;
 
 public class ExperimentActivity extends AppCompatActivity {
-    Constant constant=new Constant();
     private Button btnPump;
     private ProgressBar progressBar;
     private int pumpCount ;
@@ -109,7 +108,7 @@ public class ExperimentActivity extends AppCompatActivity {
                     trial.setPumpCount(pumpCount);
                     trial.setBalloonEndWidth(vwBalloon.getWidth());
                     trial.setBalloonEndHeight(vwBalloon.getHeight());
-                    trial.setExplosionPoint(constant.explosionPoints[Singleton.getInstance().getTrialSequence()]);
+                    trial.setExplosionPoint(Singleton.getInstance().getExplosionPoints()[Singleton.getInstance().getTrialSequence()]);
                     dbHelper.updateTrial(trial, dbHelper.getDb());
 
                     new Handler().postDelayed(new Runnable() {
@@ -149,7 +148,7 @@ public class ExperimentActivity extends AppCompatActivity {
         });
     }
     public Boolean isPop(){
-        if (pumpCount == constant.explosionPoints[Singleton.getInstance().getTrialSequence()]){
+        if (pumpCount == Singleton.getInstance().getExplosionPoints()[Singleton.getInstance().getTrialSequence()]){
             return true;
         }else {
             return false;
@@ -205,10 +204,6 @@ public class ExperimentActivity extends AppCompatActivity {
 
     }
 
-    public boolean isEndExperiment(){
-
-        return Singleton.getInstance().getTrialSequence()-1 == (constant.explosionPoints.length);
-    }
     public void popBalloon(){
 
         final MediaPlayer mediaPlayer1=MediaPlayer.create(this,R.raw.explosion);
@@ -237,7 +232,7 @@ public class ExperimentActivity extends AppCompatActivity {
         trial.setTotalReward(Singleton.getInstance().getReward());
         trial.setPopped(true);
         trial.setPumpCount(pumpCount);
-        trial.setExplosionPoint(constant.explosionPoints[Singleton.getInstance().getTrialSequence()]);
+        trial.setExplosionPoint(Singleton.getInstance().getExplosionPoints()[Singleton.getInstance().getTrialSequence()]);
         pbRewardMeter.setProgress((int)barValue);
         dbHelper.updateTrial(trial, dbHelper.getDb());
 

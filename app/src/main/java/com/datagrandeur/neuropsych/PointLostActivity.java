@@ -26,7 +26,7 @@ public class PointLostActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(Singleton.getInstance().getTrialSequence()==constant.explosionPoints.length-1){
+                if(Singleton.getInstance().getTrialSequence()==Singleton.getInstance().getExplosionPoints().length-1){
                     Intent intent=new Intent(PointLostActivity.this,RewardActivity.class);
                     startActivity(intent);
                 }else{
