@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.example.neuropsych.R;
 
 public class PointLostActivity extends AppCompatActivity {
+
+    private double pointValue = 0.5f;
     Constant constant=new Constant();
 
     @Override
@@ -18,7 +20,7 @@ public class PointLostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_point_lost);
 
         String lostPoints = getString(R.string.LostPoints);
-        String finalLostPoint = String.format(lostPoints, ""+ (-1 * Singleton.getInstance().getCurrentTrialReward()));
+        String finalLostPoint = String.format(lostPoints, ""+ (Singleton.getInstance().getCurrentTrialReward()));
         TextView tvLostPoint = findViewById(R.id.tvLostPoint);
         tvLostPoint.setText(finalLostPoint);
         new Handler().postDelayed(new Runnable() {

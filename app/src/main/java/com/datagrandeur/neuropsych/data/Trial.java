@@ -5,7 +5,9 @@ public class Trial {
      public int trialSequence;//1-30
      private String userId;
      private  int id;
-     private double reward;
+
+     private double trialReward;
+     private double totalReward;
      private int pumpCount;
 
      private int explosionPoint;
@@ -49,12 +51,12 @@ public class Trial {
         this.id = id;
     }
 
-    public double getReward() {
-        return reward;
+    public double getTotalReward() {
+        return totalReward;
     }
 
-    public void setReward(double reward) {
-        this.reward = reward;
+    public void setTotalReward(double totalReward) {
+        this.totalReward = totalReward;
     }
 
     public int getBalloonEndHeight() {
@@ -113,5 +115,13 @@ public class Trial {
 
     public void setExplosionPoint(int explosionPoint) {
         this.explosionPoint = explosionPoint;
+    }
+
+    public double getTrialReward() {
+        return trialReward;
+    }
+
+    public void setTrialReward(double trialReward) {
+        this.trialReward = trialReward;
     }
 }

@@ -58,7 +58,7 @@ public class UserActivity extends AppCompatActivity {
                     }
 
 
-                    Singleton.getInstance().setReward(0);
+                    Singleton.getInstance().setReward(0.0);
 
                 }
 

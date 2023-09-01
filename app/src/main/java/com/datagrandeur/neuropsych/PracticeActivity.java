@@ -164,7 +164,6 @@ public class PracticeActivity extends AppCompatActivity {
                     int barValue = (int) (pumpCount*pointValue + progress);
                     pbRewardMeter.setProgress(barValue);
 
-                    Singleton.getInstance().setPracticeSessionOver(true);
                     SingletonPractice.getInstance().setCurrentTrialReward(pumpCount*pointValue);
                     SingletonPractice.getInstance().setPop(false);
 

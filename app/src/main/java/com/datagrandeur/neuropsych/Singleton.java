@@ -5,16 +5,15 @@ public class Singleton {
     private static Singleton instance;
 
     private int trialSequence;
-
-    private boolean practiceSessionOver;
-
     private String userId;
     private String fullName;
     private String language = "en";
     private String location = "";
-    private  int reward =0;
+    private  double reward =0;
 
-    private int currentTrialReward = 0;
+    private int currentPumpCount=0;
+
+    private double currentTrialReward = 0;
 
     public static Singleton getInstance() {
         if (instance == null)
@@ -22,11 +21,11 @@ public class Singleton {
         return instance;
     }
 
-    public int getReward() {
+    public double getReward() {
         return reward;
     }
 
-    public void setReward(int reward) {
+    public void setReward(double reward) {
         this.reward = reward;
     }
 
@@ -71,19 +70,19 @@ public class Singleton {
         this.trialSequence = trialSequence;
     }
 
-    public boolean isPracticeSessionOver() {
-        return practiceSessionOver;
-    }
-
-    public void setPracticeSessionOver(boolean practiceSessionOver) {
-        this.practiceSessionOver = practiceSessionOver;
-    }
-
-    public int getCurrentTrialReward() {
+    public double getCurrentTrialReward() {
         return currentTrialReward;
     }
 
-    public void setCurrentTrialReward(int currentTrialReward) {
+    public void setCurrentTrialReward(double currentTrialReward) {
         this.currentTrialReward = currentTrialReward;
+    }
+
+    public int getCurrentPumpCount() {
+        return currentPumpCount;
+    }
+
+    public void setCurrentPumpCount(int currentPumpCount) {
+        this.currentPumpCount = currentPumpCount;
     }
 }
