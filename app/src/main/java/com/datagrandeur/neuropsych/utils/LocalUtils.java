@@ -8,41 +8,31 @@ import java.util.Locale;
 
 public class LocalUtils {
     public static void setLanguage(String language, Resources resources) {
-    Locale locale = new Locale(language);
-    Locale.setDefault(locale);
-    Configuration configuration = resources.getConfiguration();
-    configuration.setLocale(locale);
-    DisplayMetrics displayMetrics = resources.getDisplayMetrics();
-    resources.updateConfiguration(configuration, displayMetrics);
-}
+        Locale locale = new Locale(language);
+        Locale.setDefault(locale);
+        Configuration configuration = resources.getConfiguration();
+        configuration.setLocale(locale);
+        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        resources.updateConfiguration(configuration, displayMetrics);
+    }
 
     public static String getLanguage(String location) {
         switch (location) {
 
-
             case "global":
                 return "";
 
-            case "ethiopia":
-                return "am";
+            case "colombia":
+                return "es";
 
             case "nepal":
                 return "ne";
 
-            case "bangalore":
-                return "kn";
+            case "afrikaans":
+                return "af";
 
-            case "delhi":
-                return "hi";
-
-            case "guangzhou":
-                return "zh";
-
-            case "beijing":
-                return "zh";
-
-            case "tunisia":
-                return "ar";
+            case "isiXhosa":
+                return "xh";
 
             default:
                 return "";
@@ -50,4 +40,4 @@ public class LocalUtils {
         }
     }
 
-    }
+}
