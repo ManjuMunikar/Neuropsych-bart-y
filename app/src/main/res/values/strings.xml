@@ -47,6 +47,9 @@
     <string name="LostPoints">YOU LOST %s points!!!! -_-</string>
     <string name="BalloonNumber">Balloon number: %s of 30</string>
     <string name="PotentialEarning">Potential Earnings: %s</string>
+    <string name="congratulations">YOU WON %s points (%s).
+        \n\nCongratulations!!!!</string>
+    <string name="thank_you">Thank you :-)</string>
 
 
 </resources>

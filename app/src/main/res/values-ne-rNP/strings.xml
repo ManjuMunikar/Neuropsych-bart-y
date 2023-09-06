@@ -49,4 +49,9 @@
     <string name="register">दर्ता गर्नुहोस्</string>
     <string name="middlePrize">मध्यम पुरस्कार</string>
     <string name="smallPrize">सानो पुरस्कार</string>
+
+    <string name="congratulations">तिमीले %s points (%s) जित्यौ।
+        \n\nबधाई छ!!!!</string>
+
+    <string name="thank_you">धन्यवाद :-)</string>
 </resources>

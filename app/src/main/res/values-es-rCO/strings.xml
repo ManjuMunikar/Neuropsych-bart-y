@@ -47,5 +47,10 @@
     <string name="next_button">Siguiente</string>
     <string name="txt_back">Atrás</string>
 
+    <string name="congratulations">Ganaste %s puntos (%s).
+        \n\nFelicidades!!!!</string>
+    <string name="thank_you">Gracias :-)</string>
+
+
 
 </resources>

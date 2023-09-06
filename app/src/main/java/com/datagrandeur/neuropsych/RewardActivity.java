@@ -19,7 +19,11 @@ public class RewardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reward);
 
         TextView tvRewardPoint = findViewById(R.id.tvPoints);
-        tvRewardPoint.setText("You won " + Singleton.getInstance().getReward() + " Points. ("  + getReward() +")  \n Congratulations!!!!");
+
+        String congratulations = getString(R.string.congratulations);
+        String finalStr = String.format(congratulations, ""+Singleton.getInstance().getReward(), getReward());
+
+        tvRewardPoint.setText(finalStr);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -28,24 +32,24 @@ public class RewardActivity extends AppCompatActivity {
                 Intent intent=new Intent(RewardActivity.this, ThankYouActivity.class);
                 startActivity(intent);
             }
-        },4000);
+        },7000);
     }
 
     private String getReward() {
        if(Singleton.getInstance().getReward() >=0 && Singleton.getInstance().getReward() <=25){
-           return "Small Prize";
+           return getString(R.string.smallPrize).replace("_","");
        }
 
         if(Singleton.getInstance().getReward() >25 && Singleton.getInstance().getReward() <=50){
-            return "Medium Prize";
+            return getString(R.string.middlePrize).replace("_","");
         }
 
         if(Singleton.getInstance().getReward() >50 && Singleton.getInstance().getReward() <=75){
-            return "Big Prize";
+            return getString(R.string.bigPrize).replace("_","");
         }
 
         if(Singleton.getInstance().getReward() >75){
-            return "Bonus Prize";
+            return getString(R.string.bonus).replace("_","");
         }
 
         return "";
