@@ -34,7 +34,7 @@
     <string name="clickToStartTheExperiment">Inicia el Juego de</string>
 
     <string name="PointsCollected">Ganaste %s puntos!!!</string>
-    <string name="LostPoints">Perdiste %s puntos!!!! -_-</string>
+    <string name="LostPoints">Perdiste %s puntos!!!!</string>
 
     <string name="BalloonNumber">Número de globo: %s de 30</string>
     <string name="PotentialEarning">Posibles ganancias: %s</string>
@@ -49,7 +49,7 @@
 
     <string name="congratulations">Ganaste %s puntos (%s).
         \n\nFelicidades!!!!</string>
-    <string name="thank_you">Gracias :-)</string>
+    <string name="thank_you">Gracias</string>
 
 
 

@@ -33,10 +33,10 @@
     <string name="clickToStartTheExperiment">खेल सुरु गर</string>
 
     <string name="PointsCollected">तिमीले %s points पायौ!!!</string>
-    <string name="LostPoints">तिम्रो %s points घट्यो!!!! -_-</string>
+    <string name="LostPoints">तिम्रो %s points घट्यो!!!!</string>
 
     <string name="BalloonNumber">बेलुन नम्बर: %s/30</string>
-    <string name="PotentialEarning">जम्मा पाउँन सकिने Points: %s</string>
+    <string name="PotentialEarning">जम्मा पाउँन सकिने: %s</string>
 
     <string name="next_button">Next</string>
     <string name="txt_back">Back</string>
@@ -53,5 +53,5 @@
     <string name="congratulations">तिमीले %s points (%s) जित्यौ।
         \n\nबधाई छ!!!!</string>
 
-    <string name="thank_you">धन्यवाद :-)</string>
+    <string name="thank_you">धन्यवाद</string>
 </resources>
