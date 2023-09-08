@@ -34,10 +34,10 @@
     <string name="Pump1">Pump</string>
     <string name="collectPoints">Collect Points</string>
     <string name="clickToStartTheExperiment">Start the Game</string>
-    <string name="bonus">_Bonus</string>
-    <string name="bigPrize">_Big prize</string>
-    <string name="middlePrize">_Middle prize</string>
-    <string name="smallPrize">_Small prize</string>
+    <string name="bonus">Bonus</string>
+    <string name="bigPrize">Big prize</string>
+    <string name="middlePrize">Middle prize</string>
+    <string name="smallPrize">Small prize</string>
 
 
     <string name="user_id">User ID</string>
