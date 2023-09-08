@@ -35,8 +35,8 @@
         Begin die ballonspeletjie wanneer jy gereed is\”
     </string>
 
-    <string name="Pump1">PUMP</string>
-    <string name="collectPoints">COLLECT POINTS</string>
+    <string name="Pump1">POMP</string>
+    <string name="collectPoints">VERSAMEL PUNTE</string>
     <string name="clickToStartTheExperiment">Begin</string>
 
     <string name="PointsCollected">“Jy het %s punte gewen”</string>
