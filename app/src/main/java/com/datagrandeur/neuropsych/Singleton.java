@@ -4,22 +4,18 @@ public class Singleton {
 
     private static Singleton instance;
 
-
-
-    public int getTrialSequence() {
-        return trialSequence;
-    }
-
-    public void setTrialSequence(int trialSequence) {
-        this.trialSequence = trialSequence;
-    }
+    private int[] explosionPoints;
 
     private int trialSequence;
-
     private String userId;
-    private String fullname;
+    private String fullName;
     private String language = "en";
     private String location = "";
+    private  double reward =0;
+
+    private int currentPumpCount=0;
+
+    private double currentTrialReward = 0;
 
     public static Singleton getInstance() {
         if (instance == null)
@@ -27,10 +23,16 @@ public class Singleton {
         return instance;
     }
 
+    public double getReward() {
+        return reward;
+    }
+
+    public void setReward(double reward) {
+        this.reward = reward;
+    }
 
     private Singleton() {
     }
-
     public String getUserId() {
         return userId;
     }
@@ -55,11 +57,42 @@ public class Singleton {
         this.location = location;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+    public int getTrialSequence() {
+        return trialSequence;
+    }
+
+    public void setTrialSequence(int trialSequence) {
+        this.trialSequence = trialSequence;
+    }
+
+    public double getCurrentTrialReward() {
+        return currentTrialReward;
+    }
+
+    public void setCurrentTrialReward(double currentTrialReward) {
+        this.currentTrialReward = currentTrialReward;
+    }
+
+    public int getCurrentPumpCount() {
+        return currentPumpCount;
+    }
+
+    public void setCurrentPumpCount(int currentPumpCount) {
+        this.currentPumpCount = currentPumpCount;
+    }
+
+    public int[] getExplosionPoints() {
+        return explosionPoints;
+    }
+
+    public void setExplosionPoints(int[] explosionPoints) {
+        this.explosionPoints = explosionPoints;
     }
 }

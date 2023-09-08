@@ -2,32 +2,58 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/img_1"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Neuropsych"
         tools:targetApi="31">
         <activity
-            android:name="com.datagrandeur.neuropsych.ThankYouActivity"
+            android:name="com.datagrandeur.neuropsych.DataExportActivity"
             android:exported="false" />
+        <activity
+            android:name="com.datagrandeur.neuropsych.AdminActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.datagrandeur.neuropsych.SettingActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.datagrandeur.neuropsych.RewardActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.datagrandeur.neuropsych.ThankYouActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name="com.datagrandeur.neuropsych.PointLostActivity"
             android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name="com.datagrandeur.neuropsych.CongratulationActivity"
             android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.datagrandeur.neuropsych.PracticeCongratulationActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name="com.datagrandeur.neuropsych.ExperimentActivity"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name="com.datagrandeur.neuropsych.WelcomeActivity"
+            android:name="com.datagrandeur.neuropsych.PracticeActivity"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
@@ -47,7 +73,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- Use this for exporting and sharing data -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.datagrandeur.neuropsych.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

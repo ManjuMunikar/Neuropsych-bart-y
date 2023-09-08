@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.datagrandeur.neuropsych.PracticeActivity">
+
+    <TextView
+        android:id="@+id/text_instruction"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/gradient"
+        android:paddingLeft="10dp"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/progressPracticeBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.071" />
+
+    <TextView
+        android:id="@+id/pump_info"
+        android:layout_width="0dp"
+        android:layout_height="202dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="@string/pump"
+        android:textAlignment="viewStart"
+
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
+        app:layout_constraintEnd_toEndOf="@+id/text_instruction"
+        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintStart_toStartOf="@+id/text_instruction"
+        app:layout_constraintTop_toTopOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.512" />
+
+    <TextView
+        android:id="@+id/tvNext"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/gradient"
+        android:gravity="center"
+        android:text="@string/next_button"
+        android:textColor="@android:color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/progressPracticeBar"
+        app:layout_constraintTop_toBottomOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/Game_info1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="@string/game_info1"
+        android:textAlignment="viewStart"
+
+
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
+        app:layout_constraintEnd_toEndOf="@+id/text_instruction"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/text_instruction"
+        app:layout_constraintTop_toTopOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.385" />
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+
+
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"
+        android:text="@string/welcome_game"
+        android:textAlignment="viewStart"
+        android:textColor="@color/app_theme_light"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
+        app:layout_constraintEnd_toEndOf="@+id/text_instruction"
+        app:layout_constraintStart_toStartOf="@+id/text_instruction"
+        app:layout_constraintTop_toTopOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.415" />
+
+    <TextView
+        android:id="@+id/txt_info1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="@string/txt_info1"
+
+
+        android:textAlignment="viewStart"
+        android:textColor="@color/app_theme_light"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
+        app:layout_constraintEnd_toEndOf="@+id/text_instruction"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/text_instruction"
+        app:layout_constraintTop_toTopOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.385" />
+
+    <TextView
+        android:id="@+id/txt_info2"
+        android:layout_width="0dp"
+        android:layout_height="202dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:shadowColor="@color/black"
+        android:text="@string/txt_info2"
+        android:textAlignment="viewStart"
+
+
+        android:textColor="@color/app_theme_light"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
+        app:layout_constraintEnd_toEndOf="@+id/text_instruction"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="@+id/text_instruction"
+        app:layout_constraintTop_toTopOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.472" />
+
+    <TextView
+        android:id="@+id/txt_info3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="@string/txt_info3"
+        android:textAlignment="viewStart"
+
+
+        android:textColor="@color/app_theme_light"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
+        app:layout_constraintEnd_toEndOf="@+id/text_instruction"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/text_instruction"
+        app:layout_constraintTop_toTopOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.48000002" />
+
+    <TextView
+        android:id="@+id/txt_info4"
+        android:layout_width="0dp"
+        android:layout_height="202dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="@string/txt_info4"
+        android:textAlignment="center"
+
+
+        android:textColor="@color/app_theme_light"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/text_instruction"
+        app:layout_constraintEnd_toEndOf="@+id/text_instruction"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/text_instruction"
+        app:layout_constraintTop_toTopOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.385" />
+
+    <TextView
+        android:id="@+id/txtGoBack"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/gradient"
+        android:gravity="center"
+        android:text="@string/txt_back"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvNext"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnPump"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/gradient"
+        android:shadowColor="@color/app_theme"
+        android:text="@string/Pump1"
+        android:textColor="@color/app_theme_light"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/balloon_view"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/balloon_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginBottom="108dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/balloon"
+        tools:ignore="MissingConstraints" />
+
+    <ProgressBar
+        android:id="@+id/progressPracticeBar"
+        style="@style/Widget.ProgressBar.Vertical"
+        android:layout_width="81dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="108dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/custom_progress_bar"
+
+
+        android:rotation="360"
+        android:scrollbarSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnCollectPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="48dp"
+        android:width="230dp"
+        android:background="@drawable/gradient"
+        android:text="@string/collectPoints"
+        android:textColor="@color/app_theme_light"
+        android:textColorHint="@color/app_theme_light"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.79"
+        app:layout_constraintStart_toEndOf="@+id/btnPump"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/popBalloon"
+        android:layout_width="199dp"
+        android:layout_height="233dp"
+        android:layout_marginBottom="340dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.191"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/poppedballoon" />
+
+    <Button
+        android:id="@+id/clickToContinue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="300dp"
+        android:width="180dp"
+        android:background="@drawable/gradient"
+        android:text="@string/clickToStartTheExperiment"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_instruction"
+        app:layout_constraintVertical_bias="0.077" />
+
+    <TextView
+        android:id="@+id/tvBonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/bonus"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/progressPracticeBar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvBigPrize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:text="@string/bigPrize"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/progressPracticeBar"
+        app:layout_constraintTop_toBottomOf="@+id/tvBonus" />
+
+    <TextView
+        android:id="@+id/tvMiddlePrize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:text="@string/middlePrize"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/progressPracticeBar"
+        app:layout_constraintTop_toBottomOf="@+id/tvBigPrize" />
+
+    <TextView
+        android:id="@+id/tvSmallPrize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:text="@string/smallPrize"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/progressPracticeBar"
+        app:layout_constraintTop_toBottomOf="@+id/tvMiddlePrize" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

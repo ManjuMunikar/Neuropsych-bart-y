@@ -1,7 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Neuropsych - Impulsivity</string>
+    <string name="app_name">ALIVE - BART-Y</string>
+
+    <string name="welcome_game">
+        तिमीलाई बेलुन सम्बन्धि खेलमा स्वागत छ ।
+        \n\nयो गेममा तिमीले ३० वटा बेलुन फुलाउन पर्नेछ । तिमीले “PUMP” बटनमा थिचेर बेलुनहरु फुलाउन सक्नेछौ।
+        \n\nTry गर त !
+    </string>
+    <string name="game_info1">
+        हरेक चोटी बेलुन फुलाउँदा तिमीले केहि Points पाउनेछौ तर याद राख कि धेरै चोटी बेलुन फुलाउन खोज्दा यो फुट्न पनि सक्छ ।
+        \n\nधेरै फुलाउन खोज्दा बेलुन फुट्यो भने तिमीले कुनै Points पाउने छैनौ।
+        \n\nयदि बेलुन फुट्यो भने अर्को बेलुन फुलाउन तिमीले केहि समय कुर्नु पर्नेछ ।
+    </string>
+    <string name="txt_info1">
+        कुनै बेलुन एकचोटी फुलाउदानै फुट्न पनि सक्छ भने कुनै बेलुन Screen पुरै भरिएपछि पनि नफुट्न सक्छ ।
+        \n\nकुन बेलुनलाई कति फुलाउने भन्ने तिम्रो हातमा हुनेछ ।यो बेलुन कति चोटी फुलाउँदा फुट्छ होला त ! फुलाएर Try गर।
+    </string>
+    <string name="txt_info2">
+        तिमीले कुनै पनि बेला “COLLECT POINTS” बटनमा थिचेर बेलुन फुलाउन रोक्न सक्छौ । Try गर त !
+    </string>
+    <string name="txt_info3">
+        तिमीले जति धेरै points जम्मा गर्यौ तेत्तिनै ठुलो पुरस्कार पाउनेछौ ।
+        \n\nयो खेलमा सानो, मध्यम, ठुलो र बोनस पुरस्कार गरेर जम्मा चार प्रकारको पुरस्कारहरु हुनेछ। तिमी कुन पुरस्कारको
+        नजिक छौ भनेर Meter ले देखाउनेछ ।
+    </string>
+    <string name="txt_info4">
+        तिमी तयार भएपछि यो बेलुन सम्बन्धि खेल सुरु गर।
+    </string>
+
+    <string name="Pump1">PUMP</string>
+    <string name="collectPoints">COLLECT POINTS</string>
+    <string name="clickToStartTheExperiment">खेल सुरु गर</string>
+
+    <string name="PointsCollected">तिमीले %s points पायौ!!!</string>
+    <string name="LostPoints">तिम्रो %s points घट्यो!!!!</string>
+
+    <string name="BalloonNumber">बेलुन नम्बर: %s/30</string>
+    <string name="PotentialEarning">जम्मा पाउँन सकिने: %s</string>
+
+    <string name="next_button">Next</string>
+    <string name="txt_back">Back</string>
+
+
+    <string name="bonus">बोनस</string>
+    <string name="bigPrize">ठुलो पुरस्कार</string>
     <string name="user_id">प्रयोगकर्ता ID</string>
     <string name="full_name">पुरा नाम</string>
     <string name="register">दर्ता गर्नुहोस्</string>
+    <string name="middlePrize">मध्यम पुरस्कार</string>
+    <string name="smallPrize">सानो पुरस्कार</string>
+
+    <string name="congratulations">तिमीले %s points (%s) जित्यौ।
+        \n\nबधाई छ!!!!</string>
+
+    <string name="thank_you">धन्यवाद</string>
 </resources>

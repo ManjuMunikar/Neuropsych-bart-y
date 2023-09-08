@@ -1,7 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Neuropsych Tool - Impulsivity</string>
+    <string name="app_name">ALIVE - BART-Y</string>
+
     <string name="user_id">Gebruikers-ID</string>
     <string name="full_name">Volle naam</string>
     <string name="register">Registreer</string>
+    <string name="thank_you">Dankie!!</string>
+
+    <string name="welcome_game">
+        Welkom by die ballonspeletjie!
+        \n\nIn hierdie speletjie word jy gevra om 30 ballonne op te pomp.
+        Om \'n ballon op te pomp, druk die POMP-knoppie.
+        \n\nProbeer dit!\"
+    </string>
+    <string name="game_info1">
+        Vir elke pomp kry jy punte. Maar onthou ballonne bars as jy hulle te veel oppomp!
+        \n\nAs \'n ballon bars, sal jy nie punte insamel nie.
+        \n\nJy sal moet wag vir die volgende ballon en weer probeer.
+    </string>
+    <string name="txt_info1">
+        Sekere ballonne kan na een pomp bars, ander sal eers bars nadat hulle die hele skerm gevul het.
+        Jy besluit hoeveel jy elke ballon wil pomp.
+        \n\nHoeveel pompe neem dit om hierdie ballon te laat bars? Probeer dit!
+    </string>
+    <string name="txt_info2">
+        Jy kan enige tyd ophou pomp deur die “VERSAMEL PUNTE”- knoppie te druk. Probeer dit!
+    </string>
+    <string name="txt_info3">
+        Hoe meer punte jy insamel, hoe hoër sal die prys wees.
+        \n\nDaar is vier pryse: \'n klein prys, \'n middel prys, \'n groot prys en \'n bonus prys.
+        Die meter sal jou wys hoe naby jy aan elkeen is.
+    </string>
+    <string name="txt_info4">
+        Begin die ballonspeletjie wanneer jy gereed is\”
+    </string>
+
+    <string name="Pump1">POMP</string>
+    <string name="collectPoints">VERSAMEL PUNTE</string>
+    <string name="clickToStartTheExperiment">Begin</string>
+
+    <string name="PointsCollected">“Jy het %s punte gewen”</string>
+    <string name="LostPoints">Jy het %s punte verloor</string>
+
+    <string name="BalloonNumber">Ballonnommer: %s van 30</string>
+    <string name="PotentialEarning">Punte ingesamel: %s</string>
+
+    <string name="next_button">Volgende</string>
+    <string name="txt_back">Terug</string>
+
+
+    <string name="bonus">Bonus</string>
+    <string name="bigPrize">Groot prys</string>
+    <string name="middlePrize">Middel prys</string>
+    <string name="smallPrize">Klein prys</string>
+
+    <string name="congratulations">Jy het %s punte (%s) gewen.
+        \n\n Congratulations!!!!</string>
+
+
+
 </resources>

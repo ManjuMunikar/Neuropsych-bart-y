@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Location">
+
+    </PreferenceCategory>
+
+        <ListPreference
+            android:defaultValue="global"
+            android:title="Select your location" android:entries="@array/updateLocation"
+            android:entryValues="@array/updateLocationValue" android:key="preferred_location"
+            android:summary="Select your location"
+            />
+
+        <PreferenceCategory
+            android:title="Data Export">
+
+            <Preference
+            android:title="Data export"
+            android:summary="Data export"
+            android:key="btnExport">
+            </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -3,19 +3,31 @@ package com.datagrandeur.neuropsych.data;
 
 public class Trial {
      public int trialSequence;//1-30
-     private int userId;
+     private String userId;
      private  int id;
-     private double reward;//0.5$
-    public int balloonStartHeight=233;
-    public int balloonStartWidth=199;
-    public String timeBeforeFirstPump;
-    public String timeBtwLastPumpAndCollect;
+
+     private double trialReward;
+     private double totalReward;
+     private int pumpCount;
+
+     private int explosionPoint;
+
+     private boolean popped;
+    public int balloonStartHeight=80;
+    public int balloonStartWidth=80;
+    public int balloonEndHeight;
+    public int balloonEndWidth;
+    public String startTimeOfTrial;
+    public String endTimeOfTrial;
 
 
     public Trial(int trialSequence, String timeBeforeFirstPump, String timeBtwLastPumpAndCollect) {
         this.trialSequence = trialSequence;
-        this.timeBeforeFirstPump = timeBeforeFirstPump;
-        this.timeBtwLastPumpAndCollect = timeBtwLastPumpAndCollect;
+        this.startTimeOfTrial = timeBeforeFirstPump;
+        this.endTimeOfTrial = timeBtwLastPumpAndCollect;
+    }
+    public Trial(){
+
     }
 
     public int getTrialSequence() {
@@ -25,45 +37,91 @@ public class Trial {
     public void setTrialSequence(int trialSequence) {
         this.trialSequence = trialSequence;
     }
+    public String getUserId(){ return userId;}
 
-    public int getBalloonStartHeight() {
-        return balloonStartHeight;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setBalloonStartHeight(int balloonStartHeight) {
-        this.balloonStartHeight = balloonStartHeight;
+    public int getId() {
+        return id;
     }
 
-    public int getBalloonStartWidth() {
-        return balloonStartWidth;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setBalloonStartWidth(int balloonStartWidth) {
-        this.balloonStartWidth = balloonStartWidth;
+    public double getTotalReward() {
+        return totalReward;
     }
 
-    public String getTimeBeforeFirstPump() {
-        return timeBeforeFirstPump;
+    public void setTotalReward(double totalReward) {
+        this.totalReward = totalReward;
     }
 
-    public void setTimeBeforeFirstPump(String timeBeforeFirstPump) {
-        this.timeBeforeFirstPump = timeBeforeFirstPump;
+    public int getBalloonEndHeight() {
+        return balloonEndHeight;
     }
 
-    public String getTimeBtwLastPumpAndCollect() {
-        return timeBtwLastPumpAndCollect;
+    public void setBalloonEndHeight(int balloonEndHeight) {
+        this.balloonEndHeight = balloonEndHeight;
     }
 
-    public void setTimeBtwLastPumpAndCollect(String timeBtwLastPumpAndCollect) {
-        this.timeBtwLastPumpAndCollect = timeBtwLastPumpAndCollect;
+    public int getBalloonEndWidth() {
+        return balloonEndWidth;
+    }
+
+    public void setBalloonEndWidth(int balloonEndWidth) {
+        this.balloonEndWidth = balloonEndWidth;
+    }
+
+    public String getStartTimeOfTrial() {
+        return startTimeOfTrial;
+    }
+
+    public void setStartTimeOfTrial(String startTimeOfTrial) {
+        this.startTimeOfTrial = startTimeOfTrial;
+    }
+
+    public String getEndTimeOfTrial() {
+        return endTimeOfTrial;
+    }
+
+    public void setEndTimeOfTrial(String endTimeOfTrial) {
+        this.endTimeOfTrial = endTimeOfTrial;
     }
 
 
+    public int getPumpCount() {
+        return pumpCount;
+    }
+
+    public void setPumpCount(int pumpCount) {
+        this.pumpCount = pumpCount;
+    }
 
 
+    public boolean isPopped() {
+        return popped;
+    }
 
+    public void setPopped(boolean popped) {
+        this.popped = popped;
+    }
 
+    public int getExplosionPoint() {
+        return explosionPoint;
+    }
 
+    public void setExplosionPoint(int explosionPoint) {
+        this.explosionPoint = explosionPoint;
+    }
 
+    public double getTrialReward() {
+        return trialReward;
+    }
 
+    public void setTrialReward(double trialReward) {
+        this.trialReward = trialReward;
+    }
 }

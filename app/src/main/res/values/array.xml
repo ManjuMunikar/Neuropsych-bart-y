@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Label ordering must match values -->
+    <array name="updateLocation">
+        <item>Global (English)</item>
+        <item>Nepal (Nepali)</item>
+        <item>Colombia (Colombian)</item>
+        <item>South Africa (Afrikaans)</item>
+        <item>South Africa (isiXhosa)</item>
+    </array>
+
+    <array name="updateLocationValue">
+        <item>global</item>
+        <item>nepal</item>
+        <item>colombia</item>
+        <item>afrikaans</item>
+        <item>isixhosa</item>
+    </array>
+</resources>

@@ -10,96 +10,247 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import com.datagrandeur.neuropsych.data.DatabaseHelper;
+import com.datagrandeur.neuropsych.data.Pump;
 import com.datagrandeur.neuropsych.data.Trial;
 import com.example.neuropsych.R;
 
+import java.time.LocalDateTime;
+
 public class ExperimentActivity extends AppCompatActivity {
-
-private Button btn_pump;
-    private int[] balloonArray = {3,5,39,96,88,21,121,10,64,32,64,101,26,34,47,121,64,95,75,13,64,112,30,88,9,64,91,17,115,50};
-    private int pumpCount =0;
+    private Button btnPump;
+    private ProgressBar progressBar;
+    private int pumpCount ;
+    private double pointValue = 0.50f;
     private ProgressBar pbRewardMeter;
-    private long startTime;
-    private long endTime;
-
+    private DatabaseHelper dbHelper;
     private Trial trial;
+    private Pump pump;
     private View vwBalloon;
     private View vwPoppedBalloon;
     private Button btnFillRewardMeter;
 
 
+    private TextView tvPotentialEarning;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        dbHelper = new DatabaseHelper(getApplicationContext());
+        trial = new Trial();
+        pump=new Pump();
+        trial.setUserId(Singleton.getInstance().getUserId());
+        pump.setUserId(Singleton.getInstance().getUserId());
+        trial.setTrialSequence(Singleton.getInstance().getTrialSequence()+1);
+        pump.setTrialSequence(trial.getTrialSequence());
+        pump.setLastPumpTime(DateUtils.getCurrentDateTime());
+        trial.setStartTimeOfTrial(DateUtils.getFormatDateTime(LocalDateTime.now()));
+        trial.setId((int)dbHelper.insertTrial(trial,dbHelper.getDb()));
+        pump.setTrialId(trial.getId());
         setContentView(R.layout.activity_experiment);
-        btn_pump=findViewById(R.id.pump);
+
+        progressBar = findViewById(R.id.progressBar);
+        int progress=0;
+        progressBar.setProgress(progress);
+        btnPump =findViewById(R.id.pump);
         pbRewardMeter =findViewById(R.id.progressBar);
-        btnFillRewardMeter=findViewById(R.id.btnFillReward);
+        pbRewardMeter.setProgress((int)Singleton.getInstance().getReward());
+        btnFillRewardMeter=findViewById(R.id.btnCollectPoints);
         vwBalloon=findViewById(R.id.balloon_view);
         vwPoppedBalloon=findViewById(R.id.popBalloon);
 
-        final MediaPlayer mediaPlayer= MediaPlayer.create(this,R.raw.inflate);
+        TextView tvBalloonNumber = findViewById(R.id.tvBallonNumber);
+        String str = String.format(getString(R.string.BalloonNumber), ""+(1+Singleton.getInstance().getTrialSequence()));
+        tvBalloonNumber.setText(str);
 
-        btn_pump.setOnClickListener(new View.OnClickListener() {
+        tvPotentialEarning = findViewById(R.id.tvPotentialEarning);
+        String strPE = String.format(getString(R.string.PotentialEarning), ""+ (pumpCount*pointValue) );
+        tvPotentialEarning.setText(strPE);
+
+
+        final MediaPlayer mediaPlayer= MediaPlayer.create(this,R.raw.inflate);
+        final MediaPlayer mediaPlayer2=MediaPlayer.create(this,R.raw.casino);
+
+        btnPump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                pumpBalloon();
                 pumpCount++;
+                pumpBalloon();
+
+                String strPE = String.format(getString(R.string.PotentialEarning), ""+ (pumpCount*pointValue) );
+                tvPotentialEarning.setText(strPE);
 
                 mediaPlayer.start();
-                startTime=System.currentTimeMillis();
-                endTime=System.currentTimeMillis();
-
-                if(pumpCount ==balloonArray[Singleton.getInstance().getTrialSequence()]){
-
+                if (isPop()) {
                     popBalloon();
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            startActivity(new Intent(ExperimentActivity.this,PointLostActivity.class));
+                            startActivity(new Intent(ExperimentActivity.this, PointLostActivity.class));
                             finish();
                         }
                     }, 100);
-
-
                 }
             }
         });
+
         btnFillRewardMeter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int progress = pbRewardMeter.getProgress();
-                if (progress < 100) {
-                    progress += 10; // Increase the progress by 10
-                    pbRewardMeter.setProgress(progress);
+                if(pumpCount>0) {
 
+                    trial.setEndTimeOfTrial(DateUtils.getFormatDateTime(LocalDateTime.now()));
+
+                    mediaPlayer2.start();
+                    //int progress = pbRewardMeter.getProgress();
+
+                    double barValue = (pumpCount*pointValue + Singleton.getInstance().getReward());
+
+                    if(barValue>100){
+                        barValue=100;
+                    }
+
+                    Singleton.getInstance().setCurrentTrialReward(pumpCount*pointValue);
+                    Singleton.getInstance().setReward(barValue);
+                    pbRewardMeter.setProgress((int)barValue);
+
+                    trial.setTotalReward(barValue);
+                    trial.setTrialReward(pumpCount*pointValue);
+                    trial.setPopped(false);
+                    trial.setPumpCount(pumpCount);
+                    trial.setBalloonEndWidth(vwBalloon.getWidth());
+                    trial.setBalloonEndHeight(vwBalloon.getHeight());
+                    trial.setExplosionPoint(Singleton.getInstance().getExplosionPoints()[Singleton.getInstance().getTrialSequence()]);
+                    dbHelper.updateTrial(trial, dbHelper.getDb());
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(new Intent(ExperimentActivity.this, CongratulationActivity.class));
+                            finish();
+                        }
+                    }, 100);
+                    progressBar.setProgress((int)barValue);
+
+//                    if (isEndExperiment()) {
+//                        new Handler().postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                startActivity(new Intent(ExperimentActivity.this, RewardActivity.class));
+//                                finish();
+//                            }
+//                        }, 100);
+//                    }
                 }
+
+//
+//                if(isEndExperiment()==true){
+//                    new Handler().postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            startActivity(new Intent(ExperimentActivity.this,RewardActivity.class));
+//                            finish();
+//                        }
+//                    }, 100);
+//
+//                }
+
+
             }
         });
-
-
-
+    }
+    public Boolean isPop(){
+        if (pumpCount == Singleton.getInstance().getExplosionPoints()[Singleton.getInstance().getTrialSequence()]){
+            return true;
+        }else {
+            return false;
+        }
     }
     public void pumpBalloon(){
-        ViewGroup.LayoutParams paramss= vwBalloon.getLayoutParams();
-        ViewGroup.LayoutParams params1=vwPoppedBalloon.getLayoutParams();
 
-        paramss.width+=5;
-        paramss.height+=10;
-        vwBalloon.setLayoutParams(paramss);
+        pump.setPumpSequence(pumpCount);
+
+        int initialX = (int) vwBalloon.getX();
+        int initialY = (int) vwBalloon.getY();
+        
+        ViewGroup.LayoutParams balloonParams= vwBalloon.getLayoutParams();
+        ViewGroup.LayoutParams poppedBalloonParams=vwPoppedBalloon.getLayoutParams();
+
+
+        balloonParams.width+=5;
+        balloonParams.height+=3;
+        
+        // Set the balloon's position to the initial position
+        vwBalloon.setX(initialX);
+        vwBalloon.setY(initialY);
+
+        vwBalloon.setLayoutParams(balloonParams);
         vwBalloon.requestLayout();
 
-        params1.width+=5;
-        params1.height+=10;
-        vwPoppedBalloon.setLayoutParams(params1);
+        poppedBalloonParams.width+=5;
+        poppedBalloonParams.height+=3;
+        vwPoppedBalloon.setLayoutParams(poppedBalloonParams);
         vwPoppedBalloon.requestLayout();
+        // trial.setReward(reward);
+        pump.setCurrentPumpTime(DateUtils.getCurrentDateTime());
+        pump.setPumpBtwPumps(String.valueOf(DateUtils.getDifferenceInMillisecond(pump.getLastPumpTime(),pump.getCurrentPumpTime())));
+
+
+        if(isPop()) {
+            pump.setExploded(true);
+            pump.setBalloonWidth(0);
+            pump.setBalloonHeight(0);
+            vwPoppedBalloon.setVisibility(View.VISIBLE);
+            vwPoppedBalloon.setX(vwBalloon.getX());
+            vwPoppedBalloon.setY(vwBalloon.getY());
+            btnPump.setVisibility(View.INVISIBLE);
+        }else{
+            pump.setExploded(false);
+            pump.setBalloonHeight(vwBalloon.getHeight());
+            pump.setBalloonWidth(vwBalloon.getWidth());
+            vwPoppedBalloon.setVisibility(View.INVISIBLE);
+        }
+
+        dbHelper.insertPump(pump, dbHelper.getDb());
+        pump.setLastPumpTime(pump.getCurrentPumpTime());
+
     }
+
     public void popBalloon(){
+
+        final MediaPlayer mediaPlayer1=MediaPlayer.create(this,R.raw.explosion);
+
         vwBalloon.setVisibility(View.GONE);
         vwPoppedBalloon.setVisibility(View.VISIBLE);
+        mediaPlayer1.start();
+
+        trial.setEndTimeOfTrial(DateUtils.getFormatDateTime(LocalDateTime.now()));
+
+        trial.setBalloonEndWidth(vwBalloon.getWidth());
+        trial.setBalloonEndHeight(vwBalloon.getHeight());
+
+
+        //int progress = pbRewardMeter.getProgress();
+
+        double barValue = (-1 * pumpCount * pointValue +  Singleton.getInstance().getReward());
+
+        if(barValue<0)
+            Singleton.getInstance().setReward(0);
+        else
+            Singleton.getInstance().setReward(barValue);
+
+        Singleton.getInstance().setCurrentTrialReward(-1 * pumpCount * pointValue);
+        trial.setTrialReward(-1 * pumpCount * pointValue);
+        trial.setTotalReward(Singleton.getInstance().getReward());
+        trial.setPopped(true);
+        trial.setPumpCount(pumpCount);
+        trial.setExplosionPoint(Singleton.getInstance().getExplosionPoints()[Singleton.getInstance().getTrialSequence()]);
+        pbRewardMeter.setProgress((int)barValue);
+        dbHelper.updateTrial(trial, dbHelper.getDb());
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -108,6 +259,11 @@ private Button btn_pump;
                 finish();
             }
         }, 100);
+
     }
 
     }
+
+
+
+
