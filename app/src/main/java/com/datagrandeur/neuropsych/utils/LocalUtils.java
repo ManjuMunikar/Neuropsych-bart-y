@@ -31,7 +31,7 @@ public class LocalUtils {
             case "afrikaans":
                 return "af";
 
-            case "isiXhosa":
+            case "isixhosa":
                 return "xh";
 
             default:
