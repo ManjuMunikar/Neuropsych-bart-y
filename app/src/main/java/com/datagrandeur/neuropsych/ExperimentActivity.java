@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.datagrandeur.neuropsych.data.DatabaseHelper;
 import com.datagrandeur.neuropsych.data.Pump;
@@ -19,12 +20,10 @@ import com.example.neuropsych.R;
 import java.time.LocalDateTime;
 
 public class ExperimentActivity extends AppCompatActivity {
-    Constant constant=new Constant();
     private Button btnPump;
     private ProgressBar progressBar;
     private int pumpCount ;
-    private double reward;
-    private  int fillReward=0;
+    private double pointValue = 0.50f;
     private ProgressBar pbRewardMeter;
     private DatabaseHelper dbHelper;
     private Trial trial;
@@ -34,13 +33,13 @@ public class ExperimentActivity extends AppCompatActivity {
     private Button btnFillRewardMeter;
 
 
+    private TextView tvPotentialEarning;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        reward=0.0;
         dbHelper = new DatabaseHelper(getApplicationContext());
         trial = new Trial();
         pump=new Pump();
@@ -59,10 +58,19 @@ public class ExperimentActivity extends AppCompatActivity {
         progressBar.setProgress(progress);
         btnPump =findViewById(R.id.pump);
         pbRewardMeter =findViewById(R.id.progressBar);
-        pbRewardMeter.setProgress(Singleton.getInstance().getReward());
-        btnFillRewardMeter=findViewById(R.id.btnFillReward);
+        pbRewardMeter.setProgress((int)Singleton.getInstance().getReward());
+        btnFillRewardMeter=findViewById(R.id.btnCollectPoints);
         vwBalloon=findViewById(R.id.balloon_view);
         vwPoppedBalloon=findViewById(R.id.popBalloon);
+
+        TextView tvBalloonNumber = findViewById(R.id.tvBallonNumber);
+        String str = String.format(getString(R.string.BalloonNumber), ""+(1+Singleton.getInstance().getTrialSequence()));
+        tvBalloonNumber.setText(str);
+
+        tvPotentialEarning = findViewById(R.id.tvPotentialEarning);
+        String strPE = String.format(getString(R.string.PotentialEarning), ""+ (pumpCount*pointValue) );
+        tvPotentialEarning.setText(strPE);
+
 
         final MediaPlayer mediaPlayer= MediaPlayer.create(this,R.raw.inflate);
         final MediaPlayer mediaPlayer2=MediaPlayer.create(this,R.raw.casino);
@@ -72,6 +80,9 @@ public class ExperimentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pumpCount++;
                 pumpBalloon();
+
+                String strPE = String.format(getString(R.string.PotentialEarning), ""+ (pumpCount*pointValue) );
+                tvPotentialEarning.setText(strPE);
 
                 mediaPlayer.start();
                 if (isPop()) {
@@ -94,21 +105,26 @@ public class ExperimentActivity extends AppCompatActivity {
 
                     trial.setEndTimeOfTrial(DateUtils.getFormatDateTime(LocalDateTime.now()));
 
-                    fillReward++;
                     mediaPlayer2.start();
-                    int progress = pbRewardMeter.getProgress();
+                    //int progress = pbRewardMeter.getProgress();
 
-                    int barValue = (int) (reward + progress);
-                    Singleton.getInstance().setCurrentTrialReward(pumpCount);
+                    double barValue = (pumpCount*pointValue + Singleton.getInstance().getReward());
+
+                    if(barValue>100){
+                        barValue=100;
+                    }
+
+                    Singleton.getInstance().setCurrentTrialReward(pumpCount*pointValue);
                     Singleton.getInstance().setReward(barValue);
-                    pbRewardMeter.setProgress(barValue);
+                    pbRewardMeter.setProgress((int)barValue);
 
-                    trial.setReward(barValue);
+                    trial.setTotalReward(barValue);
+                    trial.setTrialReward(pumpCount*pointValue);
                     trial.setPopped(false);
                     trial.setPumpCount(pumpCount);
                     trial.setBalloonEndWidth(vwBalloon.getWidth());
                     trial.setBalloonEndHeight(vwBalloon.getHeight());
-                    trial.setExplosionPoint(constant.explosionPoints[Singleton.getInstance().getTrialSequence()]);
+                    trial.setExplosionPoint(Singleton.getInstance().getExplosionPoints()[Singleton.getInstance().getTrialSequence()]);
                     dbHelper.updateTrial(trial, dbHelper.getDb());
 
                     new Handler().postDelayed(new Runnable() {
@@ -118,7 +134,7 @@ public class ExperimentActivity extends AppCompatActivity {
                             finish();
                         }
                     }, 100);
-                    progressBar.setProgress(barValue);
+                    progressBar.setProgress((int)barValue);
 
 //                    if (isEndExperiment()) {
 //                        new Handler().postDelayed(new Runnable() {
@@ -148,7 +164,7 @@ public class ExperimentActivity extends AppCompatActivity {
         });
     }
     public Boolean isPop(){
-        if (pumpCount == constant.explosionPoints[Singleton.getInstance().getTrialSequence()]){
+        if (pumpCount == Singleton.getInstance().getExplosionPoints()[Singleton.getInstance().getTrialSequence()]){
             return true;
         }else {
             return false;
@@ -157,7 +173,6 @@ public class ExperimentActivity extends AppCompatActivity {
     public void pumpBalloon(){
 
         pump.setPumpSequence(pumpCount);
-        reward=reward+1.0;
 
         int initialX = (int) vwBalloon.getX();
         int initialY = (int) vwBalloon.getY();
@@ -205,10 +220,6 @@ public class ExperimentActivity extends AppCompatActivity {
 
     }
 
-    public boolean isEndExperiment(){
-
-        return Singleton.getInstance().getTrialSequence()-1 == (constant.explosionPoints.length);
-    }
     public void popBalloon(){
 
         final MediaPlayer mediaPlayer1=MediaPlayer.create(this,R.raw.explosion);
@@ -221,24 +232,24 @@ public class ExperimentActivity extends AppCompatActivity {
 
         trial.setBalloonEndWidth(vwBalloon.getWidth());
         trial.setBalloonEndHeight(vwBalloon.getHeight());
-        Singleton.getInstance().setCurrentTrialReward(pumpCount);
 
 
-        int progress = pbRewardMeter.getProgress();
+        //int progress = pbRewardMeter.getProgress();
 
-        int barValue = (int) (-1 * pumpCount + progress);
-        Singleton.getInstance().setCurrentTrialReward(pumpCount);
+        double barValue = (-1 * pumpCount * pointValue +  Singleton.getInstance().getReward());
 
         if(barValue<0)
             Singleton.getInstance().setReward(0);
         else
             Singleton.getInstance().setReward(barValue);
 
-        trial.setReward(Singleton.getInstance().getReward());
+        Singleton.getInstance().setCurrentTrialReward(-1 * pumpCount * pointValue);
+        trial.setTrialReward(-1 * pumpCount * pointValue);
+        trial.setTotalReward(Singleton.getInstance().getReward());
         trial.setPopped(true);
         trial.setPumpCount(pumpCount);
-        trial.setExplosionPoint(constant.explosionPoints[Singleton.getInstance().getTrialSequence()]);
-        pbRewardMeter.setProgress(barValue);
+        trial.setExplosionPoint(Singleton.getInstance().getExplosionPoints()[Singleton.getInstance().getTrialSequence()]);
+        pbRewardMeter.setProgress((int)barValue);
         dbHelper.updateTrial(trial, dbHelper.getDb());
 
         new Handler().postDelayed(new Runnable() {

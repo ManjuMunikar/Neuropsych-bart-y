@@ -1,75 +1,55 @@
 <resources>
     <string name="app_name">ALIVE - BART-Y</string>
 
-    <string name="welcome">"                   \t\tWELCOME!                  \tTo the game of           Balloon Analogue Risk Task For Youth "</string>
     <string name="btn_continue">Click here to continue</string>
     <string name="welcome_game">
-        \t\tWelcome to the Balloon Game! \n
-
-
-
+        Welcome to the balloon game!
+        \n\nIn this game you are asked to pump up 30 balloons.
+        \n\nTo pump up a balloon tap the “PUMP“ button. Try it!
+    </string>
+    <string name="game_info1">
+        For each pump you get points.
+        \n\nBut remember balloons pop if you pump them up too much!
+        \n\nIf a balloon pops, you will not collect points. You have to wait for the next balloon and try again.
     </string>
     <string name="txt_info1">
-        For each pump you get rewarded in this game.
-                     But remember, balloons pops if you pump them up too much!
+        Some of these balloons might pop after one pump, others might not pop until they fill the entire screen.
+        \n\nIt is up to you to decide how much to pump each balloon. How many pumps does it take to pop this balloon? Try it!
     </string>
     <string name="txt_info2">
-        If a balloon pops, you will not get the reward
-        you have to wait for the next balloon
-                   and try Again!!
+        You can stop pumping at any time by tapping the “COLLECT POINTS” button.
+        Try it!
     </string>
     <string name="txt_info3">
-        Some of these Balloons might pop after just
-        one pump. Others might not pop
-        until they fill the entire screen
+       The more points you collect the higher the prize will be.
+        \n\nThere are four prizes: a small prize, a medium prize, a big prize, and a bonus prize.
+        The meter will show you how close you are to each.
     </string>
     <string name="txt_info4">
-        It is up to you to decide how much
-        to pump up each of the 30 balloons
-    </string>
-    <string name="txt_info5">
-        You can stop pumping at any time
-        by touching on the
-        "Fill Reward Meter"
-        button.
-    </string>
-    <string name="txt_info6">
-        When the game is over, you will be able to
-        collect a prize. Which prize you will get depends on how high your
-        reward meter is.
-    </string>
-    <string name="txt_info7">
-        There are four types of rewards you can earn:
-         a small prize, a medium prize, a big prize
-                      and a bonus prize.
-        Your meter will show you how much close you are to each.
-    </string>
-    <string name="txt_info8">
-                Start the Balloon Game\n
-               when you are ready.
+        Start the Balloon Game when you are ready.
     </string>
     <string name="next_button">NEXT</string>
-    <string name="game_info1">
-        In this game, you are asked to pump
-                up 30 balloons
-
-    </string>
     <string name="txt_back">BACK</string>
     <string name="pump">"          You pump up on the balloon by touching         on the "Pump" button with your finger.                  TRY IT!!!     "</string>
     <string name="Pump1">Pump</string>
-    <string name="fillRewardMeter">Fill Reward Meter</string>
-    <string name="clickToStartTheExperiment">Click to start the Game</string>
-    <string name="bonus">Bonus</string>
-    <string name="bigPrize">Big prize</string>
-    <string name="middlePrize">Middle prize</string>
-    <string name="smallPrize">Small prize</string>
+    <string name="collectPoints">Collect Points</string>
+    <string name="clickToStartTheExperiment">Start the Game</string>
+    <string name="bonus">_Bonus</string>
+    <string name="bigPrize">_Big prize</string>
+    <string name="middlePrize">_Middle prize</string>
+    <string name="smallPrize">_Small prize</string>
 
 
     <string name="user_id">User ID</string>
     <string name="full_name">Full Name</string>
     <string name="register">Register</string>
-    <string name="PointsCollected">Your have collected %s points!!!</string>
-    <string name="LostPoints">You have lost %s points!!!! -_-</string>
+    <string name="PointsCollected">YOU WON %s points!!!</string>
+    <string name="LostPoints">YOU LOST %s points!!!!</string>
+    <string name="BalloonNumber">Balloon number: %s of 30</string>
+    <string name="PotentialEarning">Potential Earnings: %s</string>
+    <string name="congratulations">YOU WON %s points (%s).
+        \n\nCongratulations!!!!</string>
+    <string name="thank_you">Thank you</string>
 
 
 </resources>

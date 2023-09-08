@@ -7,7 +7,9 @@ final class TrialRepository  {
     private TrialRepository(){}
     public static final String TABLE_NAME="trial";
     public static final String COLUMN_NAME_TRIAL_SEQUENCE_NUMBER ="trial_sequence";
-    public static final String COLUMN_NAME_REWARD ="reward";
+    public static final String COLUMN_NAME_TOTAL_REWARD ="total_reward";
+    public static final String COLUMN_NAME_TRIAL_REWARD ="trial_reward";
+
     public static final String COLUMN_NAME_USER_ID ="user_id";
 
     public static final String COLUMN_NAME_PUMP_COUNT = "pump_count";
@@ -31,7 +33,8 @@ final class TrialRepository  {
                     TrialRepository.COLUMN_NAME_POPPED +" BOOLEAN, " +
                     TrialRepository.COLUMN_NAME_PUMP_COUNT +" INTEGER, " +
                     TrialRepository.COLUMN_NAME_EXPLOSION_POINT +" INTEGER, " +
-                    TrialRepository.COLUMN_NAME_REWARD +" REAL, " +
+                    TrialRepository.COLUMN_NAME_TRIAL_REWARD +" REAL, " +
+                    TrialRepository.COLUMN_NAME_TOTAL_REWARD +" REAL, " +
                     TrialRepository.COLUMN_NAME_BALLOON_START_HEIGHT +" TEXT, " +
                     TrialRepository.COLUMN_NAME_BALLOON_START_WIDTH +" TEXT, " +
                     TrialRepository.COLUMN_NAME_BALLOON_END_HEIGHT +" TEXT, " +
@@ -44,7 +47,8 @@ final class TrialRepository  {
 
         values.put(TrialRepository.COLUMN_NAME_TRIAL_SEQUENCE_NUMBER,trial.getTrialSequence());
         values.put(TrialRepository.COLUMN_NAME_USER_ID,trial.getUserId());
-        values.put(TrialRepository.COLUMN_NAME_REWARD,trial.getReward());
+        values.put(TrialRepository.COLUMN_NAME_TRIAL_REWARD,trial.getTrialReward());
+        values.put(TrialRepository.COLUMN_NAME_TOTAL_REWARD,trial.getTotalReward());
         values.put(TrialRepository.COLUMN_NAME_EXPLOSION_POINT,trial.getExplosionPoint());
         values.put(TrialRepository.COLUMN_NAME_PUMP_COUNT,trial.getPumpCount());
         values.put(TrialRepository.COLUMN_NAME_POPPED,trial.isPopped());
@@ -58,7 +62,8 @@ final class TrialRepository  {
     }
     public static long update(Trial trial, SQLiteDatabase db){
         ContentValues contentValues=new ContentValues();
-        contentValues.put(TrialRepository.COLUMN_NAME_REWARD,trial.getReward());
+        contentValues.put(TrialRepository.COLUMN_NAME_TRIAL_REWARD,trial.getTrialReward());
+        contentValues.put(TrialRepository.COLUMN_NAME_TOTAL_REWARD,trial.getTotalReward());
         contentValues.put(TrialRepository.COLUMN_NAME_EXPLOSION_POINT,trial.getExplosionPoint());
         contentValues.put(TrialRepository.COLUMN_NAME_PUMP_COUNT,trial.getPumpCount());
         contentValues.put(TrialRepository.COLUMN_NAME_POPPED,trial.isPopped());

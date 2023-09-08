@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ALIVE - BART-Y</string>
+
+    <string name="welcome_game">
+        ¡Bienvenido al juego de los globos!
+        \n\nEn este juego se te pide inflar 30 globos.
+        \n\nPara inflar un globo, toca el botón INFLAR. ¡Inténtalo!
+    </string>
+    <string name="game_info1">
+        Por cada inflada ganas puntos.
+        \n\n¡Pero recuerda que los globos explotan si los inflas demasiado!
+        \n\nSi un globo explota, no acumularás puntos. Tendrás que esperar al siguiente globo e intentarlo de nuevo.
+    </string>
+    <string name="txt_info1">
+        Algunos de estos globos podrían explotar con una sola inflada, mientras que otros no explotarán hasta que llenen toda la pantalla.
+        \n\nDepende de ti decidir cuánto inflar cada globo. ¿Cuántas infladas se necesitan para explotar este globo? ¡Inténtalo!
+    </string>
+    <string name="txt_info2">
+        Puedes dejar de inflar en cualquier momento al tocar el
+        botón “RECOGER PUNTOS” ¡Pruébalo!
+    </string>
+    <string name="txt_info3">
+        Cuantos más puntos recojas, mayor será el premio.
+        \n\nHay cuatro premios: un premio pequeño, un premio mediano, un premio grande y un premio especial.
+        El medidor te mostrará qué tan cerca estás de cada uno.
+    </string>
+    <string name="txt_info4">
+        Inicia el Juego de los Globos cuando estés listo.
+    </string>
+
+    <string name="Pump1">INFLAR</string>
+    <string name="collectPoints">Recoger Puntos</string>
+    <string name="clickToStartTheExperiment">Inicia el Juego de</string>
+
+    <string name="PointsCollected">Ganaste %s puntos!!!</string>
+    <string name="LostPoints">Perdiste %s puntos!!!!</string>
+
+    <string name="BalloonNumber">Número de globo: %s de 30</string>
+    <string name="PotentialEarning">Posibles ganancias: %s</string>
+
+    <string name="bonus">_Premio especial</string>
+    <string name="bigPrize">_Premio grande</string>
+    <string name="middlePrize">_Premio mediano</string>
+    <string name="smallPrize">_Premio pequeño</string>
+
+    <string name="next_button">Siguiente</string>
+    <string name="txt_back">Atrás</string>
+
+    <string name="congratulations">Ganaste %s puntos (%s).
+        \n\nFelicidades!!!!</string>
+    <string name="thank_you">Gracias</string>
+
+
+
+</resources>

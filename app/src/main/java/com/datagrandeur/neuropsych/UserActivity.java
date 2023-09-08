@@ -2,6 +2,7 @@ package com.datagrandeur.neuropsych;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,6 +15,10 @@ import com.datagrandeur.neuropsych.data.DatabaseHelper;
 import com.datagrandeur.neuropsych.data.User;
 import com.example.neuropsych.R;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class UserActivity extends AppCompatActivity {
 
     @Override
@@ -24,7 +29,12 @@ public class UserActivity extends AppCompatActivity {
         Button nextButton = findViewById(R.id.Register);
         final EditText txtUserId = findViewById(R.id.txtUserId);
         final EditText txtFullName = findViewById(R.id.txtFullName);
-       // final TextView txtLoginScreenMessage = findViewById(R.id.txtLoginScreenMessage);
+
+        SingletonPractice singletonPractice = SingletonPractice.getInstance();
+        singletonPractice.setInstructionIndex(0);
+        singletonPractice.setPoints(0);
+
+        // final TextView txtLoginScreenMessage = findViewById(R.id.txtLoginScreenMessage);
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +52,7 @@ public class UserActivity extends AppCompatActivity {
 
 
                         Singleton.getInstance().setTrialSequence(0);
+                        Singleton.getInstance().setExplosionPoints(getExplosionPoints());
 
                         Intent intent = new Intent(UserActivity.this, PracticeActivity.class);
                         startActivity(intent);
@@ -53,7 +64,7 @@ public class UserActivity extends AppCompatActivity {
                     }
 
 
-                    Singleton.getInstance().setReward(0);
+                    Singleton.getInstance().setReward(0.0);
 
                 }
 
@@ -67,6 +78,36 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private int[] getExplosionPoints() {
+
+        int[] result = new int[Constant.first15ExplosionPoints.length + Constant.last15ExplosionPoints.length];
+        int[] firstArray = shuffleArray(Constant.first15ExplosionPoints);
+        int[] lastArray = shuffleArray(Constant.last15ExplosionPoints);
+
+        System.arraycopy(firstArray, 0, result, 0, firstArray.length);
+        System.arraycopy(lastArray, 0, result, firstArray.length, lastArray.length);
+
+        return result;
+
+
+    }
+
+    public static int[] shuffleArray(int[] array) {
+        List<Integer> list = new ArrayList<>();
+
+        for (int value : array) {
+            list.add(value);
+        }
+
+        Collections.shuffle(list);
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = list.get(i);
+        }
+
+        return array;
     }
 
 }

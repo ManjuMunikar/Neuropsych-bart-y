@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ALIVE - BART-Y</string>
+
+    <string name="user_id">Umsebenzisi we-ID (user-ID)</string>
+    <string name="full_name">Igama elipheleleyo</string>
+    <string name="register">Bhalisa</string>
+    <string name="thank_you">Enkosi!!</string>
+
+    <string name="welcome_game">
+        Wamkelekile kumdlalo webhaluni!
+        \n\nKulomdlalo uyacelwa ukuba umpompe iibhaluni ezingama-30.
+        Ukumpompa ibhaluni cofa iqhosha loku VUTHELA.
+        \n\nYizame!\";
+    </string>
+    <string name="game_info1">
+        Kwimpompo nganye ufumana amanqaku. Kodwa khumbula iibhaluni ziyagqabhuka ukuba uzimpompa kakhulu!
+        \n\nUkuba ibhaluni iyagqabhuka, awuyi kuqokelela amanqaku.
+        \n\nKufuneka ulinde ibhaluni elandelayo kwaye uzame kwakhona.
+    </string>
+    <string name="txt_info1">
+        Ezinye zezi bhaluni zingagqabhuka emva kwempompo enye, ezinye zinokungagqabhukide zizalise isikrini sonke.
+        Kuxhomekeke kuwe ukwenza isigqibo sokuba uyimpompa kangakanani ibhaluni nganye.
+        \n\nZingaphi iimpompo ozithathayo ukuze igqabhuke le bhaluni? Yizame!
+    </string>
+    <string name="txt_info2">
+        Unokuyeka ukupompa nangaliphi na ixesha ngokucofa iqhosha elithi \"QOKELELA AMANQAKU\". Yizame!</string>
+    <string name="txt_info3">
+        Okukhona uqokelela amanqaku kokukhona liya kuba phezulu ibhaso.
+        \n\nKukho amabhaso amane: ibhaso elincinane, ibhaso eliphakathi, ibhaso elikhulu, kunye nebhaso lebhonasi.
+        Isilinganisi-manzi siya kukubonisa ukuba usondele kangakanani kwinto nganye.
+    </string>
+    <string name="txt_info4">
+        Qala uMdlalo weBhaluni xa ulungile\”
+    </string>
+
+    <string name="Pump1">VUTHELA</string>
+    <string name="collectPoints">QOKELELA AMANQAKU</string>
+    <string name="clickToStartTheExperiment">Qala</string>
+
+    <string name="PointsCollected">\“Uphumelele amanqaku %s\”</string>
+    <string name="LostPoints">\“Ulahlekelwe ngamanqakue-%s\"</string>
+
+    <string name="BalloonNumber">Inombolo yebhaluni: %s wama-30</string>
+    <string name="PotentialEarning">Imivuzo enokwenzeka: %s</string>
+
+    <string name="next_button">&gt;</string>
+    <string name="txt_back">&lt;</string>
+
+
+    <string name="bonus">Ibhonasi</string>
+    <string name="bigPrize">Ibhaso elikhulu</string>
+    <string name="middlePrize">Ibhaso eliphakathi</string>
+    <string name="smallPrize">Ibhaso elincinci</string>
+
+    <string name="congratulations">\“Uphumelele amanqaku %s (%s)\”
+        \n\n Congratulations!!!!</string>
+
+
+</resources>
