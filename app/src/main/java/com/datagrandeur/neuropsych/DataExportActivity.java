@@ -39,10 +39,11 @@ public class DataExportActivity extends AppCompatActivity {
         TextView tvDataExport = findViewById(R.id.tvDataExport);
         setupActionBar();
         tvDataExport.setText("Data Exporting In Progress");
-        export();
+        exportTrail();
+        exportPump();
         tvDataExport.setText("Data export completed");
    }
-   private void export() {
+   private void exportTrail() {
 
         DatabaseHelper dbHelper = new DatabaseHelper(this);
         if(ContextCompat.checkSelfPermission(DataExportActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
@@ -50,20 +51,81 @@ public class DataExportActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(DataExportActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
         }
 
-        Log.w("Data Export", "Created file");
+        Log.w("Data Export - Trail", "Created trailFile");
         Cursor result = null;
 
-        File file = new File(Environment.getExternalStoragePublicDirectory(DIRECTORY_DOWNLOADS), "barty.csv");
-        try{
-            file.createNewFile();
-            CSVWriter csvWriter = new CSVWriter(new FileWriter(file));
+        File trailFile = new File(Environment.getExternalStoragePublicDirectory(DIRECTORY_DOWNLOADS), "barty-trail.csv");
+       try{
+            trailFile.createNewFile();
+            CSVWriter csvWriter = new CSVWriter(new FileWriter(trailFile));
             SQLiteDatabase db = dbHelper.getReadableDatabase();
-            result= db.rawQuery("SELECT * FROM User", null);
+            result= db.rawQuery(" SELECT * FROM trial ", null);
             csvWriter.writeNext(result.getColumnNames());
             while(result.moveToNext()){
                 String arrStr[] ={
                         result.getString(0),
-                        result.getString(1)
+                        result.getString(1),
+                        result.getString(2),
+                        result.getString(3),
+                        result.getString(4),
+                        result.getString(5),
+                        result.getString(6),
+                        result.getString(7),
+                        result.getString(8),
+                        result.getString(9),
+                        result.getString(10),
+                        result.getString(11),
+                        result.getString(12),
+                        result.getString(13)
+                };
+                csvWriter.writeNext(arrStr);
+            }
+            csvWriter.close();
+            result.close();
+
+            Log.i("Data Export", "Created trailFile");
+
+        }catch (IOException e){
+            Log.e("Data Export", e.getMessage(), e);
+
+        }finally {
+            if(result!=null && !result.isClosed()){
+                result.close();
+            }
+        }
+    }
+
+    private void exportPump() {
+
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+        if(ContextCompat.checkSelfPermission(DataExportActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
+
+            ActivityCompat.requestPermissions(DataExportActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+        }
+
+        Log.w("Data Export - Pump", "Created file");
+        Cursor result = null;
+
+        File file = new File(Environment.getExternalStoragePublicDirectory(DIRECTORY_DOWNLOADS), "barty-pump.csv");
+        try{
+            file.createNewFile();
+            CSVWriter csvWriter = new CSVWriter(new FileWriter(file));
+            SQLiteDatabase db = dbHelper.getReadableDatabase();
+            result= db.rawQuery(" SELECT * FROM pump ", null);
+            csvWriter.writeNext(result.getColumnNames());
+            while(result.moveToNext()){
+                String arrStr[] ={
+                        result.getString(0),
+                        result.getString(1),
+                        result.getString(2),
+                        result.getString(3),
+                        result.getString(4),
+                        result.getString(5),
+                        result.getString(6),
+                        result.getString(7),
+                        result.getString(8),
+                        result.getString(9),
+                        result.getString(10)
                 };
                 csvWriter.writeNext(arrStr);
             }
@@ -81,6 +143,7 @@ public class DataExportActivity extends AppCompatActivity {
             }
         }
     }
+
 
     public boolean onOptionsItemSelected(MenuItem item) {
 

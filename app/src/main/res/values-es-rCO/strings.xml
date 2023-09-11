@@ -39,10 +39,10 @@
     <string name="BalloonNumber">Número de globo: %s de 30</string>
     <string name="PotentialEarning">Posibles ganancias: %s</string>
 
-    <string name="bonus">_Premio especial</string>
-    <string name="bigPrize">_Premio grande</string>
-    <string name="middlePrize">_Premio mediano</string>
-    <string name="smallPrize">_Premio pequeño</string>
+    <string name="bonus">Premio especial</string>
+    <string name="bigPrize">Premio grande</string>
+    <string name="middlePrize">Premio mediano</string>
+    <string name="smallPrize">Premio pequeño</string>
 
     <string name="next_button">Siguiente</string>
     <string name="txt_back">Atrás</string>
